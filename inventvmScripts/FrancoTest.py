@@ -29,13 +29,13 @@ print('~'*50)
 
 # TODO
 # The command to quit the 'console'
-# quit_cmd = "quit"
-# input_cmd = "placeholder"
-# print("-"*50)
-# print("Enter Code to run... ")
-# while(input_cmd.lower() != quit_cmd):
-#     input_cmd = input("> ")
-#     try:
-#         exec(input_cmd)
-#     except:
-#         print("The code failed to run...\n")
+quit_cmd = "quit"
+input_cmd = "placeholder"
+print("-"*50)
+print("Enter Code to run... ")
+while(input_cmd.lower() != quit_cmd):
+    input_cmd = input("> ")
+    try:
+        exec(input_cmd)
+    except:
+        print("The code failed to run...\n")
