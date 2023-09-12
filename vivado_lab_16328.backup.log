@@ -1,0 +1,88 @@
+#-----------------------------------------------------------
+# Vivado Lab Edition v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# 
+# Start of session at: Mon Sep 11 13:53:09 2023
+# Process ID: 16328
+# Current directory: C:/validation/Projects/Franco/python/franco_val
+# Command line: vivado_lab.exe -mode batch -source C:\validation\Projects\Franco\python\franco_val\venv\lib\site-packages\program_fpga\program_fpga.tcl -tclargs -hw_server localhost:3121 -hw_device xc7v585t_1 -bit_file C:\Validation\Projects\Franco\python\franco_val\inventm\fpga_images/e1053_00_1_franco_efuse_key.bit -hw_target 210299B4C394 -speed 15000000
+# Log file: C:/validation/Projects/Franco/python/franco_val/vivado_lab.log
+# Journal file: C:/validation/Projects/Franco/python/franco_val\vivado_lab.jou
+#-----------------------------------------------------------
+source {C:\validation\Projects\Franco\python\franco_val\venv\lib\site-packages\program_fpga\program_fpga.tcl}
+# array set optional [list -hw_server "" -hw_device "" -bit_file "" -hw_target "" -speed "" {*}$argv]
+# set hw_server $optional(-hw_server)
+# set hw_device $optional(-hw_device)
+# set bit_file $optional(-bit_file)
+# set hw_target $optional(-hw_target)
+# set speed $optional(-speed)
+# proc programHwDevice {hw_device bit_file} {
+# 	current_hw_device [get_hw_devices $hw_device]
+# 	refresh_hw_device -update_hw_probes false [lindex [get_hw_devices $hw_device] 0]
+# 	set_property PROBES.FILE {} [get_hw_devices $hw_device]
+# 	set_property FULL_PROBES.FILE {} [get_hw_devices $hw_device]
+# 	set_property PROGRAM.FILE $bit_file [get_hw_devices $hw_device]
+# 	program_hw_devices [get_hw_devices $hw_device]
+# }
+# proc setUpHwTarget {hw_target speed} {
+# 	if {[string match "2*" $hw_target]} {
+# 		current_hw_target [get_hw_targets */xilinx_tcf/Digilent/$hw_target]
+# 	    set_property PARAM.FREQUENCY $speed [get_hw_targets */xilinx_tcf/Digilent/$hw_target]
+# 	} elseif {[string match "0*" $hw_target]} {
+# 		current_hw_target [get_hw_targets */xilinx_tcf/Xilinx/$hw_target]
+# 	    set_property PARAM.FREQUENCY $speed [get_hw_targets */xilinx_tcf/Xilinx/$hw_target]
+# 	} else {
+# 	    current_hw_target [get_hw_targets */xilinx_tcf/$hw_target]
+# 	    set_property PARAM.FREQUENCY $speed [get_hw_targets */xilinx_tcf/$hw_target]
+# 	}
+# }
+# open_hw
+WARNING: 'open_hw' is deprecated, please use 'open_hw_manager' instead.
+# connect_hw_server -url $hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3414] Connected to existing cs_server.
+# if {$hw_target eq "auto"} {
+# 	set hw_targets [get_hw_targets]
+#     set found 0
+# 	for {set i 0} {$found eq 0 && $i < [llength $hw_targets]} {incr i} {
+# 		current_hw_target [lindex $hw_targets $i]
+# 		set_property PARAM.FREQUENCY $speed [lindex $hw_targets $i]
+# 		open_hw_target
+# 		set hw_devices [get_hw_devices]
+# 		for {set j 0} {$found eq 0 && $j < [llength $hw_devices]} {incr j} {
+# 			# Check if current hardware target contains the requested hardware device
+# 			if {[lindex $hw_devices $j] eq $hw_device} {
+# 				incr found
+# 				programHwDevice $hw_device $bit_file
+# 			}
+# 		}
+# 		close_hw_target
+# 	}
+# } else {
+# 	setUpHwTarget $hw_target $speed
+# 	open_hw_target
+# 	programHwDevice $hw_device $bit_file
+# 	close_hw_target
+# }
+ERROR: [Labtoolstcl 44-199] No matching targets found on connected servers: localhost
+Resolution: If needed connect the desired target to a server and use command refresh_hw_server. Then rerun the get_hw_targets command.
+ERROR: [Common 17-39] 'get_hw_targets' failed due to earlier errors.
+
+    while executing
+"get_hw_targets */xilinx_tcf/Digilent/$hw_target"
+    invoked from within
+"if {[string match "2*" $hw_target]} {
+		current_hw_target [get_hw_targets */xilinx_tcf/Digilent/$hw_target]
+	    set_property PARAM.FREQUENCY $speed [..."
+    (procedure "setUpHwTarget" line 2)
+    invoked from within
+"setUpHwTarget $hw_target $speed"
+    invoked from within
+"if {$hw_target eq "auto"} {
+	set hw_targets [get_hw_targets]
+    set found 0
+	for {set i 0} {$found eq 0 && $i < [llength $hw_targets]} {incr i} {
+		c..."
+    (file "C:\validation\Projects\Franco\python\franco_val\venv\lib\site-packages\program_fpga\program_fpga.tcl" line 36)
+INFO: [Common 17-206] Exiting vivado_lab at Mon Sep 11 13:53:09 2023...

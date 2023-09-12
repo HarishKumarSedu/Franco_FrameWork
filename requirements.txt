@@ -1,0 +1,12 @@
+setuptools==60.5.0
+python-dotenv==0.15.0
+val_um_basetests==1.6.0
+cl_test_station==1.13.3
+um_framework==2.3.0
+cl_instr_lib==1.16.0
+PyMySQL==1.0.2
+component-dac80502==1.1.0
+PyYAML==6.0.1
+openpyxl==3.1.2
+franco_framework
+val_regmap_gui==1.0.1

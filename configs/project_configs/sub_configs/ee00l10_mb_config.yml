@@ -1,0 +1,132 @@
+franco: # including: franco_FPGA, franco_TC, ADCs
+  class_type: franco_framework.components.franco.franco.Franco
+  register_map_name: 'franco_validation_regs.csv'
+  host_controllers:
+    - audio_hub
+  regmap_auto_select: False # todo: change it true; add attr for addr...; remove _a0 from regmap_name
+  jtag_target_id: $DUT_FPGA_JTAG_ID
+  fpga_device_id: xc7v585t_1
+
+  spi_interface_franco_tc:
+#    class_type: franco_framework.components.franco.interfaces.franco_dev_platform_spi_interface.FrancoDevPlatformSpiInterface
+    class_type: cl_test_station.interfaces.spi_interface.SpiInterface
+    # Interface required fields
+    read_reg_addr_size: 4
+    read_reg_data_size: 4
+    write_reg_addr_size: 4
+    write_reg_data_size: 4
+    # SPI Interface required fields
+    padding: 4
+    # Audiohub required fields
+    bus_num: 1
+    chip_select: 0
+    speed: 5208333
+    keep_cs: False
+    rw_bit_pos: 31
+    write_active_level: 0
+    # Interface optional fields
+    #            address_stride: 4
+    ainc_bit_pos: 30
+    ainc_active_level: 0
+
+  spi_interface_tiadc:
+    class_type: cl_test_station.interfaces.spi_interface.SpiInterface
+    # Interface required fields
+    read_reg_addr_size: 4
+    read_reg_data_size: 1
+    write_reg_addr_size: 4
+    write_reg_data_size: 1
+    # SPI Interface required fields
+    padding: 0
+    # Audiohub required fields
+    bus_num: 1
+    chip_select: 0
+    speed: 5208333
+    keep_cs: False
+    rw_bit_pos: 31
+    write_active_level: 0
+    # Interface optional fields
+    #            address_stride: 4
+    ainc_bit_pos: 30
+    ainc_active_level: 0
+
+eeprom_mb:
+  class_type: cl_test_station.components.eeprom.eeprom.Eeprom
+  #class_type: cl_test_station.components.component.component.Component
+  host_controllers:
+    - audio_hub
+  bus_num: 0
+  eeprom_type: MB
+  address: 0x54
+  register_map_path: "C:/validation/Projects/Franco/python/franco_val/venv/Lib/site-packages/franco_framework/components/eeproms/register_maps/"
+  register_map_name: ee00l10_mb_eeprom.csv
+  i2c0_54:
+    class_type: cl_test_station.interfaces.i2c_interface.I2cInterface
+    # Required Fields
+    read_reg_addr_size: 2
+    read_reg_data_size: 1
+    write_reg_addr_size: 2
+    write_reg_data_size: 1
+    bus_num: 0
+    address: 0x54
+    speed: 100000
+    repeat_start: True
+    data_byte_order: LSB_FIRST
+
+offset_dac_1:
+  class_type: component_dac80502.dac80502.Dac80502
+  regmap_auto_select: True
+  register_map_name: 'DAC80502 Register Map.csv'
+  host_controllers:
+    - audio_hub
+  # i2c_switch: eeb.i2c_switch
+  bit_res: 16
+  ref_voltage: 2.5
+  cal_eeprom: eeb.dut_dc.eeprom
+  i2c0_48:
+    class_type: cl_test_station.interfaces.i2c_interface.I2cInterface
+    bus_num: 0
+    speed: 100000
+    repeat_start: True
+    address: 0x48
+    read_reg_data_size: 2
+    read_reg_addr_size: 1
+    write_reg_data_size: 2
+    write_reg_addr_size: 1
+  VOUT_A:
+    class_type: component_dac80502.dac80502channel.Dac80502Channel
+    block: VOUTA
+    enable_field: eeb.franco.GLOBAL.FPGA_SCRATCH.SCRATCH
+  VOUT_B:
+    class_type: component_dac80502.dac80502channel.Dac80502Channel
+    block: VOUTB
+    enable_field: eeb.franco.GLOBAL.FPGA_SCRATCH.SCRATCH
+
+offset_dac_2:
+  class_type: component_dac80502.dac80502.Dac80502
+  regmap_auto_select: True
+  register_map_name: 'DAC80502 Register Map.csv'
+  host_controllers:
+    - audio_hub
+  # i2c_switch: eeb.i2c_switch
+  bit_res: 16
+  ref_voltage: 2.5
+  cal_eeprom: eeb.dut_dc.eeprom
+  i2c0_49:
+    class_type: cl_test_station.interfaces.i2c_interface.I2cInterface
+    bus_num: 0
+    speed: 100000
+    repeat_start: True
+    address: 0x49
+    read_reg_data_size: 2
+    read_reg_addr_size: 1
+    write_reg_data_size: 2
+    write_reg_addr_size: 1
+  VOUT_A:
+    class_type: component_dac80502.dac80502channel.Dac80502Channel
+    block: VOUTA
+    enable_field: eeb.franco.GLOBAL.FPGA_SCRATCH.SCRATCH
+  VOUT_B:
+    class_type: component_dac80502.dac80502channel.Dac80502Channel
+    block: VOUTB
+    enable_field: eeb.franco.GLOBAL.FPGA_SCRATCH.SCRATCH

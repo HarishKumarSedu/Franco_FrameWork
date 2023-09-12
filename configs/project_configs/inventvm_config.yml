@@ -1,0 +1,26 @@
+##### Test Station class type #####
+test_station_class_type: franco_framework.test_stations.franco_test_station.FrancoTestStation  # from framework
+
+##### Host Controllers ######
+audio_hub:
+  FORCE_UPDATE: False
+  class_type: cl_test_station.host_controllers.audiohub_controller.audiohub_controller.AudioHubController
+  hostname: AH3-2832D8
+  socket: 1025
+
+##### Digital Pin Definitions ######
+# NOTE: All pin directions are source-relative, e.g. OUTPUT means AudioHub drives level
+pins:
+  class_type: cl_test_station.test_station_object.TestStationObject
+  config_file: 'C:/validation/Projects/Franco/python/franco_val/configs/project_configs/sub_configs/franco_dev_platform_pins.yml'
+
+##### Boards Definition ######
+eeb:
+  class_type: franco_framework.boards.ee00l10_mb.ee00l10_mb.EE00L10MB
+  config_file: 'C:/validation/Projects/Franco/python/franco_val/configs/project_configs/sub_configs/ee00l10_mb_config.yml'
+
+  ##### DUT Daughtercard #####
+  dut_dc:
+    class_type: franco_framework.boards.ee00l10_dc.ee00l10_dc.EE00L10Dc
+    config_file: 'C:/validation/Projects/Franco/python/franco_val/configs/project_configs/sub_configs/ee00l10_dc_config.yml'
+

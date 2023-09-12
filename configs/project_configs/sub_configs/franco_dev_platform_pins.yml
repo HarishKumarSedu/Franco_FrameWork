@@ -1,0 +1,88 @@
+#todo: check direction for each pin
+#refer to docs page: https://docs.cirrus.com/pages/viewpage.action?spaceKey=FRCO&title=EE00L10-MB+Power+and+Digital+Control#EE00L10MBPowerandDigitalControl-AudioHubInterface
+#audio_hub image version: 2.11.0
+#audio_hub.pins.keys:
+#  ['dev_pdm1_clk', 'dev_pdm1_data', 'dev_pdm2_clk', 'dev_pdm2_data', 'dev_pdm3_clk', 'dev_pdm3_data',
+#      'dev_pdm4_clk', 'dev_pdm4_data', 'dev_pdm5_clk', 'dev_pdm5_data', 'dev_pdm6_clk', 'dev_pdm6_data',
+#      'dev_pdm7_clk', 'dev_pdm7_data',
+#      'dev_asp1_bclk', 'dev_asp1_fclk', 'dev_asp1_data1', 'dev_asp1_data2',
+#      'dev_asp2_bclk', 'dev_asp2_fclk', 'dev_asp2_data1', 'dev_asp2_data2',
+#      'dev_asp3_bclk', 'dev_asp3_fclk', 'dev_asp3_data1', 'dev_asp3_data2',
+#      'sai_bclk', 'sai_fclk', 'sai_mclk', 'sao_bclk', 'sao_fclk', 'sao_sdo1',
+#      'dev_mclk1', 'dev_mclk2', 'pll_clk_in', 'usb_audio_sdin1',
+#      'dev_gpio0', 'dev_gpio1', 'dev_gpio2', 'dev_gpio3',
+#      'dev_dut_reset_n', 'dev_sys_reset_n', '
+#      dev_int0_n', 'dev_int1_n', 'dev_int2_n', 'dev_int3_n']
+
+fpga_reset: #DEV_DUT_RESET_N	D35	AHUB_FPGA_\RESET\	FPGA Reset
+  class_type: cl_test_station.gpio.digital_pin.DigitalPin
+  default_direction: OUTPUT
+  sources:
+    ah: audio_hub.pins.dev_dut_reset_n
+  default_source: ah
+franco_tc_spi_request: #DEV_GPIO0	D33	AHUB_SPI_TC_REQUEST	SPI Request
+  class_type: cl_test_station.gpio.digital_pin.DigitalPin
+  default_direction: OUTPUT
+  sources:
+    ah: audio_hub.pins.dev_gpio0
+  default_source: ah
+franco_tc_spi_granted: #DEV_GPIO1	D32	AHUB_SPI_TC_GRANTED	SPI Granted
+  class_type: cl_test_station.gpio.digital_pin.DigitalPin
+  default_direction: OUTPUT
+  sources:
+    ah: audio_hub.pins.dev_gpio1
+  default_source: ah
+ripley_reset : #DEV_GPIO2	D30	RIP_\RESET\	Ripley Reset
+  class_type: cl_test_station.gpio.digital_pin.DigitalPin
+  default_direction: OUTPUT
+  sources:
+    ah: audio_hub.pins.dev_gpio2
+  default_source: ah
+franco_tc_spi_ready: #DEV_PDM4_CLK	H17	FTC_SPI_READY	Franco TC (Franco TC DC)	Franco TC SPI Ready
+  class_type: cl_test_station.gpio.digital_pin.DigitalPin
+  default_direction: INPUT
+  sources:
+    ah: audio_hub.pins.dev_pdm4_clk
+  default_source: ah
+franco_tc_reset: #DEV_GPIO3	D29	FTC_RSTb	Franco TC Reset
+  class_type: cl_test_station.gpio.digital_pin.DigitalPin
+  default_direction: OUTPUT
+  sources:
+    ah: audio_hub.pins.dev_gpio3
+  default_source: ah
+system_adcs_reset: #DEV_SYS_RESET_N	D36	SYSTEM_\RESET\	Motherboard	System Reset - TI + Franco ADCs
+  class_type: cl_test_station.gpio.digital_pin.DigitalPin
+  default_direction: OUTPUT
+  sources:
+    ah: audio_hub.pins.dev_sys_reset_n
+  default_source: ah
+#franco_adc_reset: #DEV_AIF3_SCLK	H27	FADC_RSTB_FROM_AH	FPGA DC	Franco ADC Reset
+#  class_type: cl_test_station.gpio.digital_pin.DigitalPin
+#  default_direction: OUTPUT
+#  sources:
+#    ah: audio_hub.pins.dev_aif3_sclk  # TODO: This audiohub pin is not available as a digital pin
+#  default_source: ah
+mb_pwr_en: #DEV_PDM7_CLK  H11	AHUB_PWR_EN
+  class_type: cl_test_station.gpio.digital_pin.DigitalPin
+  default_direction: OUTPUT
+  sources:
+    ah: audio_hub.pins.dev_pdm7_clk
+  default_source: ah
+rip_bpic_en1: #DEV_PDM3_CLK	H19	RIP_BPIC_EN1
+  class_type: cl_test_station.gpio.digital_pin.DigitalPin
+  default_direction: OUTPUT
+  sources:
+    ah: audio_hub.pins.dev_pdm3_clk
+  default_source: ah
+rip_bpic_en2: #DEV_PDM4_DATA	G16	RIP_BPIC_EN2
+  class_type: cl_test_station.gpio.digital_pin.DigitalPin
+  default_direction: OUTPUT
+  sources:
+    ah: audio_hub.pins.dev_pdm4_data
+  default_source: ah
+#rip_chokeb: #DEV_INT0_N	D27	RIP_CHOKE_LVL
+#  class_type: cl_test_station.gpio.digital_pin.DigitalPin
+#  default_direction: OUTPUT
+#  sources:
+#    ah: audio_hub.pins.dev_int0_n  # TODO: This audiohub pin is input only
+#  default_source: ah

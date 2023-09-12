@@ -1,0 +1,44 @@
+#franco_tc:
+#  class_type: franco_framework.components.syd.syd.Syd
+
+eeprom_dc:
+  class_type: cl_test_station.components.eeprom.eeprom.Eeprom
+  host_controllers:
+    - audio_hub
+  bus_num: 0
+  eeprom_type: DC
+  address: 0x57
+  register_map_path: "C:/validation/Projects/Franco/python/franco_val/venv/Lib/site-packages/franco_framework/components/eeproms/register_maps/"
+  register_map_name: Franco_TC_DC_EEPROM_Register_Map.csv
+  i2c0_57:
+    class_type: cl_test_station.interfaces.i2c_interface.I2cInterface
+    # Required Fields
+    read_reg_addr_size: 2
+    read_reg_data_size: 1
+    write_reg_addr_size: 2
+    write_reg_data_size: 1
+    bus_num: 0
+    address: 0x57
+    speed: 100000
+    repeat_start: True
+    data_byte_order: LSB_FIRST
+
+
+temp_sensor:
+  class_type: franco_framework.components.temp_sensor.tmp117.Tmp117
+  regmap_auto_select: True
+#  register_map_path: "C:/validation/Projects/Franco/python/franco_val/venv/Lib/site-packages/franco_framework/components/temp_sensor/register_maps/"
+  register_map_name: 'TMP117.csv'
+  host_controllers:
+    - audio_hub
+  i2c0_4a:
+    class_type: cl_test_station.interfaces.i2c_interface.I2cInterface
+    bus_num: 0
+    speed: 100000
+    repeat_start: True
+    address: 0x4a
+    read_reg_data_size: 2
+    read_reg_addr_size: 1
+    write_reg_data_size: 2
+    write_reg_addr_size: 1
+
