@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# 
+# Start of session at: Tue Sep 12 17:26:34 2023
+# Process ID: 1728
+# Current directory: C:/validation/Projects/Franco/python/franco_val
+# Command line: wbtcv.exe -mode batch -source C:/validation/Projects/Franco/python/franco_val/.Xil/vivado_lab-15556-PC-CON02/webtalk/labtool_webtalk.tcl -notrace
+# Log file: C:/validation/Projects/Franco/python/franco_val/webtalk.log
+# Journal file: C:/validation/Projects/Franco/python/franco_val\webtalk.jou
+#-----------------------------------------------------------
+source C:/validation/Projects/Franco/python/franco_val/.Xil/vivado_lab-15556-PC-CON02/webtalk/labtool_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Tue Sep 12 17:26:35 2023...

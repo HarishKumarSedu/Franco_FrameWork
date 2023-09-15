@@ -5,7 +5,7 @@ test_station_class_type: franco_framework.test_stations.franco_test_station.Fran
 audio_hub:
   FORCE_UPDATE: False
   class_type: cl_test_station.host_controllers.audiohub_controller.audiohub_controller.AudioHubController
-  hostname: AH3-2832D8
+  hostname: AH3-23E9C0
   socket: 1025
 
 ##### Digital Pin Definitions ######
