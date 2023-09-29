@@ -36,6 +36,9 @@ import time
 import os
 import sys
 
+from ph1_indcs import ph1_indcs
+
+
 load_dotenv(r'C:\validation\Projects\Franco\python\franco_val\env\franco_val_inventm.env')
 load_dotenv(
     r'C:\validation\Projects\Franco\python\franco_val\env\station\\' + f'franco_val_{gethostname().upper()}.env')
@@ -74,6 +77,12 @@ dut.config_ADCs()
 # The command to quit the 'console'
 quit_cmd = "quit"
 input_cmd = "placeholder"
+
+
+
+
+# call ph1_indcs 
+ph1=ph1_indcs(dut=dut)
 
 # A 'console' is made to test script codes
 print("-"*50)
