@@ -15,13 +15,13 @@ class ph1_indcs_measure:
 
         # self.ph1_sweepHighSide__Curr()
 
-    def ph1_sweepHighSide__Curr(self,filename='ph1_indcs_measure/ph1_indcs_measure_lowside.xlsx',sheet='highside'):
+    def ph1_sweepHighSide__Curr(self,filename='ph1_indcs_measure/ph1_indcs_measure_lowside1.xlsx',sheet='lowside'):
         set_current_A = []
         ph1Il_out_V = []
         try:
-            for curr in range(0,-30,-1):
-                self.supply.setNegCurrent(channel=3,current=curr*0.1)
-                set_current_A.append(self.supply.getCurrent(channel=3))
+            for curr in range(0,75,1):
+                self.supply.setNegCurrent(channel=1,current=curr*0.1)
+                set_current_A.append(self.supply.getCurrent(channel=1))
                 ph1Il_out_V.append(self.voltmeter_ph1Il_out.meas_V())
                 sleep(0.05)
             writeInExcel(set_current_A=set_current_A,ph1Il_out_V=ph1Il_out_V,sheet=sheet,filename=filename)
