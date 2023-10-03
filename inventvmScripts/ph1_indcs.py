@@ -23,7 +23,7 @@ class ph1_indcs:
 
         # self.parse_Instruction()
 
-    def parse_Instruction(self):
+    def parse_Instructions(self):
         self.instructions=[]
         for instruction in self.instructions_raw:
             register_parse_data = self.parse_registerAddress(address=instruction)

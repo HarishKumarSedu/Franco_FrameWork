@@ -4,6 +4,7 @@ import threading
 import time
 import os
 import sys
+import re
 
 load_dotenv(r'C:\validation\Projects\Franco\python\franco_val\env\franco_val_inventm.env')
 load_dotenv(
@@ -39,3 +40,4 @@ print('~'*50)
 #         exec(input_cmd)
 #     except:
 #         print("The code failed to run...\n")
+

@@ -37,7 +37,13 @@ import os
 import sys
 
 from ph1_indcs import ph1_indcs
-
+from startup import Startup
+from Aon_Vref_0p6V__Trimming import Vref_0p6V
+from main_BG_Trimming import MainBG_Trim
+from vdd_SNS_OVP_Trimming import VDDSNS_OVP_Trim
+from ph13_Indcs_Cs_Buffer__Trimming import PH13_Indcs_CS_Buffer_Trim
+from ph24_Indcs_Cs_Buffer__Trimming import PH24_Indcs_CS_Buffer_Trim
+from ph1S1_Indcs_Mirror__Trimming import PH1S1_Indcs_Mirror_Trim
 
 load_dotenv(r'C:\validation\Projects\Franco\python\franco_val\env\franco_val_inventm.env')
 load_dotenv(
@@ -81,10 +87,23 @@ input_cmd = "placeholder"
 
 
 
-# call ph1_indcs 
+# # # call ph1_indcs 
 ph1=ph1_indcs(dut=dut)
 
-# A 'console' is made to test script codes
+# vref_0p6 = Vref_0p6V(dut=dut)
+# # # A 'console' is made to test script codes
+
+# mainBg_Trim = MainBG_Trim(dut=dut)
+# vddsns_Ovp_Trim = VDDSNS_OVP_Trim(dut=dut)
+
+# ph13_Indcs_Cs_Buf_Trim = PH13_Indcs_CS_Buffer_Trim(dut=dut)
+# ph24_Indcs_Cs_Buf_Trim = PH24_Indcs_CS_Buffer_Trim(dut=dut)
+# ph1S1_Indcs_Mirror_Trim = PH1S1_Indcs_Mirror_Trim(dut=dut)
+
+
+#Startup 
+startup = Startup(dut=dut)
+
 print("-"*50)
 print("Enter Code to run... ")
 while(input_cmd.lower() != quit_cmd):
