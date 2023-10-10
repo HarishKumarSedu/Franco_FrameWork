@@ -23,7 +23,7 @@ class Vref_0p6V:
         self.trim_register__raw = "0x00000254[7:3]"
 
         # self.parse_Instruction(instructions_raw=self.instructions_raw)
-        self.p6_Instructions()
+        self.V0p6_Instructions()
 
     def V0p6_Instructions(self):
         self.dut.IVM.REG_AON_RW.DS_AON_EN_VDDSNS_UVLO_B.value=1

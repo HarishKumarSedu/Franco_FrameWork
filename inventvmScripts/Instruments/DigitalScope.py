@@ -13,7 +13,7 @@ class dpo_2014B:
         self.my_instr.read_termination = '\n'
         self.my_instr.write_termination = '\n'
 
-        self.reset()
+        # self.reset()
 
     def get_IDN(self):
         return (self.my_instr.query('*IDN?'))
@@ -29,6 +29,6 @@ class dpo_2014B:
         return float(self.my_instr.query('MEASUrement:MEAS1:VALUE?'))
 
 if __name__ == '__main__':
-    scope = dpo_2014B('USB0::0x0699::0x039F::C040431::INSTR')
+    scope = dpo_2014B('USB0::0x0699::0x0456::C010843::INSTR')
     print(scope.meas_Freq())
-    print(scope.get_error())
+    # print(scope.get_error())

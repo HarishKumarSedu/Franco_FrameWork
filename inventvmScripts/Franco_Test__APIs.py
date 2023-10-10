@@ -1,17 +1,36 @@
 import re 
+import numpy as np 
 
 class FrancoAPIS:
     def __init__(self,dut) -> None:
         self.dut = dut
 
-    def write_register(self,register,write_value):
-        reg_data = self.read_register(register=register)
-        self.dut.write_register(register.get("RegisterAddress"), reg_data | write_value << register.get("RegisterLSB"))
-        reg_data = self.read_register(register=register)
-        print('RegAddress',hex(register.get("RegisterAddress")),'RegData',hex(reg_data))
+    def write_register(self,register:dict,write_value=None):
+        if write_value != None:
+            reg_data = self.read_register(register=register)
+            self.dut.write_register(register.get("RegisterAddress"), (reg_data & self.bit_mask(register=register) ) | write_value << register.get("RegisterLSB"))
+            reg_data = self.read_register(register=register)
+            print('RegAddress',hex(register.get("RegisterAddress")),'Value to Write',write_value,'RegData',hex(reg_data))
+        elif register.get("RegisterValue"):
+            reg_data = self.read_register(register=register)
+            reg_write_value = (reg_data &  self.bit_mask(register=register) ) | register.get("RegisterValue") << register.get("RegisterLSB")
+            self.dut.write_register(register.get("RegisterAddress"),(reg_data &  self.bit_mask(register=register) ) | register.get("RegisterValue") << register.get("RegisterLSB"))
+            reg_data = self.read_register(register=register)
+            print('RegAddress',hex(register.get("RegisterAddress")),'RegData',hex(reg_data))
+            # print('RegAddress',hex(register.get("RegisterAddress")),'Value to Write',register.get("RegisterValue"),'Reg Writer value',hex(reg_write_value),'RegData after write',hex(reg_data))
+        else:
+            reg_data = self.read_register(register=register)
+            self.dut.write_register(register.get("RegisterAddress"),(reg_data & self.bit_mask(register=register) ) | register.get("RegisterValue") << register.get("RegisterLSB"))
+            reg_data = self.read_register(register=register)
+            # print('!There is no Value to writing default 0')
+            # print('RegAddress',hex(register.get("RegisterAddress")),'Value to Write',register.get("RegisterValue"),'RegData',hex(reg_data))
     
     def read_register(self,register):
         return self.dut.read_register(register.get("RegisterAddress"))
+    
+    def bit_mask(self,register):
+        mask = ~(((1 << (register.get("RegisterMSB") - register.get("RegisterLSB") + 1)) -1) << register.get("RegisterLSB"))
+        return mask
     
     def parse_Instruction(self,instructions_raw):
         self.instructions=[]
@@ -54,3 +73,27 @@ class FrancoAPIS:
                             register_LSB = int(register[1].strip("]"))
                             Reg = {"RegisterAddress":register_address,"RegisterLSB":register_LSB,"RegisterMSB":register_LSB,"RegisterValue":0 }
         return Reg
+
+    def parse_registerAddress_from_string(self,Instruction):
+        Reg=None
+        if re.match(re.compile('0x'),Instruction):
+            # there is comment in the instruction split it by ""
+            if re.search(re.compile(' '),Instruction):
+                regaddress = Instruction.split(' ')
+                Reg = self.parse_registerAddress(regaddress[0])
+            else :
+                print('Register address did not found in string ')
+        return Reg
+    
+    def parse_trim_registerAddress_from_string(self,Instruction):
+            Reg= None
+            if re.search(re.compile('TrimSweep'),Instruction):
+                    # Seperate the Trim registre 
+                    address = Instruction.split(' ') # Sperate the TrimSweep Instruction with space 
+                    for register in address :
+                        #seperate the Register 
+                        if re.match(re.compile("0x"),register):
+                            Reg = self.parse_registerAddress(register)
+            else:
+                print('!There is Trim register address')
+            return Reg

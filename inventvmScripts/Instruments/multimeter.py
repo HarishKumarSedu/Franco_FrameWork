@@ -13,7 +13,8 @@ class mul_34401A:
         self.my_instr.read_termination = '\n'
         self.my_instr.write_termination = '\n'
 
-        self.reset()
+        # self.reset()
+        self.set_Input__Impedence___auto()
 
     def get_IDN(self):
         return (self.my_instr.query('*IDN?'))
@@ -76,13 +77,15 @@ class mul_34401A:
         #     return('ERR: Wrong range')   
 
         # enable function type to the DC voltage 
+        self.my_instr.write('INPut:IMPedance:AUTO ON')
         self.my_instr.write('FUNCtion "VOLTage:DC"')
         # enable the voltage measure range to AUTO
         self.my_instr.write('VOLTage:DC:RANGe:AUTO ON')
         # measure the voltage 
         return float(self.my_instr.query('MEASure:VOLTage:DC?'))
 
-
+    def set_Input__Impedence___auto(self):
+        self.my_instr.write('INPut:IMPedance:AUTO ON')
 
 
     
@@ -140,6 +143,6 @@ class mul_34401A:
         return float(self.my_instr.query('MEASure:CURRent:DC?'))
 
 if __name__ == '__main__':
-    vmeter = mul_34401A('GPIB0::25::INSTR')
-    print(vmeter.meas_I())
+    vmeter = mul_34401A('USB0::0x2A8D::0x1301::MY57229855::INSTR')
+    print(vmeter.meas_V())
     print(vmeter.get_error())

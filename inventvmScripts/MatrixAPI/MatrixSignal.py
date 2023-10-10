@@ -1,0 +1,46 @@
+import re
+from time import sleep
+import sys
+ 
+# adding Folder_2/subfolder to the system path
+sys.path.insert(0, 'C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts/MatrixAPI')
+from relayMatrix import RelayMatrix1
+
+class Matrix:
+
+    def __init__(self) -> None:
+        self.relayMatrix1 = RelayMatrix1(slaveAddress=0x20)
+        
+        # self.relayMatrix2 = RelayMatrix2(slaveAddress=0x21)
+        # self.relayMatrix3 = RelayMatrix3(slaveAddress=0x22)
+        self.reset()
+    def reset(self):
+        self.relayMatrix1.reset()
+        
+    # Force Signal Matrix Switch Turn on  
+    def force_Matrix__Switchx(self,TrimFieldName):
+        if re.search('LDO1.2 Trimming',TrimFieldName):
+           self.reset()
+           sleep(0.1)
+           self.relayMatrix1.VDD_D(True)
+           sleep(0.01)
+           self.relayMatrix1.GND(True)
+
+        if re.search('Aon BG vref 1.2V',TrimFieldName):
+           self.reset()
+           sleep(0.1)
+           self.relayMatrix1.VDDA(True)
+           sleep(0.01)
+           self.relayMatrix1.GND(True)
+
+        if re.search('Aon vref 0.6V',TrimFieldName):
+           self.reset()
+           sleep(0.1)
+           self.relayMatrix1.TEST1_1(True)
+           sleep(0.1)
+           self.relayMatrix1.TEST2(True)
+           sleep(5)
+
+
+if __name__=='__main__':
+    Matrix()

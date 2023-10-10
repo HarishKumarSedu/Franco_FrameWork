@@ -1,0 +1,4206 @@
+{
+    "Buck1_Powerup": [
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_DETACH",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_SS_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN_D",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_BST_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_DRV_BST12_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_PP_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_PP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_SENSE_EN",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_SENSE_EN",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_EN_CHG",
+            "RegisterBitPos": "15",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_EN_CHG",
+            "RegisterBitPos": "14",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_INDCS_BUCK_MODE",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_PP_EN_D",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_SENSE_EN_D",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_EN_CHG_D",
+            "RegisterBitPos": "15",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_DRV_INDCS_RW",
+            "RegisterAddr": "0x00000240",
+            "RegisterField": "DS_INDCS_CLR_OCP",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_FORCE_AZ",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_INDCS_REPLICA_AON",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_EN_OCP",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_EN_ZC",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH1_DRV_EN_D",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_EN_D",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        }
+    ],
+    "Buck1_Powerdown": [
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH1_DRV_EN_D",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_EN_D",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_EN_OCP",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_EN_ZC",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_PP_EN_D",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_SENSE_EN_D",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_EN_CHG_D",
+            "RegisterBitPos": "15",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_PP_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_PP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_SENSE_EN",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_SENSE_EN",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_EN_CHG",
+            "RegisterBitPos": "15",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_EN_CHG",
+            "RegisterBitPos": "14",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_BST_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_DRV_BST12_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN_D",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_PD_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_DETACH",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        }
+    ],
+    "Boost1_Powerup": [
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_DETACH",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_SS_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_DRV_PRCHG_MODE_SEL",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_BST_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_DRV_BST12_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_DRV_BST2_POR_BOOST",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_DRV_BST2_WPU",
+            "RegisterBitPos": "23",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_DRV_WPU_EN",
+            "RegisterBitPos": "14",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH1_DRV_EN_D",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_EN_D",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_PP_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_PP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_SENSE_EN",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_SENSE_EN",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_EN_CHG",
+            "RegisterBitPos": "15",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_EN_CHG",
+            "RegisterBitPos": "14",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_INDCS_BUCK_MODE",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_PP_EN_D",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_SENSE_EN_D",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_EN_CHG_D",
+            "RegisterBitPos": "15",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_INDCS_REPLICA_AON",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_FORCE_AZ",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_DRV_INDCS_RW",
+            "RegisterAddr": "0x00000240",
+            "RegisterField": "DS_INDCS_CLR_OCP",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_EN_OCP",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_EN_ZC",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        }
+    ],
+    "Boost1_Powerdown": [
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_EN_OCP",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_EN_ZC",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_PP_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_PP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_INDCS_PP_EN_D",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_SENSE_EN",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_SENSE_EN",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_SENSE_EN_D",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_EN_CHG",
+            "RegisterBitPos": "15",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_EN_CHG",
+            "RegisterBitPos": "14",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH1_CFLY_EN_CHG_D",
+            "RegisterBitPos": "15",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH1_DRV_EN_D",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_EN_D",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH1_DRV_BST_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_DRV_BST12_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_DRV_BST2_POR_BOOST",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_PD_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        }
+    ],
+    "Buck2_Powerup": [
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_DETACH",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_SS_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN_D",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_BST_EN",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH2_DRV_BST12_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_PP_EN",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_PP_EN",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_SENSE_EN",
+            "RegisterBitPos": "17",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_SENSE_EN",
+            "RegisterBitPos": "16",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_EN_CHG",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_EN_CHG",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_INDCS_BUCK_MODE",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_PP_EN_D",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_EN_CHG_D",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_DRV_INDCS_RW",
+            "RegisterAddr": "0x00000240",
+            "RegisterField": "DS_INDCS_CLR_OCP",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_FORCE_AZ",
+            "RegisterBitPos": "15",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_INDCS_REPLICA_AON",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_EN_OCP",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_EN_ZC",
+            "RegisterBitPos": "14",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH2_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH2_DRV_EN_D",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_EN_D",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 1
+        }
+    ],
+    "Buck2_Powerdown": [
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH2_DRV_EN_D",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_EN_D",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH2_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_EN_OCP",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_EN_ZC",
+            "RegisterBitPos": "14",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_PP_EN_D",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_EN_CHG_D",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_PP_EN",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_PP_EN",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_SENSE_EN",
+            "RegisterBitPos": "17",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_SENSE_EN",
+            "RegisterBitPos": "16",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_EN_CHG",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_EN_CHG",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_BST_EN",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH2_DRV_BST12_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN_D",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_PD_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_DETACH",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        }
+    ],
+    "Boost2_Powerup": [
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_DETACH",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_SS_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH2_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_DRV_PRCHG_MODE_SEL",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_BST_EN",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH2_DRV_BST12_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH2_DRV_BST2_POR_BOOST",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH2_DRV_BST2_WPU",
+            "RegisterBitPos": "24",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH2_DRV_WPU_EN",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH2_DRV_EN_D",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_EN_D",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_PP_EN",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_PP_EN",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_SENSE_EN",
+            "RegisterBitPos": "17",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_SENSE_EN",
+            "RegisterBitPos": "16",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_EN_CHG",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_EN_CHG",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_INDCS_BUCK_MODE",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_PP_EN_D",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_EN_CHG_D",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_INDCS_REPLICA_AON",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_FORCE_AZ",
+            "RegisterBitPos": "15",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_DRV_INDCS_RW",
+            "RegisterAddr": "0x00000240",
+            "RegisterField": "DS_INDCS_CLR_OCP",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_EN_OCP",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_EN_ZC",
+            "RegisterBitPos": "14",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        }
+    ],
+    "Boost2_Powerdown": [
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_EN_OCP",
+            "RegisterBitPos": "13",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_EN_ZC",
+            "RegisterBitPos": "14",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_PP_EN",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_PP_EN",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_INDCS_PP_EN_D",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_SENSE_EN",
+            "RegisterBitPos": "17",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_SENSE_EN",
+            "RegisterBitPos": "16",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_EN_CHG",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_EN_CHG",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH2_CFLY_EN_CHG_D",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH2_DRV_EN_D",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_EN_D",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH2_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH2_DRV_BST_EN",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH2_DRV_BST12_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH2_DRV_BST2_POR_BOOST",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_PD_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        }
+    ],
+    "Buck3_Powerup": [
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_DETACH",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_SS_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN_D",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_BST_EN",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH3_DRV_BST12_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_PP_EN",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_PP_EN",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_SENSE_EN",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_SENSE_EN",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_EN_CHG",
+            "RegisterBitPos": "23",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_EN_CHG",
+            "RegisterBitPos": "22",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_INDCS_BUCK_MODE",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_PP_EN_D",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_SENSE_EN_D",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_EN_CHG_D",
+            "RegisterBitPos": "23",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_DRV_INDCS_RW",
+            "RegisterAddr": "0x00000240",
+            "RegisterField": "DS_INDCS_CLR_OCP",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_FORCE_AZ",
+            "RegisterBitPos": "23",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_INDCS_REPLICA_AON",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_EN_OCP",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_EN_ZC",
+            "RegisterBitPos": "22",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH3_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "17",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "16",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH3_DRV_EN_D",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_EN_D",
+            "RegisterBitPos": "17",
+            "RegisterFieldValue": 1
+        }
+    ],
+    "Buck3_Powerdown": [
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH3_DRV_EN_D",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_EN_D",
+            "RegisterBitPos": "17",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH3_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "17",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "16",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_EN_OCP",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_EN_ZC",
+            "RegisterBitPos": "22",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_PP_EN_D",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_SENSE_EN_D",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_EN_CHG_D",
+            "RegisterBitPos": "23",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_PP_EN",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_PP_EN",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_SENSE_EN",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_SENSE_EN",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_EN_CHG",
+            "RegisterBitPos": "23",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_EN_CHG",
+            "RegisterBitPos": "22",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_BST_EN",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH3_DRV_BST12_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN_D",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_PD_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_DETACH",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        }
+    ],
+    "Boost3_Powerup": [
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_DETACH",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_SS_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH3_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_DRV_PRCHG_MODE_SEL",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_BST_EN",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH3_DRV_BST12_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH3_DRV_BST2_POR_BOOST",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH3_DRV_BST2_WPU",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH3_DRV_WPU_EN",
+            "RegisterBitPos": "12",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "17",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "16",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH3_DRV_EN_D",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_EN_D",
+            "RegisterBitPos": "17",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_PP_EN",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_PP_EN",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_SENSE_EN",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_SENSE_EN",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_EN_CHG",
+            "RegisterBitPos": "23",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_EN_CHG",
+            "RegisterBitPos": "22",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_INDCS_BUCK_MODE",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_PP_EN_D",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_SENSE_EN_D",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_EN_CHG_D",
+            "RegisterBitPos": "23",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_INDCS_REPLICA_AON",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_FORCE_AZ",
+            "RegisterBitPos": "23",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_DRV_INDCS_RW",
+            "RegisterAddr": "0x00000240",
+            "RegisterField": "DS_INDCS_CLR_OCP",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_EN_OCP",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_EN_ZC",
+            "RegisterBitPos": "22",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        }
+    ],
+    "Boost3_Powerdown": [
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_EN_OCP",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_EN_ZC",
+            "RegisterBitPos": "22",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_PP_EN",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_PP_EN",
+            "RegisterBitPos": "19",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_INDCS_PP_EN_D",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_SENSE_EN",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_SENSE_EN",
+            "RegisterBitPos": "20",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_SENSE_EN_D",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_EN_CHG",
+            "RegisterBitPos": "23",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_EN_CHG",
+            "RegisterBitPos": "22",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH3_CFLY_EN_CHG_D",
+            "RegisterBitPos": "23",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "17",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_EN",
+            "RegisterBitPos": "16",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH3_DRV_EN_D",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_EN_D",
+            "RegisterBitPos": "17",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH3_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH3_DRV_BST_EN",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH3_DRV_BST12_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH3_DRV_BST2_POR_BOOST",
+            "RegisterBitPos": "21",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_PD_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        }
+    ],
+    "Buck4_Powerup": [
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_DETACH",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_SS_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN_D",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_BST_EN",
+            "RegisterBitPos": "26",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH4_DRV_BST12_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_PP_EN",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_PP_EN",
+            "RegisterBitPos": "27",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_SENSE_EN",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_SENSE_EN",
+            "RegisterBitPos": "24",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_EN_CHG",
+            "RegisterBitPos": "27",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_EN_CHG",
+            "RegisterBitPos": "26",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_INDCS_BUCK_MODE",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_PP_EN_D",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_SENSE_EN_D",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_EN_CHG_D",
+            "RegisterBitPos": "27",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_DRV_INDCS_RW",
+            "RegisterAddr": "0x00000240",
+            "RegisterField": "DS_INDCS_CLR_OCP",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_FORCE_AZ",
+            "RegisterBitPos": "31",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_INDCS_REPLICA_AON",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_EN_OCP",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_EN_ZC",
+            "RegisterBitPos": "30",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH4_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "24",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH4_DRV_EN_D",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_EN_D",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 1
+        }
+    ],
+    "Buck4_Powerdown": [
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH4_DRV_EN_D",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_EN_D",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH4_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "24",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_EN_OCP",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_EN_ZC",
+            "RegisterBitPos": "30",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_PP_EN_D",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_SENSE_EN_D",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_EN_CHG_D",
+            "RegisterBitPos": "27",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_PP_EN",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_PP_EN",
+            "RegisterBitPos": "27",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_SENSE_EN",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_SENSE_EN",
+            "RegisterBitPos": "24",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_EN_CHG",
+            "RegisterBitPos": "27",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_EN_CHG",
+            "RegisterBitPos": "26",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_BST_EN",
+            "RegisterBitPos": "26",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH4_DRV_BST12_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_IBUS_EN_D",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_PD_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_DETACH",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        }
+    ],
+    "Boost4_Powerup": [
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_DETACH",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_SS_EN",
+            "RegisterBitPos": "5",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH4_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_DRV_PRCHG_MODE_SEL",
+            "RegisterBitPos": "9",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_BST_EN",
+            "RegisterBitPos": "26",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH4_DRV_BST12_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH4_DRV_BST2_POR_BOOST",
+            "RegisterBitPos": "22",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH4_DRV_BST2_WPU",
+            "RegisterBitPos": "26",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH4_DRV_WPU_EN",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "24",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH4_DRV_EN_D",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_EN_D",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_PP_EN",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_PP_EN",
+            "RegisterBitPos": "27",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_SENSE_EN",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_SENSE_EN",
+            "RegisterBitPos": "24",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_EN_CHG",
+            "RegisterBitPos": "27",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_EN_CHG",
+            "RegisterBitPos": "26",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_INDCS_BUCK_MODE",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_PP_EN_D",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_SENSE_EN_D",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_EN_CHG_D",
+            "RegisterBitPos": "27",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH1_INDCS_REPLICA_AON",
+            "RegisterBitPos": "18",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_FORCE_AZ",
+            "RegisterBitPos": "31",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_DRV_INDCS_RW",
+            "RegisterAddr": "0x00000240",
+            "RegisterField": "DS_INDCS_CLR_OCP",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_EN_OCP",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_EN_ZC",
+            "RegisterBitPos": "30",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 1
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 1
+        }
+    ],
+    "Boost4_Powerdown": [
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_EN_OCP",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_EN_ZC",
+            "RegisterBitPos": "30",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_PP_EN",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_PP_EN",
+            "RegisterBitPos": "27",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_INDCS_PP_EN_D",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_SENSE_EN",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_SENSE_EN",
+            "RegisterBitPos": "24",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_SENSE_EN_D",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_EN_CHG",
+            "RegisterBitPos": "27",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_EN_CHG",
+            "RegisterBitPos": "26",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_PH4_CFLY_EN_CHG_D",
+            "RegisterBitPos": "27",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_EN",
+            "RegisterBitPos": "24",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_PH4_DRV_EN_D",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_EN_D",
+            "RegisterBitPos": "25",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH4_DRV_BOOST_PRCHG_LSH_EN",
+            "RegisterBitPos": "7",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP1_RW",
+            "RegisterAddr": "0x00000224",
+            "RegisterField": "DS_PH4_DRV_BST_EN",
+            "RegisterBitPos": "26",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH4_DRV_BST12_EN",
+            "RegisterBitPos": "6",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP2_RW",
+            "RegisterAddr": "0x00000228",
+            "RegisterField": "DS_PH4_DRV_BST2_POR_BOOST",
+            "RegisterBitPos": "22",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IRQ_ACT_STATUS_RO",
+            "RegisterAddr": "0x0000021C",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN",
+            "RegisterBitPos": "1",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_EN_DEL_DN",
+            "RegisterBitPos": "2",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "0",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_IFET_RW",
+            "RegisterAddr": "0x0000024C",
+            "RegisterField": "DS_NEGCP_EN",
+            "RegisterBitPos": "3",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_IFET_CP_PD_EN",
+            "RegisterBitPos": "4",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VDDSNS_OVP",
+            "RegisterBitPos": "10",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_AON_EN_VBUS_OVP",
+            "RegisterBitPos": "11",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_REF_PDNB",
+            "RegisterBitPos": "28",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_LDO1P8_PDNB",
+            "RegisterBitPos": "29",
+            "RegisterFieldValue": 0
+        },
+        {
+            "Register": "REG_PWRUP0_RW",
+            "RegisterAddr": "0x00000220",
+            "RegisterField": "DS_HVLDO_EN",
+            "RegisterBitPos": "8",
+            "RegisterFieldValue": 0
+        }
+    ]
+}
