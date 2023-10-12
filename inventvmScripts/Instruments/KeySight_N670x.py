@@ -102,17 +102,17 @@ class N670x:
     # ! first argument is the channel number shuold be in int  channel Number 1-4
     # ! current must be in the float ex: 1.4 
     # ? default it will provide the fist chanlle current 
-    def setCurrent(self, channel:int, current:float):
-        if channel in self.channel.keys() :
-            ch = self.channel.get(channel)
-        else:
-            ch = self.channel.get(1)
-        command = 'INST:SEL ' +  ch
-        self.my_instr.write(command)   
-        command = 'CURR ' + str(current) 
-        self.my_instr.write(command)  
+    # def setCurrent(self, channel:int, current:float):
+    #     if channel in self.channel.keys() :
+    #         ch = self.channel.get(channel)
+    #     else:
+    #         ch = self.channel.get(1)
+    #     command = 'INST:SEL ' +  ch
+    #     self.my_instr.write(command)   
+    #     command = 'CURR ' + str(current) 
+    #     self.my_instr.write(command)  
 
-    def setNegCurrent(self, channel:int, current:float):
+    def setCurrent(self, channel:int, current:float):
         self.my_instr.write(f'CURR {current},(@{channel})')
 
     def setVoltage(self, channel:int, voltage:float):
@@ -168,6 +168,10 @@ class N670x:
     # To set the voltage priority mode:
     def setVoltage_Priority(self,channel:int):
         self.my_instr.write(f'FUNC VOLT,(@{str(channel)})')
+
+    # To set the Current priority mode:
+    def setCurrent_Priority(self,channel:int):
+        self.my_instr.write(f'FUNC CURR,(@{str(channel)})')
 
     # TTo program turn-on delay 
     def setTurn_ON_Delay(self,channel:int,delay:float):
@@ -416,7 +420,13 @@ class N670x:
         self.my_instr.write(f'EMUL CVLoad,(@{str(channel)})')
 
 if __name__ == '__main__':
-    supply = N670x('USB0::0x0957::0x0F07::MY50000622::INSTR')
+    supply = N670x('USB0::0x0957::0x0F07::MY50002157::INSTR')
     # print(supply.get_IDN())
+    # supply.emulMode_1Q(channel=1)
+    supply.setCurrent_Priority(channel=1)
+    # supply.my_instr.write('OUTP ON,(@1)') 
     print(supply.errorLog())
-    print(supply.getCurrent(channel=1))
+    supply.setNegCurrent(channel=1,current=-1)
+    supply.outp_ON(channel=1)
+    time.sleep(2)
+    supply.outp_OFF(channel=1)

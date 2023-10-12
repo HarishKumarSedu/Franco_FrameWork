@@ -1,0 +1,64 @@
+{
+    "2": {
+        "DCO trimming": {
+            "Name": "DCO trimming",
+            "Register": {
+                "RegisterAddress": 568,
+                "RegisterLSB": 10,
+                "RegisterMSB": 15,
+                "RegisterValue": 31
+            },
+            "MeasureValue": 2999800.0,
+            "typical": 3000000,
+            "MinError": -0.006666666666666667
+        },
+        "Aon BG vref 1.2V (VDDA 1.8V) trimming": {
+            "Name": "Aon BG vref 1.2V (VDDA 1.8V) trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 13,
+                "RegisterMSB": 17,
+                "RegisterValue": 0
+            },
+            "MeasureValue": 1.8006981975,
+            "typical": 1.8,
+            "MinError": 0.03878874999999985
+        },
+        "Aon vref 0.6V trimming": {
+            "Name": "Aon vref 0.6V trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 3,
+                "RegisterMSB": 7,
+                "RegisterValue": 1
+            },
+            "MeasureValue": 0.60129006725,
+            "typical": 0.6,
+            "MinError": 0.21501120833333776
+        },
+        "Aon ldo_vref_1p2 trimming": {
+            "Name": "Aon ldo_vref_1p2 trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 8,
+                "RegisterMSB": 12,
+                "RegisterValue": 31
+            },
+            "MeasureValue": 1.197742925,
+            "typical": 1.2,
+            "MinError": -0.18808958333332848
+        },
+        "LDO1.2 Trimming ": {
+            "Name": "LDO1.2 Trimming ",
+            "Register": {
+                "RegisterAddress": 604,
+                "RegisterLSB": 14,
+                "RegisterMSB": 19,
+                "RegisterValue": 0
+            },
+            "MeasureValue": 1.206878725,
+            "typical": 1.2,
+            "MinError": 0.0068787249999999744
+        }
+    }
+}

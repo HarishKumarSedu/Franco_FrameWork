@@ -7,7 +7,7 @@ class Aon_Bg_Vref_1p2V_Trim:
         self.DFT = DFT
         self.dut = dut
         self.apis = FrancoAPIS(dut=dut)
-        self.voltmeter = Instruments.voltmeter
+        self.multimeter = Instruments.multimeter
         time.sleep(5)
         self.registers = []
         self.measure_values = []
@@ -41,7 +41,7 @@ class Aon_Bg_Vref_1p2V_Trim:
                     self.apis.write_register(register=self.trim_register_data,write_value=modifiedvalue)
                     self.trim_code.append(modifiedvalue)
                 time.sleep(0.1)
-                self.measure_values.append(self.voltmeter.meas_V()) # get the frequency values from voltmeter
+                self.measure_values.append(self.multimeter.meas_V()) # get the frequency values from multimeter
         
         self.Aon_Bg_Vref_1p2V_Limit__Check()
     

@@ -14,6 +14,12 @@ from AON_Vref_0p6V_Trim import Aon_Vref_0p6V_Trim
 from AON_Vref_1p2V_Trim import Aon_Vref_1p2V_Trim
 from Ldo_1p2V_Trim import Ldo_1p2V_Trim
 from Main_Bg_Trim import Main_Bg_Trim
+from PH13_IndCs_Buff_Trim import Ph13_IndCs_Buff_Trim
+from PH24_IndCs_Buff_Trim import Ph24_IndCs_Buff_Trim
+from PH1S1_Indcs_Mirror_Trim import Ph1S1_Indcs_Mirror_Trim
+from PH1S1_Indcs_Offset_Trim import Ph1S1_Indcs_Offset_Trim
+from PH1S1_Indcs_Gain_Trim import Ph1S1_Indcs_Gain_Trim
+
 
 class Trim(object):
     """
@@ -26,47 +32,187 @@ class Trim(object):
         self.instruments = Instruments()
         self.matrix = Matrix()
 
+        self.trim_results = {}
         with open(DFT_path) as f:
             self.DFT = json.load(f)
 
         self.trimming__Parse()
         
     def trimming__Parse(self):
-        for trim in self.DFT:
-            # if re.search('DCO',trim.get('Trimming_Name ')):
-            #     dco = DCO_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-            #     dco.dco_Test__SetUp()
-            #     print(dco.dco_results())
-
-            # if re.search('Aon BG vref 1.2V',trim.get('Trimming_Name ')):
-            #     self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-            #     aon_Bg_Vref_1p2 = Aon_Bg_Vref_1p2V_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-            #     aon_Bg_Vref_1p2.Aon_Bg_Vref_1p2V_Test__SetUp()
-            #     print(aon_Bg_Vref_1p2.Aon_Bg_Vref_1p2V_results())
-            #     pass
-            if re.search('Aon vref 0.6V',trim.get('Trimming_Name ')):
-                # self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                aon_Vref_0p6 = Aon_Vref_0p6V_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                aon_Vref_0p6.Aon_Vref_0p6V_Test__SetUp()
-                print(aon_Vref_0p6.Aon_Vref_0p6V_results())
-                pass
-            # if re.search('Aon ldo_vref_1p2 trimming',trim.get('Trimming_Name ')):
-            #     aon_Vref_1p2 = Aon_Vref_1p2V_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-            #     aon_Vref_1p2.Aon_Vref_1p2V_Test__SetUp()
-            #     print(aon_Vref_1p2.Aon_Vref_1p2V_results())
-            #     pass
-            # if re.search('LDO1.2 Trimming',trim.get('Trimming_Name ')):
-            #     self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-            #     ldo_1p2 = Ldo_1p2V_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-            #     ldo_1p2.Ldo_1p2V_Test__SetUp()
-            #     print(ldo_1p2.Ldo_1p2V_results())
-            #     pass
-            # if re.search('Main BG Current Trimming',trim.get('Trimming_Name ')):
-            #     main_bg = Main_Bg_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-            #     main_bg.Main_Bg_Test__SetUp()
-            #     print(main_bg.Main_Bg_results())
-                # pass
-                
+        try:
+            # chip_index_start=int(input('Enter Chip Index Start >'))
+            chip_index_start=0
+            chip_index = chip_index_start
+            while(True):
+                # input('Insert Chip >')
+                chip_index=chip_index+1
+                trim_result = {}
+                for trim in self.DFT:
+                    if False:
+                        pass
+                    elif re.search('DCO',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        dco = DCO_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        dco.dco_Test__SetUp()
+                        result = dco.dco_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        # pass
+                    elif re.search('Aon BG vref 1.2V',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        aon_Bg_Vref_1p2 = Aon_Bg_Vref_1p2V_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        aon_Bg_Vref_1p2.Aon_Bg_Vref_1p2V_Test__SetUp()
+                        result=aon_Bg_Vref_1p2.Aon_Bg_Vref_1p2V_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        # pass
+                    elif re.search('Aon vref 0.6V',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        self.matrix.reset()
+                        # self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        aon_Vref_0p6 = Aon_Vref_0p6V_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        aon_Vref_0p6.Aon_Vref_0p6V_Test__SetUp()
+                        # input('Connect TEST1 to 1.2v and let it discharge to 0.6v >')
+                        result=aon_Vref_0p6.Aon_Vref_0p6V_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        # pass
+                    elif re.search('Aon ldo_vref_1p2 trimming',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        aon_Vref_1p2 = Aon_Vref_1p2V_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        aon_Vref_1p2.Aon_Vref_1p2V_Test__SetUp()
+                        result=aon_Vref_1p2.Aon_Vref_1p2V_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        # pass
+                    elif re.search('LDO1.2 Trimming',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        ldo_1p2 = Ldo_1p2V_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        ldo_1p2.Ldo_1p2V_Test__SetUp()
+                        result=ldo_1p2.Ldo_1p2V_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        # pass
+                    # if re.search('Main BG Current Trimming',trim.get('Trimming_Name ')):
+                    #     self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                    #     input('Connect TEST1 to Current meter for Main BG Current Trimming >')
+                    #     main_bg = Main_Bg_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                    #     main_bg.Main_Bg_Test__SetUp()
+                    #     result=main_bg.Main_Bg_results()
+                    #     print(result)
+                    #     trim_result.update({
+                    #         trim.get('Trimming_Name ') :result
+                    #     })
+                    #     pass
+                    elif re.search('PH13 IND CS Buffer',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        ph13_indcs_buff = Ph13_IndCs_Buff_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        ph13_indcs_buff.Ph13_IndCs_Buff_Test__SetUp()
+                        result=ph13_indcs_buff.Ph13_IndCs_Buff_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        # pass
+                    elif re.search('PH24 IND CS Buffer',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        ph24_indcs_buff = Ph24_IndCs_Buff_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        ph24_indcs_buff.Ph24_IndCs_Buff_Test__SetUp()
+                        result=ph24_indcs_buff.Ph24_IndCs_Buff_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        # pass
+                    elif re.search('PH1S1 IND CS Mirror trimming',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        ph1s1_indcs_mirror = Ph1S1_Indcs_Mirror_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        ph1s1_indcs_mirror.Ph1S1_Indcs_Mirror_Test__SetUp()
+                        result=ph1s1_indcs_mirror.Ph1S1_Indcs_Mirror_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        # pass
+                    elif re.search('PH1S1 IND CS Offset trimming',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        ph1s1_indcs_gain = Ph1S1_Indcs_Gain_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        ph1s1_indcs_gain.Ph1S1_Indcs_Gain_Test__SetUp()
+                        result=ph1s1_indcs_gain.Ph1S1_Indcs_Gain_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        # pass
+                    elif re.search('PH1S1 IND CS Gain trimming',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        ph1s1_indcs_mirror = Ph1S1_Indcs_Mirror_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        ph1s1_indcs_mirror.Ph1S1_Indcs_Mirror_Test__SetUp()
+                        result=ph1s1_indcs_mirror.Ph1S1_Indcs_Mirror_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        pass
+                    elif re.search('PH1S4 IND CS Mirror trimming',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        ph1s1_indcs_mirror = Ph1S1_Indcs_Mirror_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        ph1s1_indcs_mirror.Ph1S1_Indcs_Mirror_Test__SetUp()
+                        result=ph1s1_indcs_mirror.Ph1S1_Indcs_Mirror_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        # pass
+                    elif re.search('PH1S4 IND CS Offset trimming',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        ph1s1_indcs_gain = Ph1S1_Indcs_Gain_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        ph1s1_indcs_gain.Ph1S1_Indcs_Gain_Test__SetUp()
+                        result=ph1s1_indcs_gain.Ph1S1_Indcs_Gain_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        # pass
+                    elif re.search('PH1S4 IND CS Gain trimming',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        ph1s1_indcs_mirror = Ph1S1_Indcs_Mirror_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        ph1s1_indcs_mirror.Ph1S1_Indcs_Mirror_Test__SetUp()
+                        result=ph1s1_indcs_mirror.Ph1S1_Indcs_Mirror_results()
+                        print(result)
+                        trim_result.update({
+                            trim.get('Trimming_Name ') :result
+                        })
+                        # pass
+                self.trim_results.update({
+                        chip_index:trim_result
+                    })
+        except KeyboardInterrupt:
+            self.matrix.reset()
+            resultsfilename = f'TrimmingResults_{str(chip_index_start)}_{str(chip_index-1)}'
+            with open(f'json/{resultsfilename}.json', 'w', encoding='utf-8') as f:
+                json.dump(self.trim_results, f, ensure_ascii=False, indent=4)
+            
 
 if __name__ == '__main__':
     try:

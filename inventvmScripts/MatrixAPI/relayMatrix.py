@@ -29,21 +29,31 @@ class RelayMatrix1:
             self.pcf.setPort(PCF8547Constants.P1.value)
         else:
             self.pcf.resetPort(PCF8547Constants.P1.value)
-    def TEST1_1(self,Status=False):
+    def ph13_indcs_buff_1(self,Status=False):
         if Status:
             self.pcf.setPort(PCF8547Constants.P2.value)
         else:
             self.pcf.resetPort(PCF8547Constants.P2.value)
-    def TEST1_2(self,Status=False):
+    def ph24_indcs_buff_1(self,Status=False):
         if Status:
             self.pcf.setPort(PCF8547Constants.P3.value)
         else:
             self.pcf.resetPort(PCF8547Constants.P3.value)
-    def TEST2(self,Status=False):
+    def ph1_IL_Out(self,Status=False):
         if Status:
             self.pcf.setPort(PCF8547Constants.P4.value)
         else:
             self.pcf.resetPort(PCF8547Constants.P4.value)
+    def ph13_indcs_buff_2(self,Status=False):
+        if Status:
+            self.pcf.setPort(PCF8547Constants.P5.value)
+        else:
+            self.pcf.resetPort(PCF8547Constants.P5.value)
+    def ph24_indcs_buff_2(self,Status=False):
+        if Status:
+            self.pcf.setPort(PCF8547Constants.P6.value)
+        else:
+            self.pcf.resetPort(PCF8547Constants.P6.value)
     def GND(self,Status=False):
         if Status:
             self.pcf.setPort(PCF8547Constants.P7.value)

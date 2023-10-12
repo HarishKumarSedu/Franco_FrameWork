@@ -1,0 +1,30 @@
+{
+    "1": {
+        "PH1S4 IND CS Mirror trimming": {
+            "Name": "PH1S4 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 12,
+                "RegisterMSB": 16,
+                "RegisterValue": 2
+            },
+            "MeasureValue": 0.006849273949999984,
+            "typical": 0.01,
+            "MinError": 5.55903199999791e-05
+        }
+    },
+    "2": {
+        "PH1S4 IND CS Mirror trimming": {
+            "Name": "PH1S4 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 12,
+                "RegisterMSB": 16,
+                "RegisterValue": 2
+            },
+            "MeasureValue": 0.006868865975000013,
+            "typical": 0.01,
+            "MinError": 2.0087459999984514e-05
+        }
+    }
+}

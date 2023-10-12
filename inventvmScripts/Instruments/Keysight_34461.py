@@ -269,6 +269,8 @@ class A34461:
     # ?  OFF: the input impedance for DC voltage measurements is fixed at 10 MΩ for all ranges to minimize noise pickup.
     def set_meter__OutputVoltage___ImdpedenceAuto____On(self):
         self.meter.write(f'VOLT:IMP:AUTO ON')
+    def set_meter__OutputCurrent___ImdpedenceAuto____On(self):
+        self.meter.write(f'CURR:IMP:AUTO ON')
 
     # ?  ON: the input impedance for DC voltage measurements varies by range. It is set to "HI-Z" (>10 GΩ) for
     #?        the 100 mV, 1 V, and 10 V ranges to reduce the effects of measurement loading errors on these lower
@@ -280,6 +282,10 @@ class A34461:
     def get_meter__OutputVoltage___ImdpedenceAuto____Status(self):
         return float(self.meter.write(f'VOLT:IMP:AUTO?'))
 
+    def set_Voltage__NPLC(self,NPLC):
+        self.meter.write(f'VOLT:DC:NPLC {str(NPLC)}')
+
 if __name__ == '__main__':
     meter = A34461('USB0::0x2A8D::0x1301::MY57229855::INSTR')
     print(meter.meas_V())
+    print(meter.meas_I())
