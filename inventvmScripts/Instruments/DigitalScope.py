@@ -92,7 +92,7 @@ if __name__ == '__main__':
     print('State',scope.acquireState)
     while scope.acquireState == True :
        print('rotate')
-    time.sleep(1)
-    scope.set_trigger__mode()
-    scope.single_Trigger__RUN()
+    # time.sleep(1)
+    # scope.set_trigger__mode()
+    # scope.single_Trigger__RUN()
 

@@ -157,14 +157,14 @@ class Trim(object):
                         print(result)
                         trim_result.append(result)
 
-                    elif re.search('PH1S1 ZC Comparator trimming',trim.get('Trimming_Name ')):
-                        print(trim.get('Trimming_Name '))
-                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                        ph1s1_indcs_zc = Ph1S1_Indcs_ZC_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                        ph1s1_indcs_zc.Ph1S1_Indcs_ZC_Test__SetUp()
-                        result=ph1s1_indcs_zc.Ph1S1_Indcs_ZC_results()
-                        print(result)
-                        trim_result.append(result)
+                    # elif re.search('PH1S1 ZC Comparator trimming',trim.get('Trimming_Name ')):
+                    #     print(trim.get('Trimming_Name '))
+                    #     self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                    #     ph1s1_indcs_zc = Ph1S1_Indcs_ZC_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                    #     ph1s1_indcs_zc.Ph1S1_Indcs_ZC_Test__SetUp()
+                    #     result=ph1s1_indcs_zc.Ph1S1_Indcs_ZC_results()
+                    #     print(result)
+                    #     trim_result.append(result)
                         
                     elif re.search('PH1S4 IND CS Mirror trimming',trim.get('Trimming_Name ')):
 
@@ -193,14 +193,14 @@ class Trim(object):
                         result=ph1s1_indcs_gain.Ph1S1_Indcs_Gain_results()
                         print(result)
                         trim_result.append(result)
-                    elif re.search('PH1S4 ZC Comparator trimming',trim.get('Trimming_Name ')):
-                        print(trim.get('Trimming_Name '))
-                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                        ph1s1_indcs_zc = Ph1S1_Indcs_ZC_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                        ph1s1_indcs_zc.Ph1S1_Indcs_ZC_Test__SetUp()
-                        result=ph1s1_indcs_zc.Ph1S1_Indcs_ZC_results()
-                        print(result)
-                        trim_result.append(result)
+                    # elif re.search('PH1S4 ZC Comparator trimming',trim.get('Trimming_Name ')):
+                    #     print(trim.get('Trimming_Name '))
+                    #     self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                    #     ph1s1_indcs_zc = Ph1S1_Indcs_ZC_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                    #     ph1s1_indcs_zc.Ph1S1_Indcs_ZC_Test__SetUp()
+                    #     result=ph1s1_indcs_zc.Ph1S1_Indcs_ZC_results()
+                    #     print(result)
+                    #     trim_result.append(result)
                 
                 self.trim_results.update({
                         chip_index:trim_result

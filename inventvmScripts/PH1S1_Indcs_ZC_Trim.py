@@ -46,14 +46,15 @@ class Ph1S1_Indcs_ZC_Trim:
         # print(self.measure_values,self.trim_code)
 
     def Ph1S1_Indcs_ZC_Values__Sweep___Current(self):
-        self.supply.setCurrent(channel=3,current=-1)
+        self.supply.setCurrent(channel=3,current=0)
         time.sleep(0.1)
         self.scope.set_trigger__mode(mode='NORM')
         self.scope.init_scopePosEdge__Trigger()
         self.scope.single_Trigger__ON()
+        time.sleep(0.1)
         current=-1
         while(self.scope.acquireState == True):
-                time.sleep(0.005)
+                time.sleep(0.01)
                 self.supply.setCurrent(channel=3,current=current)
                 current=current+0.005
         return self.supply.getCurrent(channel=3)
