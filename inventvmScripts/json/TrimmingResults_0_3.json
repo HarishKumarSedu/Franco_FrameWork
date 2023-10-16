@@ -1,28 +1,69 @@
 {
     "1": {
-        "PH1S4 IND CS Mirror trimming": {
-            "Name": "PH1S4 IND CS Mirror trimming",
+        "PH13 IND CS Buffer": {},
+        "PH1S1 IND CS Mirror trimming": {
+            "Name": "PH1S1 IND CS Mirror trimming",
             "Register": {
                 "RegisterAddress": 632,
-                "RegisterLSB": 12,
-                "RegisterMSB": 16,
-                "RegisterValue": 2
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 3
             },
-            "MeasureValue": 0.005177944549999994,
+            "MeasureValue": 0.006524353425000004,
             "typical": 0.01,
-            "MinError": 7.488711000000481e-05
-        },
-        "PH1S4 IND CS Offset trimming": {},
-        "PH1S4 IND CS Gain trimming": {}
+            "MinError": 0.00010720032500000087
+        }
     },
     "2": {
-        "PH1S4 IND CS Mirror trimming": {},
-        "PH1S4 IND CS Offset trimming": {},
-        "PH1S4 IND CS Gain trimming": {}
+        "PH13 IND CS Buffer": {
+            "Name": "PH13 IND CS Buffer",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 29,
+                "RegisterMSB": 31,
+                "RegisterValue": 0
+            },
+            "MeasureValue": 0.70112914275,
+            "typical": 0.7,
+            "MinError": 0.0011291427500000895
+        },
+        "PH1S1 IND CS Mirror trimming": {
+            "Name": "PH1S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 3
+            },
+            "MeasureValue": 0.0065412650000000044,
+            "typical": 0.01,
+            "MinError": 8.001410999999847e-05
+        }
     },
     "3": {
-        "PH1S4 IND CS Mirror trimming": {},
-        "PH1S4 IND CS Offset trimming": {},
-        "PH1S4 IND CS Gain trimming": {}
+        "PH13 IND CS Buffer": {
+            "Name": "PH13 IND CS Buffer",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 29,
+                "RegisterMSB": 31,
+                "RegisterValue": 0
+            },
+            "MeasureValue": 0.7011492577499999,
+            "typical": 0.7,
+            "MinError": 0.0011492577499999657
+        },
+        "PH1S1 IND CS Mirror trimming": {
+            "Name": "PH1S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 4
+            },
+            "MeasureValue": 0.005356803199999996,
+            "typical": 0.01,
+            "MinError": 9.52137800000058e-05
+        }
     }
 }

@@ -28,12 +28,13 @@ class Aon_Vref_1p2V_Trim:
         self.dut.IVM.REG_TEST0_RW.DS_TEST2_VIS_SEL.value=6
         for Instruction in self.DFT.get("Instructions"):
             # parse Aon_Vref_1p2V instruction register 
-            # if re.match(re.compile('0x'),Instruction):
-                # reg_data = self.apis.parse_registerAddress_from_string(Instruction)
+            if re.match(re.compile('0x'),Instruction):
+                reg_data = self.apis.parse_registerAddress_from_string(Instruction)
                 # if reg_data:
                 #     self.registers.append(reg_data)
                 #     self.apis.write_register(register=reg_data)
                     # special condition to write the test1 mux 
+                self.registers.append(reg_data)
             if re.search(re.compile('TrimSweep'),Instruction):
                 self.trim_register_data = self.apis.parse_trim_registerAddress_from_string(Instruction)
                 self.Aon_Vref_1p2V_Values__Sweep___2s()
@@ -90,6 +91,18 @@ class Aon_Vref_1p2V_Trim:
                 "typical":typical,
                 "MinError":error[error_min__Index],
             }
-
+            for register in self.registers:
+                self.apis.write_register(register=register,write_value=0)
+        self.dut.IVM.REG_AON_RW.DS_AON_EN_VDDSNS_UVLO_B.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST2_VIS_EN.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_SEL.value=0
+        self.dut.IVM.REG_LDOS_RW.DS_LDO1P2_VIS_ENA.value=0
+        self.dut.IVM.REG_TEST1_RW.DS_AON_EN_TEST.value=0
+        self.dut.IVM.REG_TEST1_RW.DS_AON_TEST_SEL.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_SEL.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST2_VIS_SEL.value=0
     def Aon_Vref_1p2V_results (self):
         return self.trim_results

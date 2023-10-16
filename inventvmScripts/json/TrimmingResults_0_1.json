@@ -6,23 +6,11 @@
                 "RegisterAddress": 608,
                 "RegisterLSB": 29,
                 "RegisterMSB": 31,
-                "RegisterValue": 7
+                "RegisterValue": 0
             },
-            "MeasureValue": 0.6782188124999999,
+            "MeasureValue": 0.7011204364999999,
             "typical": 0.7,
-            "MinError": -0.02178118750000002
-        },
-        "PH24 IND CS Buffer": {
-            "Name": "PH24 IND CS Buffer",
-            "Register": {
-                "RegisterAddress": 608,
-                "RegisterLSB": 26,
-                "RegisterMSB": 28,
-                "RegisterValue": 4
-            },
-            "MeasureValue": 0.698082882,
-            "typical": 0.7,
-            "MinError": -0.00191711799999994
+            "MinError": 0.0011204364999999328
         },
         "PH1S1 IND CS Mirror trimming": {
             "Name": "PH1S1 IND CS Mirror trimming",
@@ -30,11 +18,24 @@
                 "RegisterAddress": 632,
                 "RegisterLSB": 17,
                 "RegisterMSB": 21,
-                "RegisterValue": 3
+                "RegisterValue": 4
             },
-            "MeasureValue": 0.0064865427,
+            "MeasureValue": 0.005327636899999988,
             "typical": 0.01,
-            "MinError": 9.148941000000632e-05
-        }
+            "MinError": 0.0001242726950000106
+        },
+        "PH1S1 IND CS Offset trimming": {
+            "Name": "PH1S1 IND CS Offset trimming",
+            "Register": {
+                "RegisterAddress": 636,
+                "RegisterLSB": 27,
+                "RegisterMSB": 31,
+                "RegisterValue": 19
+            },
+            "MeasureValue": 0.00113132133,
+            "typical": 0.00121,
+            "MinError": -7.867866999999992e-05
+        },
+        "PH1S1 IND CS Gain trimming": {}
     }
 }

@@ -1,24 +1,25 @@
 import re , pandas as pd , time
 from Franco_Test__APIs import FrancoAPIS
 from startup import Startup
-class Ph24_IndCs_Buff_Trim:
-
+class Ph1S1_Indcs_ZC_Trim:
     def __init__(self,dut,DFT,Instruments) -> None:
         self.DFT = DFT
         self.dut = dut
-        self.startup = Startup(dut=dut)
         self.apis = FrancoAPIS(dut=dut)
-        self.multimeter = Instruments.multimeter
+        self.startup = Startup(dut=dut)
         self.supply = Instruments.supply
-        self.supply.outp_OFF(channel=3)
+        self.scope = Instruments.scope
         time.sleep(5)
         self.registers = []
-        self.measure_values = []
         self.trim_code = []
         self.trim_results={}
-    
-    def Ph24_IndCs_Buff_Test__SetUp(self):
-        # self.startup.buck_PowerUp() # Run the buck powerup 
+
+
+    def Ph1S1_Indcs_ZC_Test__SetUp(self):
+        self.startup.buck_PowerUp() # Run the buck powerup 
+        # set the powersupply @vsys with sinfel quadrent 
+        # self.supply.setCurrent_Priority(channel=3)
+        self.supply.outp_OFF(channel=3)
         for Instruction in self.DFT.get("Instructions"):
             if re.match(re.compile('0x'),Instruction):
                 reg_data = self.apis.parse_registerAddress_from_string(Instruction)
@@ -27,48 +28,64 @@ class Ph24_IndCs_Buff_Trim:
                     self.apis.write_register(register=reg_data)
             if re.search(re.compile('TrimSweep'),Instruction):
                 self.trim_register_data = self.apis.parse_trim_registerAddress_from_string(Instruction)
-                self.Ph24_IndCs_Buff_Values__Sweep()
+                self.Ph1S1_Indcs_ZC_Values__Sweep()
 
-
-                # print(self.measure_values)
-        # print(self.registers)
-
-    def Ph24_IndCs_Buff_Values__Sweep(self):
-        
+    def Ph1S1_Indcs_ZC_Values__Sweep(self):
+        self.supply.setCurrent(channel=3,current=0)
+        self.supply.outp_ON(channel=3)
+        self.measure_values=[]
         if self.trim_register_data:
             for value in range(0,2**(self.trim_register_data.get('RegisterMSB') - self.trim_register_data.get('RegisterLSB') +1),1):
                 self.apis.write_register(register=self.trim_register_data,write_value=value)
                 self.trim_code.append(value)
                 time.sleep(0.1)
-                self.measure_values.append(self.multimeter.meas_V()) # get the frequency values from multimeter
-        
-        self.Ph24_IndCs_Buff_Limit__Check()
+                self.measure_values.append(self.Ph1S1_Indcs_ZC_Values__Sweep___Current()) # get the frequency values from multimeter
+        self.supply.setCurrent(channel=3,current=0)
+        self.supply.outp_OFF(channel=3)
+        self.Ph1S1_Indcs_ZC_Limit__Check()
+        # print(self.measure_values,self.trim_code)
+
+    def Ph1S1_Indcs_ZC_Values__Sweep___Current(self):
+        self.supply.setCurrent(channel=3,current=-1)
+        time.sleep(0.1)
+        self.scope.set_trigger__mode(mode='NORM')
+        self.scope.init_scopePosEdge__Trigger()
+        self.scope.single_Trigger__ON()
+        current=-1
+        while(self.scope.acquireState == True):
+                time.sleep(0.005)
+                self.supply.setCurrent(channel=3,current=current)
+                current=current+0.005
+        return self.supply.getCurrent(channel=3)
     
-    def Ph24_IndCs_Buff_Limit__Check(self):
+    def Ph1S1_Indcs_ZC_Limit__Check(self):
         # limits are not in percentage
-        limit_max = self.DFT.get("MAX_LSB/%")*0.01
-        limit_min = self.DFT.get("MIN_LSB/%")*0.01
-        typical = 0.7
+        limit_max = 242*0.001
+        limit_min = -242*0.001
+        typical = 16*0.001
         
         error = []
         error_abs = []
-
+        measure_values_abs=[]
         for i in self.measure_values:
-            err = ((i - typical))
+            err = typical-abs(i)
             error_abs.append(abs(err))
             error.append(err)
+            measure_values_abs.append(i)
 
         error_min = min(error_abs)
         error_min__Index =error_abs.index(error_min)
+        print('error min',error_min,'max',limit_max,'min',limit_min)
+        # if error_min < limit_min and  error_min < limit_max:
         if error[error_min__Index] > limit_min and error[error_min__Index] < limit_max:
             print("Minimum error",error[error_min__Index])
             print("Min Value",self.measure_values[error_min__Index])
             print("Min Value code",self.trim_code[error_min__Index])
+            self.apis.write_register(register=self.trim_register_data,write_value=self.trim_code[error_min__Index])
 
             self.trim_register_data.update({
                     "RegisterValue":self.trim_code[error_min__Index]
                 })
-            self.apis.write_register(register=self.trim_register_data)
 
             self.trim_results = {
                 "Name" : self.DFT.get('Trimming_Name '),
@@ -77,6 +94,12 @@ class Ph24_IndCs_Buff_Trim:
                 "typical":typical,
                 "MinError":error[error_min__Index],
             }
+            #reset the test driver 
+            for register in self.registers:
+                self.apis.write_register(register=register,write_value=0)
+                
+            self.scope.set_trigger__mode()
+            self.scope.single_Trigger__RUN()
 
-    def Ph24_IndCs_Buff_results (self):
+    def Ph1S1_Indcs_ZC_results (self):
         return self.trim_results

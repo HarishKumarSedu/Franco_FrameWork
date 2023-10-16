@@ -32,7 +32,7 @@ class Ph1S1_Indcs_Gain_Trim:
                 self.Ph1S1_Indcs_Gain_Values__Sweep()
 
     def Ph1S1_Indcs_Gain_Values__Sweep(self):
-        self.supply.outp_OFF(channel=3)
+        self.supply.outp_ON(channel=3)
         self.supply.setCurrent(channel=3,current=1)
         self.measure_values_1A=[]
         if self.trim_register_data:
@@ -41,25 +41,29 @@ class Ph1S1_Indcs_Gain_Trim:
                 self.trim_code.append(value)
                 time.sleep(0.1)
                 self.measure_values_1A.append(self.multimeter.meas_V()) # get the frequency values from multimeter
+        self.supply.setCurrent(channel=3,current=0)
+        self.supply.outp_OFF(channel=3)
         self.Ph1S1_Indcs_Gain_Limit__Check()
 
     def Ph1S1_Indcs_Gain_Limit__Check(self):
         # limits are not in percentage
-        limit_max = (0.075-0.075*0.31)
-        limit_min = (0.075+0.075*0.31)
-        typical = 75*0.001 + 75*0.001*0.01
+        limit_max = (0.075+0.075*0.31)
+        limit_min = (0.075-0.075*0.31)
+        typical = 0.075 + 0.075*0.01
         
         error = []
         error_abs = []
-
+        measure_values_1A_abs=[]
         for i in self.measure_values_1A:
-            err = (abs(i) - typical)
+            err = typical-abs(i)
             error_abs.append(abs(err))
             error.append(err)
+            measure_values_1A_abs.append(i)
 
         error_min = min(error_abs)
         error_min__Index =error_abs.index(error_min)
-        if error_min > limit_min and  error_min < limit_max:
+        # print('error min',error_min,'max',limit_max,'min',limit_min)
+        if error_min < limit_min and  error_min < limit_max:
         # if error[error_min__Index] > limit_min and error[error_min__Index] < limit_max:
             print("Minimum error",error[error_min__Index])
             print("Min Value",self.measure_values_1A[error_min__Index])

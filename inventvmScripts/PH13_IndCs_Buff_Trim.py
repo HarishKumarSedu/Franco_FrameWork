@@ -9,6 +9,8 @@ class Ph13_IndCs_Buff_Trim:
         self.apis = FrancoAPIS(dut=dut)
         self.startup = Startup(dut=dut)
         self.multimeter = Instruments.multimeter
+        self.supply = Instruments.supply
+        self.supply.outp_OFF(channel=3)
         time.sleep(5)
         self.registers = []
         self.measure_values = []

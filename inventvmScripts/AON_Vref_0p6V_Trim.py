@@ -24,7 +24,7 @@ class Aon_Vref_0p6V_Trim:
         self.dut.IVM.REG_TEST1_RW.DS_AON_TEST_SEL.value=2
         self.dut.IVM.REG_TEST0_RW.DS_TEST2_VIS_SEL.value=6
         self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=0
-        self.voltmeter.set_Voltage__NPLC(1) # set voltmeter in fast mode 
+        self.voltmeter.set_Voltage__NPLC(10) # set voltmeter in fast mode 
         while(True):
             voltage = self.voltmeter.meas_V()
             if voltage < 0.6 :
@@ -39,6 +39,7 @@ class Aon_Vref_0p6V_Trim:
                 # if reg_data:
                 #     self.registers.append(reg_data)
                 #     self.apis.write_register(register=reg_data)
+                self.registers.append(reg_data)
             elif re.search(re.compile('TrimSweep'),Instruction):
                 self.trim_register_data = self.apis.parse_trim_registerAddress_from_string(Instruction)
                 self.Aon_Vref_0p6V_Values__Sweep___2s()
@@ -100,7 +101,17 @@ class Aon_Vref_0p6V_Trim:
                 "typical":typical,
                 "MinError":error[error_min__Index],
             }
-
-            self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=0
+        self.dut.IVM.REG_AON_RW.DS_AON_EN_VDDSNS_UVLO_B.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST2_VIS_EN.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_SEL.value=0
+        self.dut.IVM.REG_LDOS_RW.DS_LDO1P2_VIS_ENA.value=0
+        self.dut.IVM.REG_TEST1_RW.DS_AON_EN_TEST.value=0
+        self.dut.IVM.REG_TEST1_RW.DS_AON_TEST_SEL.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST2_VIS_SEL.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=0
+        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_SEL.value=0   
+        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=0
     def Aon_Vref_0p6V_results (self):
         return self.trim_results

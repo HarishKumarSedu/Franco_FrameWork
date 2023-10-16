@@ -48,6 +48,7 @@ from Aon_Vref_0p6V__Trimming import Vref_0p6V
 # from scan import Scan
 
 from Trimming import Trim
+from LoadTrims import LoadTrims
 
 load_dotenv(r'C:\validation\Projects\Franco\python\franco_val\env\franco_val_inventm.env')
 load_dotenv(
@@ -109,6 +110,7 @@ ph1=ph1_indcs(dut=dut)
 startup = Startup(dut=dut)
 
 trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json')
+# loadTrim = LoadTrims(dut=dut)
 
 print("-"*50)
 print("Enter Code to run... ")
