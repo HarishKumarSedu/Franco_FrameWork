@@ -24,14 +24,14 @@ class Aon_Vref_0p6V_Trim:
         self.dut.IVM.REG_TEST1_RW.DS_AON_TEST_SEL.value=2
         self.dut.IVM.REG_TEST0_RW.DS_TEST2_VIS_SEL.value=6
         self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=0
-        self.voltmeter.set_Voltage__NPLC(10) # set voltmeter in fast mode 
+        self.voltmeter.set_Voltage__NPLC(1) # set voltmeter in fast mode 
         while(True):
             voltage = self.voltmeter.meas_V()
             if voltage < 0.6 :
                 self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_SEL.value=7   
                 self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=1
                 break
-        self.voltmeter.set_Voltage__NPLC(10) # set voltmeter in fast mode 
+        self.voltmeter.set_Voltage__NPLC(1) # set voltmeter in fast mode 
         for Instruction in self.DFT.get("Instructions"):
             #parse Aon_Vref_0p6V instruction register 
             if re.match(re.compile('0x'),Instruction):

@@ -2,7 +2,7 @@ from pcf8547 import PCF8547,PCF8547Constants
 import time 
 class RelayMatrix1:
 
-    def __init__(self,slaveAddress = 0x20) -> None:
+    def __init__(self,slaveAddress,mcp) -> None:
         """
             Relay Matrix1 Address : 0x20 
                 
@@ -17,7 +17,7 @@ class RelayMatrix1:
                 Multimeter ( Vp+ )           -   P6       - DTEST1           
                 Multimeter ( Vp+ )           -   P7       - GND           
         """
-        self.pcf = PCF8547(slaveAddress=slaveAddress)
+        self.pcf = PCF8547(slaveAddress=slaveAddress,mcp=mcp)
 
     def VDD_D(self,Status=False):
         if Status:
@@ -63,10 +63,41 @@ class RelayMatrix1:
     def reset(self):
         self.pcf.reset()
 
+class RelayMatrix2:
+
+    def __init__(self,slaveAddress,mcp) -> None:
+        self.pcf = PCF8547(slaveAddress=slaveAddress,mcp=mcp)
+
+    def reset(self):
+        self.pcf.reset()
+
+    def ph2_IL_Out(self,Status=False):
+        if Status:
+            self.pcf.setPort(PCF8547Constants.P0.value)
+        else:
+            self.pcf.resetPort(PCF8547Constants.P0.value)
+    def ph3_IL_Out(self,Status=False):
+        if Status:
+            self.pcf.setPort(PCF8547Constants.P1.value)
+        else:
+            self.pcf.resetPort(PCF8547Constants.P1.value)
+    def ph4_IL_Out(self,Status=False):
+        if Status:
+            self.pcf.setPort(PCF8547Constants.P2.value)
+        else:
+            self.pcf.resetPort(PCF8547Constants.P2.value)
+    
+    # def reset(self):
+    #     self.pcf.reset()
+
 if __name__ == '__main__':
-    matrix1 = RelayMatrix1()
-    matrix1.reset()
+    matrix1 = RelayMatrix1(slaveAddress=0x20)
+    matrix2 = RelayMatrix2(slaveAddress=0x22)
+    # matrix1.reset()
     time.sleep(0.1)
     matrix1.GND(Status=True)
-    time.sleep(0.1)
-    matrix1.VDD_D(Status=True)
+    # time.sleep(0.1)
+    # matrix1.VDD_D(Status=True)
+    # matrix2.ph2_IL_Out(True)
+    # time.sleep(0.1)
+    # matrix2.reset()

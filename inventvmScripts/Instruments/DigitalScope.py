@@ -32,17 +32,17 @@ class dpo_2014B:
         # TRIGger:MAIn:MODe { AUTO | NORMal }
         self.scope.write(f'TRIGger:MAIn:MODe {mode}')
 
-    def init_scopePosEdge__Trigger(self):
+    def init_scopePosEdge__Trigger(self,channel='CH1'):
         self.scope.write(':TRIG:A:TYP EDG')
-        self.scope.write(':TRIG:A:EDGE:SOU CH1')
+        self.scope.write(f':TRIG:A:EDGE:SOU {channel}')
         self.scope.write(':TRIG:A:EDGE:SLO RIS')
         self.scope.write('ACTONEV:EVENTTYP TRIG')
         self.scope.write(':ACTONEV:NUMACQ 1')
         self.scope.write(':ACTONEV:REPEATC 1')
         
-    def init_scopeNegEdge__Trigger(self):
+    def init_scopeNegEdge__Trigger(self,channel='CH1'):
         self.scope.write(':TRIG:A:TYP EDG')
-        self.scope.write(':TRIG:A:EDGE:SOU CH1')
+        self.scope.write(f':TRIG:A:EDGE:SOU {channel}')
         self.scope.write(':TRIG:A:EDGE:SLO FALL')
         self.scope.write('ACTONEV:EVENTTYP TRIG')
         self.scope.write(':ACTONEV:NUMACQ 1')
@@ -76,8 +76,25 @@ class dpo_2014B:
     def get_trigger__level(self):
         return float(self.scope.query('TRIGger:MAIn:LEVel?')) 
     
-    def get_trigger__level(self,level):
+    def set_trigger__level(self,level):
         self.scope.write(f'TRIGger:MAIn:LEVel {str(level)}')
+
+    def scopeTrigger_Acquire(self,channel='CH1'):
+        self.scope.write('ACQUIRE:STATE OFF')
+        self.scope.write(f'SELECT:{channel} ON')
+        self.scope.write('ACQUIRE:MODE SAMPLE')
+        self.scope.write('ACQUIRE:STOPAFTER SEQUENCE')
+        # /* Acquire waveform data */
+        self.scope.write('ACQUIRE:STATE ON')
+        # /* Set up the measurement parameters */
+        self.scope.write('MEASUREMENT:IMMED:TYPE FREQUENCY')
+        self.scope.write(f'MEASUREMENT:IMMED:SOURCE {channel}')
+        # /* Wait until the acquisition is complete before taking
+        # the measurement */
+        # While BUSY?
+    @property
+    def scopeAcquire_BUSY(self):
+        return int(float(self.scope.query('BUSY?')))
         
 if __name__ == '__main__':
     scope = dpo_2014B('USB0::0x0699::0x0456::C010843::INSTR')

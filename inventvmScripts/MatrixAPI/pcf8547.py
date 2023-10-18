@@ -18,17 +18,13 @@ class PCF8547Constants(Enum):
 
 class PCF8547:
     
-    def __init__(self,slaveAddress=0x20) -> None:
+    def __init__(self,slaveAddress,mcp) -> None:
+        self.mcp2221A = mcp
         self.slaveAddress = slaveAddress
-
-        self.mcp2221A = PyMCP2221A.PyMCP2221A()
-        self.mcp2221A.Reset()
-        self.mcp2221A = PyMCP2221A.PyMCP2221A()
-        self.mcp2221A.I2C_Init()
-
         self.reset()
 
     def setPort(self,Port):
+        # print(Port,'..........',self.slaveAddress)
         Port = (~Port &  self.mcp2221A.I2C_Read(self.slaveAddress, 1)[0])
         self.mcp2221A.I2C_Write(self.slaveAddress,[Port])
       

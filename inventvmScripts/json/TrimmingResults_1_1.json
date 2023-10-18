@@ -1,0 +1,16 @@
+{
+    "1": [
+        {
+            "Name": "DCO trimming",
+            "Register": {
+                "RegisterAddress": 568,
+                "RegisterLSB": 10,
+                "RegisterMSB": 15,
+                "RegisterValue": 32
+            },
+            "MeasureValue": 2975800.0,
+            "typical": 3000000,
+            "MinError": -0.8066666666666666
+        }
+    ]
+}

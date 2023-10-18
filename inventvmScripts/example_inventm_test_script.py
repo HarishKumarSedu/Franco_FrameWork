@@ -84,9 +84,8 @@ input_cmd = "placeholder"
 #Startup 
 startup = Startup(dut=dut)
 
-# trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json')
-# with open('json/TrimmingResults_62_62.json', 'r', encoding='utf-8') as f:
-loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_62_62.json',chipid=62)
+trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json')
+# loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_62_62.json',chipid=62)
 
 print("-"*50)
 print("Enter Code to run... ")

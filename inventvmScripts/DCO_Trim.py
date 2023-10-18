@@ -36,7 +36,7 @@ class DCO_Trim:
         if self.trim_register_data:
             for value in range(0,2**(self.trim_register_data.get('RegisterMSB') - self.trim_register_data.get('RegisterLSB') +1),1):
                 self.apis.write_register(register=self.trim_register_data,write_value=value)
-                time.sleep(0.2)
+                time.sleep(0.01)
                 freq = 0
                 for i in range(0,10):
                     freq= freq + self.scope.meas_Freq()
