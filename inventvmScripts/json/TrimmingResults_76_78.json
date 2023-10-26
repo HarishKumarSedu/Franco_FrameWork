@@ -1,0 +1,44 @@
+{
+    "76": [
+        {
+            "Name": "PH1S1 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 6,
+                "RegisterMSB": 11,
+                "RegisterValue": 63
+            },
+            "MeasureValue": -0.060049046325,
+            "typical": 0.07575,
+            "MinError": 0.015700953674999997
+        }
+    ],
+    "77": [
+        {
+            "Name": "PH1S1 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 6,
+                "RegisterMSB": 11,
+                "RegisterValue": 63
+            },
+            "MeasureValue": -0.060053377125,
+            "typical": 0.07575,
+            "MinError": 0.015696622874999996
+        }
+    ],
+    "78": [
+        {
+            "Name": "PH1S1 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 6,
+                "RegisterMSB": 11,
+                "RegisterValue": 63
+            },
+            "MeasureValue": -0.060025487225,
+            "typical": 0.07575,
+            "MinError": 0.015724512774999998
+        }
+    ]
+}

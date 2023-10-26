@@ -24,10 +24,12 @@ class Aon_Vref_0p6V_Trim:
         self.dut.IVM.REG_TEST1_RW.DS_AON_TEST_SEL.value=2
         self.dut.IVM.REG_TEST0_RW.DS_TEST2_VIS_SEL.value=6
         self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=0
-        self.voltmeter.set_Voltage__NPLC(1) # set voltmeter in fast mode 
+        # self.voltmeter.set_Voltage__NPLC(1) # set voltmeter in fast mode 
+        # self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_SEL.value=7   
+        # self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=1
         while(True):
-            voltage = self.voltmeter.meas_V()
-            if voltage < 0.6 :
+            # voltage = self.voltmeter.meas_V()
+            if self.voltmeter.meas_V() < 0.75 :
                 self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_SEL.value=7   
                 self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=1
                 break
@@ -64,7 +66,7 @@ class Aon_Vref_0p6V_Trim:
                     modifiedvalue = abs(int(2**(self.trim_register_data.get('RegisterMSB') - self.trim_register_data.get('RegisterLSB') +1)) - value + int(2**(self.trim_register_data.get('RegisterMSB') - self.trim_register_data.get('RegisterLSB') +1)/2))
                     self.apis.write_register(register=self.trim_register_data,write_value=modifiedvalue)
                     self.trim_code.append(modifiedvalue)
-                time.sleep(0.1)
+                time.sleep(0.01)
                 self.measure_values.append(abs(self.voltmeter.meas_V())) # get the frequency values from voltmeter
         
         self.Aon_Vref_0p6V_Limit__Check()

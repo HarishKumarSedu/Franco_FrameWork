@@ -18,7 +18,8 @@ class Ph13_IndCs_Buff_Trim:
         self.trim_results={}
     
     def Ph13_IndCs_Buff_Test__SetUp(self):
-        self.startup.buck_PowerUp() # Run the buck powerup 
+        # self.startup.buck_PowerUp() # Run the buck powerup 
+        self.startup.cirrus_Startup() # Run the buck powerup 
         for Instruction in self.DFT.get("Instructions"):
             # parse Ldo_1p2V instruction register 
             if re.match(re.compile('0x'),Instruction):
@@ -78,6 +79,6 @@ class Ph13_IndCs_Buff_Trim:
                 "typical":typical,
                 "MinError":error[error_min__Index],
             }
-
+            self.startup.cirrus_PowerDown()
     def Ph13_IndCs_Buff_results (self):
         return self.trim_results

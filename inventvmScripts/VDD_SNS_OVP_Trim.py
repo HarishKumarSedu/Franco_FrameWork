@@ -49,7 +49,7 @@ class Vdd_Sns_Ovp_Trim:
 
     def Vdd_Sns_Ovp_Values__Sweep___Voltage(self):
         # time.sleep(0.1)
-        voltage=3
+        voltage=4.2
         self.supply.setVoltage(channel=4,voltage=0)
         self.supply.outp_ON(channel=4)
         # self.scope.single_Trigger__RUN()
@@ -60,6 +60,8 @@ class Vdd_Sns_Ovp_Trim:
                 time.sleep(0.005)
                 self.supply.setVoltage(channel=4,voltage=voltage)
                 voltage=voltage+0.005
+                if voltage > 6 :
+                    break
         # self.supply.setVoltage(channel=4,voltage=-0.1)
         return self.supply.getVoltage(channel=4)
     
@@ -82,7 +84,7 @@ class Vdd_Sns_Ovp_Trim:
         error_min__Index =error_abs.index(error_min)
         print('error min',error_min,'max',limit_max,'min',limit_min)
         # if error_min < limit_min and  error_min < limit_max:
-        if error[error_min__Index] > limit_min and error[error_min__Index] < limit_max:
+        if  error[error_min__Index] < limit_max:
             print("Minimum error",error[error_min__Index])
             print("Min Value",self.measure_values[error_min__Index])
             print("Min Value code",self.trim_code[error_min__Index])

@@ -74,6 +74,8 @@ class Main_Bg_Trim:
                 "typical":typical,
                 "MinError":error[error_min__Index],
             }
+            for register in self.registers:
+                self.apis.write_register(register=register,write_value=0)
 
     def Main_Bg_results (self):
         return self.trim_results

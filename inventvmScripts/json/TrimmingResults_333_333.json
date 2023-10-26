@@ -1,0 +1,89 @@
+{
+    "333": [
+        {
+            "Name": "PH3S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 616,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 15
+            },
+            "MeasureValue": -2.6785762500000296e-05,
+            "typical": 0.01,
+            "MinError": 1.0273874999997684e-06
+        },
+        {
+            "Name": "PH3S1 IND CS Offset trimming",
+            "Register": {
+                "RegisterAddress": 620,
+                "RegisterLSB": 27,
+                "RegisterMSB": 31,
+                "RegisterValue": 28
+            },
+            "MeasureValue": -0.001207812425,
+            "typical": 0.00121,
+            "MinError": -2.1875749999999364e-06
+        },
+        {
+            "Name": "PH3S1 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 616,
+                "RegisterLSB": 6,
+                "RegisterMSB": 11,
+                "RegisterValue": 0
+            },
+            "MeasureValue": -0.1478806995,
+            "typical": 0.07575,
+            "MinError": -0.07213069949999999
+        },
+        {
+            "Name": "PH3S1 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 620,
+                "RegisterLSB": 5,
+                "RegisterMSB": 9,
+                "RegisterValue": 15
+            },
+            "MeasureValue": 0.2102083,
+            "typical": 0.016,
+            "MinError": -0.1942083
+        },
+        {
+            "Name": "PH3S4 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 616,
+                "RegisterLSB": 12,
+                "RegisterMSB": 16,
+                "RegisterValue": 14
+            },
+            "MeasureValue": -0.0009036229999999784,
+            "typical": 0.01,
+            "MinError": 0.0018590230499999777
+        },
+        {},
+        {
+            "Name": "PH3S4 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 616,
+                "RegisterLSB": 0,
+                "RegisterMSB": 5,
+                "RegisterValue": 40
+            },
+            "MeasureValue": 0.0021772015500000075,
+            "typical": 0.07575,
+            "MinError": 0.07357279844999999
+        },
+        {
+            "Name": "PH3S4 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 620,
+                "RegisterLSB": 0,
+                "RegisterMSB": 4,
+                "RegisterValue": 26
+            },
+            "MeasureValue": -0.1947941,
+            "typical": 0.016,
+            "MinError": -0.1787941
+        }
+    ]
+}

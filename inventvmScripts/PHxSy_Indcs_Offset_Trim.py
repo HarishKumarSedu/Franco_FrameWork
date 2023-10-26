@@ -17,7 +17,9 @@ class PhxSy_Indcs_Offset_Trim:
 
 
     def PhxSy_Indcs_Offset_Test__SetUp(self):
-        self.startup.buck_PowerUp() # Run the buck powerup 
+        # self.startup.IVM_Startup()
+        self.startup.cirrus_Startup() # Run the buck powerup 
+        # self.startup.buck_PowerUp() # Run the buck powerup 
         # set the powersupply @vsys with sinfel quadrent 
         self.supply.outp_OFF(channel=3)
         # self.supply.setCurrent_Priority(channel=3)
@@ -33,8 +35,6 @@ class PhxSy_Indcs_Offset_Trim:
                 self.PhxSy_Indcs_Offset_Values__Sweep()
 
     def PhxSy_Indcs_Offset_Values__Sweep(self):
-        self.supply.outp_OFF(channel=3)
-        self.supply.setCurrent(channel=3,current=0)
         self.measure_values_0A=[]
         if self.trim_register_data:
             for value in range(0,2**(self.trim_register_data.get('RegisterMSB') - self.trim_register_data.get('RegisterLSB') +1),1):
@@ -60,7 +60,7 @@ class PhxSy_Indcs_Offset_Trim:
         error_abs = []
         measure_values_0A_abs=[]
         for i in self.measure_values_0A:
-            err=((abs(i)-typical))
+            err=((typical-abs(i)))
             error.append(err)
             error_abs.append(abs(err))
             measure_values_0A_abs.append(abs(i))
@@ -89,6 +89,10 @@ class PhxSy_Indcs_Offset_Trim:
             #reset the test driver 
             for register in self.registers:
                 self.apis.write_register(register=register,write_value=0)
-
+            self.startup.cirrus_PowerDown()
+            # self.startup.IVM_Powerdown()
+            self.supply.outp_OFF(channel=3)
     def PhxSy_Indcs_Offset_results (self):
+        self.startup.cirrus_PowerDown()
+        # self.startup.IVM_Powerdown()
         return self.trim_results

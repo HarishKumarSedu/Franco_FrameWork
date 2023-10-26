@@ -97,19 +97,21 @@ class dpo_2014B:
         return int(float(self.scope.query('BUSY?')))
         
 if __name__ == '__main__':
-    scope = dpo_2014B('USB0::0x0699::0x0456::C010843::INSTR')
-    print(scope.meas_Freq())
+    scope = dpo_2014B('USB0::0x0699::0x0401::C021810::INSTR')
+    # print(scope.meas_Freq())
     # print(scope.get_error())
-    scope.set_trigger__mode(mode='NORM')
-    time.sleep(1)
-    scope.init_scopePosEdge__Trigger()
-    time.sleep(1)
-    scope.single_Trigger__ON()
-    time.sleep(1)
-    print('State',scope.acquireState)
-    while scope.acquireState == True :
-       print('rotate')
+    # scope.set_trigger__mode(mode='AUTO')
+    # scope.scope.write('ACQUIRE:STATE OFF')
+    # # scope.set_trigger__mode(mode='NORM')
     # time.sleep(1)
-    # scope.set_trigger__mode()
+    # scope.init_scopePosEdge__Trigger()
+    # time.sleep(1)
+    scope.single_Trigger__ON()
+    # time.sleep(1)
+    # print('State',scope.acquireState)
+    # while scope.acquireState == True :
+    #    print('rotate')
+    # time.sleep(1)
+    # scope.scope.write('ACQUIRE:STATE OFF')
     # scope.single_Trigger__RUN()
 

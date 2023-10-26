@@ -16,7 +16,9 @@ class PhxSy_Indcs_ZC_Trim:
 
 
     def PhxSy_Indcs_ZC_Test__SetUp(self):
-        self.startup.buck_PowerUp() # Run the buck powerup 
+        self.startup.cirrus_Startup() # Run the buck powerup 
+        # self.startup.IVM_Startup()
+        # self.startup.buck_PowerUp() # Run the buck powerup 
         # set the powersupply @vsys with sinfel quadrent 
         # self.supply.setCurrent_Priority(channel=3)
         self.supply.outp_OFF(channel=3)
@@ -63,9 +65,11 @@ class PhxSy_Indcs_ZC_Trim:
         # while(self.scope.acquireState == True):
         self.scope.scopeTrigger_Acquire()
         while(self.scope.scopeAcquire_BUSY):
-                time.sleep(0.005)
+                time.sleep(0.05)
                 self.supply.setCurrent(channel=3,current=current)
                 current=current+0.005
+                if current > 1 :
+                    break
         # self.supply.setCurrent(channel=3,current=-0.1)
         return self.supply.getCurrent(channel=3)
     
@@ -82,7 +86,7 @@ class PhxSy_Indcs_ZC_Trim:
             err = typical-abs(i)
             error_abs.append(abs(err))
             error.append(err)
-            measure_values_abs.append(i)
+            measure_values_abs.append(abs(i))
 
         error_min = min(error_abs)
         error_min__Index =error_abs.index(error_min)
@@ -108,10 +112,13 @@ class PhxSy_Indcs_ZC_Trim:
             #reset the test driver 
             for register in self.registers:
                 self.apis.write_register(register=register,write_value=0)
+            self.startup.IVM_Powerdown()
                 
             self.scope.set_trigger__mode()
             self.scope.single_Trigger__RUN()
 
     def PhxSy_Indcs_ZC_results (self):
+        self.startup.cirrus_PowerDown()
+        # self.startup.IVM_Powerdown()
         return self.trim_results
 

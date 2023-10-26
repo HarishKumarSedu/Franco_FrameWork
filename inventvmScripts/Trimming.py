@@ -3,7 +3,7 @@ import os
 import pandas as pd 
 import json 
 import re
-from time import sleep
+from time import sleep,time,ctime
 
 # import module
 from datetime import datetime
@@ -22,7 +22,8 @@ from PHxSy_Indcs_Mirror_Trim import PhxSy_Indcs_Mirror_Trim
 from PHxSy_Indcs_Offset_Trim import PhxSy_Indcs_Offset_Trim
 from PHxSy_Indcs_ZC_Trim import PhxSy_Indcs_ZC_Trim
 from PHxSy_Indcs_Gain_Trim import PhxSy_Indcs_Gain_Trim
-
+from startup import Startup
+from Franco_Test__APIs import FrancoAPIS
 
 class Trim(object):
     """
@@ -34,7 +35,8 @@ class Trim(object):
         self.dut = self.test_station.eeb.franco
         self.instruments = Instruments()
         self.matrix = Matrix()
-
+        self.startup = Startup(dut=self.dut)
+        self.apis = FrancoAPIS(dut=self.dut)
         self.trim_results = {}
         with open(DFT_path) as f:
             self.DFT = json.load(f)
@@ -44,11 +46,12 @@ class Trim(object):
     def trimming__Parse(self):
         try:
             chip_index_start=int(input('Enter Chip Index Start >'))
-            # chip_index_start=1
+            # chip_index_start=76
             chip_index = chip_index_start
             while(True):
                 # self.matrix.reset()
                 input('Insert Chip >')
+                start_time = time()
                 trim_result = []
                 for trim in self.DFT:
                     self.matrix.reset()
@@ -93,23 +96,23 @@ class Trim(object):
                         print(result)
                         trim_result.append(result)
                     
-                    # elif re.search('LDO1.2 Trimming',trim.get('Trimming_Name ')):
-                    #     print(trim.get('Trimming_Name '))
-                    #     self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                    #     ldo_1p2 = Ldo_1p2V_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                    #     ldo_1p2.Ldo_1p2V_Test__SetUp()
-                    #     result=ldo_1p2.Ldo_1p2V_results()
-                    #     print(result)
-                    #     trim_result.append(result)
+                    elif re.search('LDO1.2 Trimming',trim.get('Trimming_Name ')):
+                        print(trim.get('Trimming_Name '))
+                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        ldo_1p2 = Ldo_1p2V_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        ldo_1p2.Ldo_1p2V_Test__SetUp()
+                        result=ldo_1p2.Ldo_1p2V_results()
+                        print(result)
+                        trim_result.append(result)
                         
-                    # if re.search('Main BG Current Trimming',trim.get('Trimming_Name ')):
-                    #     self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                    #     input('Connect TEST1 to Current meter for Main BG Current Trimming >')
-                    #     main_bg = Main_Bg_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                    #     main_bg.Main_Bg_Test__SetUp()
-                    #     result=main_bg.Main_Bg_results()
-                    #     print(result)
-                    #     trim_result.append(result)
+                    if re.search('Main BG Current Trimming',trim.get('Trimming_Name ')):
+                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                        input('Connect TEST1 to Current meter for Main BG Current Trimming >')
+                        main_bg = Main_Bg_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        main_bg.Main_Bg_Test__SetUp()
+                        result=main_bg.Main_Bg_results()
+                        print(result)
+                        trim_result.append(result)
 
                     if re.search('Aon vddsns_ovp trimming',trim.get('Trimming_Name ')):
                         
@@ -138,98 +141,89 @@ class Trim(object):
                         result=ph24_indcs_buff.Ph24_IndCs_Buff_results()
                         print(result)
                         trim_result.append(result)
-                        
-                    elif re.search('IND CS Mirror trimming',trim.get('Trimming_Name ')):
-                        # if re.search('PH4',trim.get('Trimming_Name ')):
-                        #     pass
-                        # else:
+                    elif re.search('PH1S1',trim.get('Trimming_Name ')):
+                        # self.instruments.supply.outp_OFF(channel=1)
+                        # sleep(0.1)
+                        # self.instruments.supply.outp_ON(channel=1)
+                        # sleep(1)
+                        # for reg in trim_result :
+                        #     if reg :
+                        #         self.apis.write_register(register=reg.get('Register'))
+
+                        if re.search('IND CS Mirror trimming',trim.get('Trimming_Name ')):
+                            # if re.search('PH4',trim.get('Trimming_Name ')):
+                            #     pass
+                            # else:
+                                print(trim.get('Trimming_Name '))
+                                self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                                # sleep(1)
+                                PhxSy_indcs_mirror = PhxSy_Indcs_Mirror_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                                PhxSy_indcs_mirror.PhxSy_Indcs_Mirror_Test__SetUp()
+                                result=PhxSy_indcs_mirror.PhxSy_Indcs_Mirror_results()
+                                print(result)
+                                trim_result.append(result)
+                                # pass
+
+                        elif re.search('IND CS Offset trimming',trim.get('Trimming_Name ')):
+                            # if re.search('PH4',trim.get('Trimming_Name ')):
+                            #     pass
+                            # else:
+                                print(trim.get('Trimming_Name '))
+                                self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                                # sleep(0.3)
+                                PhxSy_indcs_offset = PhxSy_Indcs_Offset_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                                PhxSy_indcs_offset.PhxSy_Indcs_Offset_Test__SetUp()
+                                result=PhxSy_indcs_offset.PhxSy_Indcs_Offset_results()
+                                print(result)
+                                trim_result.append(result)
+
+                        elif re.search('IND CS Gain trimming',trim.get('Trimming_Name ')):
+                            # if re.search('PH4',trim.get('Trimming_Name ')):
+                            #     pass
+                            # else:
+                                print(trim.get('Trimming_Name '))
+                                self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                                # sleep(0.3)
+                                PhxSy_indcs_gain = PhxSy_Indcs_Gain_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                                PhxSy_indcs_gain.PhxSy_Indcs_Gain_Test__SetUp()
+                                result=PhxSy_indcs_gain.PhxSy_Indcs_Gain_results()
+                                print(result)
+                                trim_result.append(result)
+
+                        elif re.search('ZC Comparator trimming',trim.get('Trimming_Name ')):
                             print(trim.get('Trimming_Name '))
                             self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                            # sleep(1)
-                            PhxSy_indcs_mirror = PhxSy_Indcs_Mirror_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                            PhxSy_indcs_mirror.PhxSy_Indcs_Mirror_Test__SetUp()
-                            result=PhxSy_indcs_mirror.PhxSy_Indcs_Mirror_results()
-                            print(result)
-                            trim_result.append(result)
-                        
-                    elif re.search('IND CS Offset trimming',trim.get('Trimming_Name ')):
-                        # if re.search('PH4',trim.get('Trimming_Name ')):
-                        #     pass
-                        # else:
-                            print(trim.get('Trimming_Name '))
-                            self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                            # sleep(0.3)
-                            PhxSy_indcs_offset = PhxSy_Indcs_Offset_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                            PhxSy_indcs_offset.PhxSy_Indcs_Offset_Test__SetUp()
-                            result=PhxSy_indcs_offset.PhxSy_Indcs_Offset_results()
-                            print(result)
-                            trim_result.append(result)
-                        
-                    elif re.search('IND CS Gain trimming',trim.get('Trimming_Name ')):
-                        # if re.search('PH4',trim.get('Trimming_Name ')):
-                        #     pass
-                        # else:
-                            print(trim.get('Trimming_Name '))
-                            self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                            # sleep(0.3)
-                            PhxSy_indcs_gain = PhxSy_Indcs_Gain_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                            PhxSy_indcs_gain.PhxSy_Indcs_Gain_Test__SetUp()
-                            result=PhxSy_indcs_gain.PhxSy_Indcs_Gain_results()
+                            PhxSy_indcs_zc = PhxSy_Indcs_ZC_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                            PhxSy_indcs_zc.PhxSy_Indcs_ZC_Test__SetUp()
+                            result=PhxSy_indcs_zc.PhxSy_Indcs_ZC_results()
                             print(result)
                             trim_result.append(result)
 
-                    elif re.search('ZC Comparator trimming',trim.get('Trimming_Name ')):
-                        print(trim.get('Trimming_Name '))
-                        self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                        PhxSy_indcs_zc = PhxSy_Indcs_ZC_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                        PhxSy_indcs_zc.PhxSy_Indcs_ZC_Test__SetUp()
-                        result=PhxSy_indcs_zc.PhxSy_Indcs_ZC_results()
-                        print(result)
-                        trim_result.append(result)
-                        
-                    # elif re.search('PH1S4 IND CS Mirror trimming',trim.get('Trimming_Name ')):
+                    end_time = time()
 
-                    #     print(trim.get('Trimming_Name '))
-                    #     self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                    #     PhxSy_indcs_mirror = PhxSy_Indcs_Mirror_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                    #     PhxSy_indcs_mirror.PhxSy_Indcs_Mirror_Test__SetUp()
-                    #     result=PhxSy_indcs_mirror.PhxSy_Indcs_Mirror_results()
-                    #     print(result)
-                    #     trim_result.append(result)
-                        
-                    # elif re.search('PH1S4 IND CS Offset trimming',trim.get('Trimming_Name ')):
-                    #     print(trim.get('Trimming_Name '))
-                    #     self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                    #     PhxSy_indcs_offset = PhxSy_Indcs_Offset_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                    #     PhxSy_indcs_offset.PhxSy_Indcs_Offset_Test__SetUp()
-                    #     result=PhxSy_indcs_offset.PhxSy_Indcs_Offset_results()
-                    #     print(result)
-                    #     trim_result.append(result)
-                        
-                    # elif re.search('PH1S4 IND CS Gain trimming',trim.get('Trimming_Name ')):
-                    #     print(trim.get('Trimming_Name '))
-                    #     self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                    #     PhxSy_indcs_gain = PhxSy_Indcs_Gain_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                    #     PhxSy_indcs_gain.PhxSy_Indcs_Gain_Test__SetUp()
-                    #     result=PhxSy_indcs_gain.PhxSy_Indcs_Gain_results()
-                    #     print(result)
-                    #     trim_result.append(result)
-                    # elif re.search('PH1S4 ZC Comparator trimming',trim.get('Trimming_Name ')):
-                    #     print(trim.get('Trimming_Name '))
-                    #     self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                    #     PhxSy_indcs_zc = PhxSy_Indcs_ZC_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                    #     PhxSy_indcs_zc.PhxSy_Indcs_ZC_Test__SetUp()
-                    #     result=PhxSy_indcs_zc.PhxSy_Indcs_ZC_results()
-                    #     print(result)
-                    #     trim_result.append(result)
-                
+                    # print('*'*20)
+                    # print('TrimName',trim.get('Trimming_Name '),'StartingTime ',ctime(start_time),'Ending Time',ctime(end_time))
+                    # print('*'*20)
+
+            
+
+                self.dut.block_apis.SIMULINK_MODEL.set_standby_en(1)
+                self.instruments.supply.outp_OFF(channel=1)
+                self.instruments.supply.outp_OFF(channel=3)
+                self.instruments.supply.outp_OFF(channel=4)
                 self.trim_results.update({
                         chip_index:trim_result
                     })
                 chip_index=chip_index+1
+                resultsfilename = f'TrimmingResults_{str(chip_index-1)}_{str(chip_index-1)}'
+                with open(f'json/{resultsfilename}.json', 'w', encoding='utf-8') as f:
+                    print('................................')
+                    json.dump(self.trim_results, f, ensure_ascii=False, indent=4)
         except KeyboardInterrupt :
             self.matrix.reset()
             # self.dut.copy_trims_to_eeprom()
+            # self.startup.buck_PowerDown()
+            self.dut.block_apis.SIMULINK_MODEL.set_standby_en(1)
             self.instruments.supply.outp_OFF(channel=1)
             self.instruments.supply.outp_OFF(channel=3)
             self.instruments.supply.outp_OFF(channel=4)

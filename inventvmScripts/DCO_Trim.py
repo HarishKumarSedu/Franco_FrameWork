@@ -30,9 +30,11 @@ class DCO_Trim:
         # print(self.registers)
 
     def dco_Values__Sweep(self):
-        self.scope.set_autoSet()
+        # self.scope.set_autoSet()
+        self.scope.set_trigger__mode(mode='AUTO')
         self.scope.set_HScale()
         self.scope.set_Channel__VScale(scale=0.1)
+        time.sleep(1)
         if self.trim_register_data:
             for value in range(0,2**(self.trim_register_data.get('RegisterMSB') - self.trim_register_data.get('RegisterLSB') +1),1):
                 self.apis.write_register(register=self.trim_register_data,write_value=value)

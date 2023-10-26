@@ -1,0 +1,28 @@
+{
+    "331": [
+        {
+            "Name": "DCO trimming",
+            "Register": {
+                "RegisterAddress": 568,
+                "RegisterLSB": 10,
+                "RegisterMSB": 15,
+                "RegisterValue": 37
+            },
+            "MeasureValue": 2996700.0,
+            "typical": 3000000,
+            "MinError": -0.11
+        },
+        {
+            "Name": "PH1S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 3
+            },
+            "MeasureValue": -0.0017457120000000104,
+            "typical": 0.01,
+            "MinError": 5.506737500000913e-05
+        }
+    ]
+}

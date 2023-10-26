@@ -17,17 +17,25 @@ class PhxSy_Indcs_Mirror_Trim:
 
 
     def PhxSy_Indcs_Mirror_Test__SetUp(self):
-        self.startup.buck_PowerUp() # Run the buck powerup 
+        self.startup.cirrus_Startup() # Run the buck powerup 
+        # self.startup.IVM_Startup() # Run the buck powerup 
+        # self.startup.buck_PowerUp() # Run the buck powerup 
         # set the powersupply @vsys with sinfel quadrent 
+        # self.dut.IVM.REG_TEST0_RW.DS_PH1_DRV_TEST_HS.value=0
+        # self.dut.IVM.REG_TEST0_RW.DS_PH1_DRV_TEST_EN.value=1
+        # self.dut.IVM.REG_TEST0_RW.DS_PH1_DRV_TEST_EN.value=0
+        # time.sleep(0.1)
+        # print('self.dut.IVM.REG_TEST0_RW.DS_PH1_DRV_TEST_HS.value=1')
+        # self.dut.IVM.REG_TEST0_RW.DS_PH1_DRV_TEST_HS.value=1
+        # self.dut.IVM.REG_TEST0_RW.DS_PH1_DRV_TEST_EN.value=1
+        # self.dut.IVM.REG_FORCE_RW.DS_PH1_INDCS_FORCE_EN.value=1
+        # self.dut.IVM.REG_FORCE_RW.DS_PH1_INDCS_FORCE_SEL.value=1
         self.supply.outp_OFF(channel=3)
         self.supply.setCurrent_Priority(channel=3)
+        time.sleep(0.1)
         for Instruction in self.DFT.get("Instructions"):
             # parse Ldo_1p2V instruction register 
             if re.match(re.compile('0x'),Instruction):
-                # self.dut.IVM.REG_TEST0_RW.DS_PH1_DRV_TEST_HS.value=1
-                # self.dut.IVM.REG_TEST0_RW.DS_PH1_DRV_TEST_EN.value=1
-                # self.dut.IVM.REG_FORCE_RW.DS_PH1_INDCS_FORCE_EN.value=1
-                # self.dut.IVM.REG_FORCE_RW.DS_PH1_INDCS_FORCE_SEL.value=1
                 reg_data = self.apis.parse_registerAddress_from_string(Instruction)
                 if reg_data:
                     self.registers.append(reg_data)
@@ -70,6 +78,7 @@ class PhxSy_Indcs_Mirror_Trim:
         # limits are not in percentage
         vout=[]
         vout_abs=[]
+        typical = 0.075
         # print('self.measure_values_1A[i] ',len(self.measure_values_1A ),'self.measure_values_0A[i]',self.measure_values_0A,'self.measure_values_m1A[i]',len(self.trim_code))
         for i in range(0,len(self.trim_code)):
             vout.append((self.measure_values_1A[i] - 2*self.measure_values_0A[i]+self.measure_values_m1A[i] ))
@@ -77,12 +86,27 @@ class PhxSy_Indcs_Mirror_Trim:
 
         error_min = min(vout_abs)
         error_min__Index =vout_abs.index(error_min)
-        actual_error = abs(self.measure_values_1A[error_min__Index]) - abs(self.measure_values_m1A[error_min__Index])
+        self.trim_register_data.update({
+                    "RegisterValue":self.trim_code[error_min__Index]
+                })
+        self.apis.write_register(register=self.trim_register_data)
 
-        if actual_error > -0.01 and actual_error < 0.01:
-            print("Minimum error",error_min)
-            print("Min Value",vout_abs[error_min__Index])
-            print("Min Value code",self.trim_code[error_min__Index])
+        # Apply 1A and get the vout 
+        time.sleep(0.1)
+        if re.search('S4',self.DFT.get('Trimming_Name ')):
+            self.supply.setCurrent(channel=3,current=-1)
+        else:
+            self.supply.setCurrent(channel=3,current=1)
+
+        self.supply.outp_ON(channel=3)
+        vout_1A = abs(self.multimeter.meas_V())
+        limit_max = vout_1A + vout_1A*0.16
+        limit_min = vout_1A - vout_1A*0.16
+        self.supply.outp_OFF(channel=3)
+        print('Limit max',limit_max,'limit min',limit_min,'Vout_1A',vout_1A,'error min',error_min)
+
+        if vout_1A > limit_min and vout_1A < limit_max :
+        # if True :
 
             self.trim_register_data.update({
                     "RegisterValue":self.trim_code[error_min__Index]
@@ -92,12 +116,36 @@ class PhxSy_Indcs_Mirror_Trim:
             self.trim_results = {
                 "Name" : self.DFT.get('Trimming_Name '),
                 "Register":self.trim_register_data,
-                "MeasureValue":actual_error,
-                "typical":0.01,
-                "MinError":error_min,
+                "MeasureValue":vout_1A,
+                "typical":typical,
+                "MinError":abs(typical - vout_1A),
             }
             for register in self.registers:
                 self.apis.write_register(register=register,write_value=0)
+            self.startup.cirrus_PowerDown()
+            # self.startup.IVM_Powerdown()
+            # self.startup.buck_PowerDown()
+        else:
+            self.trim_register_data.update({
+                    "RegisterValue":0
+                })
+            self.apis.write_register(register=self.trim_register_data)
+
+            self.trim_results = {
+                "Name" : self.DFT.get('Trimming_Name '),
+                "Register":self.trim_register_data,
+                "MeasureValue":vout_1A,
+                "typical":typical,
+                "MinError":abs(typical - vout_1A),
+            }
+            for register in self.registers:
+                self.apis.write_register(register=register,write_value=0)
+            self.startup.cirrus_PowerDown()
+            # self.startup.IVM_Powerdown()
+            # self.startup.buck_PowerDown()
+
 
     def PhxSy_Indcs_Mirror_results (self):
+        # self.startup.IVM_Powerdown()
+        self.startup.cirrus_PowerDown()
         return self.trim_results

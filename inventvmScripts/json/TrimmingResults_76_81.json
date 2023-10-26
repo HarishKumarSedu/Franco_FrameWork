@@ -1,0 +1,86 @@
+{
+    "76": [
+        {
+            "Name": "PH2S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 624,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 3
+            },
+            "MeasureValue": -0.005359338399999997,
+            "typical": 0.01,
+            "MinError": 4.50690550000063e-05
+        }
+    ],
+    "77": [
+        {
+            "Name": "PH2S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 624,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 3
+            },
+            "MeasureValue": -0.0053567269499999945,
+            "typical": 0.01,
+            "MinError": 2.2186820000005825e-05
+        }
+    ],
+    "78": [
+        {
+            "Name": "PH2S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 624,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 3
+            },
+            "MeasureValue": -0.005347106225000002,
+            "typical": 0.01,
+            "MinError": 6.791691500000058e-05
+        }
+    ],
+    "79": [
+        {
+            "Name": "PH2S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 624,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 3
+            },
+            "MeasureValue": -0.005372740774999996,
+            "typical": 0.01,
+            "MinError": 9.761929999997643e-06
+        }
+    ],
+    "80": [
+        {
+            "Name": "PH2S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 624,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 15
+            },
+            "MeasureValue": 0.0001920979999999739,
+            "typical": 0.01,
+            "MinError": 0.0001409714999999201
+        }
+    ],
+    "81": [
+        {
+            "Name": "PH2S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 624,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 3
+            },
+            "MeasureValue": -0.005386349900000004,
+            "typical": 0.01,
+            "MinError": 3.2450925000003517e-05
+        }
+    ]
+}

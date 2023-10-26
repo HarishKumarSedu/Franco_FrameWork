@@ -41,6 +41,7 @@ from ph1_indcs import ph1_indcs
 from startup import Startup
 from Trimming import Trim
 from LoadTrims import LoadTrims
+from Indcs_debug import Inducs_Debug
 
 load_dotenv(r'C:\validation\Projects\Franco\python\franco_val\env\franco_val_inventm.env')
 load_dotenv(
@@ -84,8 +85,9 @@ input_cmd = "placeholder"
 #Startup 
 startup = Startup(dut=dut)
 
+# loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_750_750.json',chipid=750)
 trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json')
-# loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_62_62.json',chipid=62)
+
 
 print("-"*50)
 print("Enter Code to run... ")

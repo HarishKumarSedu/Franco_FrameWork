@@ -1,0 +1,19 @@
+{
+    "76": [
+        {}
+    ],
+    "77": [
+        {
+            "Name": "PH1S1 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 6,
+                "RegisterMSB": 11,
+                "RegisterValue": 50
+            },
+            "MeasureValue": -0.0769489719125,
+            "typical": 0.07575,
+            "MinError": 0.0011989719124999992
+        }
+    ]
+}

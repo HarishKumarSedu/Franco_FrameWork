@@ -54,7 +54,7 @@ class Aon_Vref_1p2V_Trim:
                     modifiedvalue = abs(int(2**(self.trim_register_data.get('RegisterMSB') - self.trim_register_data.get('RegisterLSB') +1)) - value + int(2**(self.trim_register_data.get('RegisterMSB') - self.trim_register_data.get('RegisterLSB') +1)/2))
                     self.apis.write_register(register=self.trim_register_data,write_value=modifiedvalue)
                     self.trim_code.append(modifiedvalue)
-                time.sleep(0.1)
+                time.sleep(0.01)
                 self.measure_values.append(abs(self.voltmeter.meas_V())) # get the frequency values from voltmeter
         
         self.Aon_Vref_1p2V_Limit__Check()
