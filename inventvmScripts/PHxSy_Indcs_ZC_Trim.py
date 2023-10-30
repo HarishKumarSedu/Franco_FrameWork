@@ -16,8 +16,8 @@ class PhxSy_Indcs_ZC_Trim:
 
 
     def PhxSy_Indcs_ZC_Test__SetUp(self):
-        self.startup.cirrus_Startup() # Run the buck powerup 
-        # self.startup.IVM_Startup()
+        # self.startup.cirrus_Startup() # Run the buck powerup 
+        self.startup.IVM_Startup()
         # self.startup.buck_PowerUp() # Run the buck powerup 
         # set the powersupply @vsys with sinfel quadrent 
         # self.supply.setCurrent_Priority(channel=3)
@@ -46,9 +46,11 @@ class PhxSy_Indcs_ZC_Trim:
         self.measure_values=[]
         if self.trim_register_data:
             for value in range(0,2**(self.trim_register_data.get('RegisterMSB') - self.trim_register_data.get('RegisterLSB') +1),1):
+            # for value in range(0,16,1):
                 self.apis.write_register(register=self.trim_register_data,write_value=value)
                 self.trim_code.append(value)
                 time.sleep(0.01)
+                # input(f'ZC Trim Sweep code : {value} >')
                 self.measure_values.append(self.PhxSy_Indcs_ZC_Values__Sweep___Current()) # get the frequency values from multimeter
         self.supply.setCurrent(channel=3,current=0)
         self.supply.outp_OFF(channel=3)
@@ -65,10 +67,10 @@ class PhxSy_Indcs_ZC_Trim:
         # while(self.scope.acquireState == True):
         self.scope.scopeTrigger_Acquire()
         while(self.scope.scopeAcquire_BUSY):
-                time.sleep(0.05)
+                time.sleep(0.005)
                 self.supply.setCurrent(channel=3,current=current)
                 current=current+0.005
-                if current > 1 :
+                if current > 0.6 :
                     break
         # self.supply.setCurrent(channel=3,current=-0.1)
         return self.supply.getCurrent(channel=3)
@@ -91,8 +93,8 @@ class PhxSy_Indcs_ZC_Trim:
         error_min = min(error_abs)
         error_min__Index =error_abs.index(error_min)
         print('error min',error_min,'max',limit_max,'min',limit_min)
-        # if error_min < limit_min and  error_min < limit_max:
-        if error[error_min__Index] > limit_min and error[error_min__Index] < limit_max:
+        if error_min > limit_min and  error_min < limit_max:
+        # if error[error_min__Index] > limit_min and error[error_min__Index] < limit_max:
             print("Minimum error",error[error_min__Index])
             print("Min Value",self.measure_values[error_min__Index])
             print("Min Value code",self.trim_code[error_min__Index])
@@ -108,17 +110,36 @@ class PhxSy_Indcs_ZC_Trim:
                 "MeasureValue":self.measure_values[error_min__Index],
                 "typical":typical,
                 "MinError":error[error_min__Index],
+                "Trim":True
             }
             #reset the test driver 
             for register in self.registers:
                 self.apis.write_register(register=register,write_value=0)
+            # self.startup.IVM_Powerdown()
+                
+        else:
+            self.trim_register_data.update({
+                    "RegisterValue":self.trim_code[error_min__Index]
+                })
+
+            self.trim_results = {
+                "Name" : self.DFT.get('Trimming_Name '),
+                "Register":self.trim_register_data,
+                "MeasureValue":self.measure_values[error_min__Index],
+                "typical":typical,
+                "MinError":error[error_min__Index],
+                "Trim":False
+            }
+            #reset the test driver 
+            for register in self.registers:
+                self.apis.write_register(register=register,write_value=0)
+            # self.startup.cirrus_PowerDown()
             self.startup.IVM_Powerdown()
                 
-            self.scope.set_trigger__mode()
-            self.scope.single_Trigger__RUN()
+        self.scope.set_trigger__mode()
+        self.scope.single_Trigger__RUN()
+
 
     def PhxSy_Indcs_ZC_results (self):
-        self.startup.cirrus_PowerDown()
-        # self.startup.IVM_Powerdown()
         return self.trim_results
 

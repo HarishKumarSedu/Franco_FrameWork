@@ -19,7 +19,8 @@ class Ph24_IndCs_Buff_Trim:
     
     def Ph24_IndCs_Buff_Test__SetUp(self):
         # self.startup.buck_PowerUp() # Run the buck powerup
-        self.startup.cirrus_Startup() # Run the buck powerup  
+        # self.startup.cirrus_Startup() # Run the buck powerup  
+        self.startup.IVM_Startup() # Run the buck powerup  
         for Instruction in self.DFT.get("Instructions"):
             if re.match(re.compile('0x'),Instruction):
                 reg_data = self.apis.parse_registerAddress_from_string(Instruction)
@@ -78,6 +79,8 @@ class Ph24_IndCs_Buff_Trim:
                 "typical":typical,
                 "MinError":error[error_min__Index],
             }
-            self.startup.cirrus_PowerDown()
+            # self.startup.cirrus_PowerDown()
+            self.startup.IVM_Powerdown()
     def Ph24_IndCs_Buff_results (self):
         return self.trim_results
+

@@ -24,8 +24,8 @@ class Aon_Vref_1p2V_Trim:
         self.dut.IVM.REG_TEST1_RW.DS_AON_TEST_SEL.value=3
         self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=0
         self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_SEL.value=7
-        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=1
         self.dut.IVM.REG_TEST0_RW.DS_TEST2_VIS_SEL.value=6
+        self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=1
         for Instruction in self.DFT.get("Instructions"):
             # parse Aon_Vref_1p2V instruction register 
             if re.match(re.compile('0x'),Instruction):

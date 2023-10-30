@@ -17,8 +17,8 @@ class PhxSy_Indcs_Offset_Trim:
 
 
     def PhxSy_Indcs_Offset_Test__SetUp(self):
-        # self.startup.IVM_Startup()
-        self.startup.cirrus_Startup() # Run the buck powerup 
+        self.startup.IVM_Startup()
+        # self.startup.cirrus_Startup() # Run the buck powerup 
         # self.startup.buck_PowerUp() # Run the buck powerup 
         # set the powersupply @vsys with sinfel quadrent 
         self.supply.outp_OFF(channel=3)
@@ -85,14 +85,43 @@ class PhxSy_Indcs_Offset_Trim:
                 "MeasureValue":self.measure_values_0A[error_min__Index],
                 "typical":typical,
                 "MinError":error[error_min__Index],
+                "Trim":True
             }
-            #reset the test driver 
-            for register in self.registers:
-                self.apis.write_register(register=register,write_value=0)
-            self.startup.cirrus_PowerDown()
-            # self.startup.IVM_Powerdown()
-            self.supply.outp_OFF(channel=3)
+        else:
+            self.trim_register_data.update({
+                    "RegisterValue":self.trim_code[error_min__Index]
+                })
+            #write the optimal code 
+            self.apis.write_register(register=self.trim_register_data)
+            # update the trim results 
+            self.trim_results = {
+                "Name" : self.DFT.get('Trimming_Name '),
+                "Register":self.trim_register_data,
+                "MeasureValue":self.measure_values_0A[error_min__Index],
+                "typical":typical,
+                "MinError":error[error_min__Index],
+                "Trim":False
+            }
+        self.supply.outp_ON(channel=3)
+        self.supply.setCurrent(channel=3,current=1) 
+        time.sleep(0.5)
+        vout_1A = abs(self.multimeter.meas_V()) 
+        time.sleep(0.5)
+        self.supply.setCurrent(channel=3,current=-1) 
+        time.sleep(0.5)
+        vout_m1A = abs(self.multimeter.meas_V()) 
+        time.sleep(0.5)
+        self.supply.setCurrent(channel=3,current=0) 
+        time.sleep(0.5)
+        vout_0A = abs(self.multimeter.meas_V()) 
+        time.sleep(0.5)
+        print('Limit max',limit_max,'limit min',limit_min,'Vout_1A',vout_1A,'Vout_m1A',vout_m1A,'Vout_0A',vout_0A,'error min',error_min)
+        #reset the test driver 
+        for register in self.registers:
+            self.apis.write_register(register=register,write_value=0)
+        # self.startup.cirrus_PowerDown()
+        self.startup.IVM_Powerdown()
+        self.supply.outp_OFF(channel=3)
+        
     def PhxSy_Indcs_Offset_results (self):
-        self.startup.cirrus_PowerDown()
-        # self.startup.IVM_Powerdown()
         return self.trim_results

@@ -36,7 +36,7 @@ class Ldo_1p2V_Trim:
             for value in range(0,2**4,1):
                 self.apis.write_register(register=self.trim_register_data,write_value=value)
                 self.trim_code.append(value)
-                time.sleep(0.1)
+                time.sleep(0.01)
                 self.measure_values.append(self.multimeter.meas_V()) # get the frequency values from multimeter
         
         self.Ldo_1p2V_Limit__Check()

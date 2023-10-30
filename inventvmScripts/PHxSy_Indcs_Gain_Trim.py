@@ -16,8 +16,8 @@ class PhxSy_Indcs_Gain_Trim:
 
 
     def PhxSy_Indcs_Gain_Test__SetUp(self):
-        self.startup.cirrus_Startup() # Run the buck powerup 
-        # self.startup.IVM_Startup() # Run the buck powerup 
+        # self.startup.cirrus_Startup() # Run the buck powerup 
+        self.startup.IVM_Startup() # Run the buck powerup 
         # self.startup.buck_PowerUp() # Run the buck powerup 
         # set the powersupply @vsys with sinfel quadrent 
         self.supply.outp_OFF(channel=3)
@@ -35,14 +35,21 @@ class PhxSy_Indcs_Gain_Trim:
 
     def PhxSy_Indcs_Gain_Values__Sweep(self):
         self.supply.outp_ON(channel=3)
-        self.supply.setCurrent(channel=3,current=1)
+        if re.search('S4',self.DFT.get('Trimming_Name ')):
+            self.supply.setCurrent(channel=3,current=1)
+        else:
+            self.supply.setCurrent(channel=3,current=-1)
         self.measure_values_1A=[]
         if self.trim_register_data:
             for value in range(0,2**(self.trim_register_data.get('RegisterMSB') - self.trim_register_data.get('RegisterLSB') +1),1):
                 self.apis.write_register(register=self.trim_register_data,write_value=value)
                 self.trim_code.append(value)
                 time.sleep(0.01)
-                self.measure_values_1A.append(self.multimeter.meas_V() - 0.075) # get the frequency values from multimeter
+                if re.search('S4',self.DFT.get('Trimming_Name ')):
+                    self.measure_values_1A.append(self.multimeter.meas_V() + 0.075) # get the frequency values from multimeter
+                else:
+                    self.measure_values_1A.append(self.multimeter.meas_V() - 0.075) # get the frequency values from multimeter
+                # input('Gain move >')
         self.supply.setCurrent(channel=3,current=0)
         self.supply.outp_OFF(channel=3)
         self.PhxSy_Indcs_Gain_Limit__Check()
@@ -64,9 +71,13 @@ class PhxSy_Indcs_Gain_Trim:
 
         error_min = min(measure_values_1A_abs)
         error_min__Index =measure_values_1A_abs.index(error_min)
-        print('error min',error_min,'max',limit_max,'min',limit_min)
-        if error_min < limit_max  and error_min < limit_max:
-        # if error[error_min__Index] > limit_min and error[error_min__Index] < limit_max:
+        error_meas = self.measure_values_1A[error_min__Index]
+        if re.search('S4',self.DFT.get('Trimming_Name ')):
+            measure_value = self.measure_values_1A[error_min__Index] - 0.075
+        else:
+            measure_value = self.measure_values_1A[error_min__Index] + 0.075
+            
+        if abs(measure_value) > limit_min and abs(measure_value) < limit_max:
             print("Minimum error",abs(typical - error_min))
             print("Min Value",self.measure_values_1A[error_min__Index])
             print("Min Value code",self.trim_code[error_min__Index])
@@ -79,18 +90,61 @@ class PhxSy_Indcs_Gain_Trim:
             self.trim_results = {
                 "Name" : self.DFT.get('Trimming_Name '),
                 "Register":self.trim_register_data,
-                "MeasureValue":self.measure_values_1A[error_min__Index],
+                "MeasureValue":measure_value,
                 "typical":typical,
-                "MinError":abs(typical - error_min),
+                "MinError":measure_values_1A_abs[error_min__Index],
+                "Trim": True
             }
-            #reset the test driver 
-            for register in self.registers:
-                self.apis.write_register(register=register,write_value=0)
-            self.startup.cirrus_PowerDown()
+
             # self.startup.IVM_Powerdown() # Run the buck powerup 
+        else:
+            self.trim_register_data.update({
+                    "RegisterValue":self.trim_code[error_min__Index]
+                })
 
+            self.trim_results = {
+                "Name" : self.DFT.get('Trimming_Name '),
+                "Register":self.trim_register_data,
+                "MeasureValue":measure_value,
+                "typical":typical,
+                "MinError":measure_values_1A_abs[error_min__Index],
+                "Trim":False
+            }
+  
+        if re.search('S4',self.DFT.get('Trimming_Name ')):
+            # input('Gain Trim finished >')
+            self.supply.outp_ON(channel=3)
+            self.supply.setCurrent(channel=3,current=1) 
+            time.sleep(0.5)
+            vout_m1A = abs(self.multimeter.meas_V()) 
+            # input(f'vout 1A {vout_1A}')
+            time.sleep(0.5)
+            self.supply.setCurrent(channel=3,current=-1) 
+            time.sleep(0.5)
+            vout_1A = abs(self.multimeter.meas_V()) 
+            # input(f'vout -1A {vout_m1A}')
+        else:
+            # input('Gain Trim finished >')
+            self.supply.outp_ON(channel=3)
+            self.supply.setCurrent(channel=3,current=1) 
+            time.sleep(0.5)
+            vout_1A = abs(self.multimeter.meas_V()) 
+            # input(f'vout 1A {vout_1A}')
+            time.sleep(0.5)
+            self.supply.setCurrent(channel=3,current=-1) 
+            time.sleep(0.5)
+            vout_m1A = abs(self.multimeter.meas_V()) 
+            # input(f'vout -1A {vout_m1A}')
+        time.sleep(0.5)
+        self.supply.setCurrent(channel=3,current=0) 
+        time.sleep(0.5)
+        vout_0A = abs(self.multimeter.meas_V()) 
+        # input(f'vout 0A {vout_0A}')
+        time.sleep(0.5)
+        print('Limit max',limit_max,'limit min',limit_min,'Vout_1A',vout_1A,'Vout_m1A',vout_m1A,'Vout_0A',vout_0A,'error_meas',error_meas)
+        for register in self.registers:
+            self.apis.write_register(register=register,write_value=0)
+        # self.startup.cirrus_PowerDown()
+        self.startup.IVM_Powerdown()
     def PhxSy_Indcs_Gain_results (self):
-        self.startup.cirrus_PowerDown()
-        # self.startup.IVM_Powerdown()
-
         return self.trim_results

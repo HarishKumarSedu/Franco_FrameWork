@@ -29,7 +29,7 @@ class Aon_Vref_0p6V_Trim:
         # self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=1
         while(True):
             # voltage = self.voltmeter.meas_V()
-            if self.voltmeter.meas_V() < 0.75 :
+            if self.voltmeter.meas_V() < 0.85 :
                 self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_SEL.value=7   
                 self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=1
                 break

@@ -24,6 +24,7 @@ class Vdd_Sns_Ovp_Trim:
                     self.registers.append(reg_data)
                     self.apis.write_register(register=reg_data)
             if re.search(re.compile('TrimSweep'),Instruction):
+                # input('Vbat ovp >')
                 self.trim_register_data = self.apis.parse_trim_registerAddress_from_string(Instruction)
                 self.Vdd_Sns_Ovp_Values__Sweep()
 

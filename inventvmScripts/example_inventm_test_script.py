@@ -85,8 +85,8 @@ input_cmd = "placeholder"
 #Startup 
 startup = Startup(dut=dut)
 
-# loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_750_750.json',chipid=750)
-trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json')
+loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_300_300.json',chipid=300)
+trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json',loadTrim=loadTrim)
 
 
 print("-"*50)

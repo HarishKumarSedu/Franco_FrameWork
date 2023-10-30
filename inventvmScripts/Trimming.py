@@ -30,8 +30,9 @@ class Trim(object):
     This is a class called Trimming. It has an __init__ method that takes a list of DFTs as input. It sets the DFT attribute to the input and calls the trimming_Instructions__Parse method. 
     """
 
-    def __init__(self,test_station,DFT_path:str) -> None:
+    def __init__(self,test_station,DFT_path:str,loadTrim) -> None:
         self.test_station = test_station # franco dut object 
+        self.loadTrim = loadTrim
         self.dut = self.test_station.eeb.franco
         self.instruments = Instruments()
         self.matrix = Matrix()
@@ -45,8 +46,8 @@ class Trim(object):
         
     def trimming__Parse(self):
         try:
-            chip_index_start=int(input('Enter Chip Index Start >'))
-            # chip_index_start=76
+            # chip_index_start=int(input('Enter Chip Index Start >'))
+            chip_index_start=200
             chip_index = chip_index_start
             while(True):
                 # self.matrix.reset()
@@ -141,14 +142,17 @@ class Trim(object):
                         result=ph24_indcs_buff.Ph24_IndCs_Buff_results()
                         print(result)
                         trim_result.append(result)
-                    elif re.search('PH1S1',trim.get('Trimming_Name ')):
+
+                    elif re.search('PH',trim.get('Trimming_Name ')):
                         # self.instruments.supply.outp_OFF(channel=1)
-                        # sleep(0.1)
-                        # self.instruments.supply.outp_ON(channel=1)
-                        # sleep(1)
-                        # for reg in trim_result :
-                        #     if reg :
-                        #         self.apis.write_register(register=reg.get('Register'))
+                        self.instruments.supply.setVoltage(channel=1,voltage=0)
+                        sleep(1)
+                        self.instruments.supply.setVoltage(channel=1,voltage=5)
+                        sleep(1)
+                        # self.loadTrim.loadTrims()
+                        for reg in trim_result :
+                            if reg :
+                                self.apis.write_register(register=reg.get('Register'))
 
                         if re.search('IND CS Mirror trimming',trim.get('Trimming_Name ')):
                             # if re.search('PH4',trim.get('Trimming_Name ')):
@@ -201,13 +205,14 @@ class Trim(object):
 
                     end_time = time()
 
-                    # print('*'*20)
-                    # print('TrimName',trim.get('Trimming_Name '),'StartingTime ',ctime(start_time),'Ending Time',ctime(end_time))
-                    # print('*'*20)
+                    print('*'*20)
+                    print('TrimName',trim.get('Trimming_Name '),'StartingTime ',ctime(start_time),'Ending Time',ctime(end_time))
+                    print('*'*20)
 
             
 
                 self.dut.block_apis.SIMULINK_MODEL.set_standby_en(1)
+                self.startup.buck_PowerDown()
                 self.instruments.supply.outp_OFF(channel=1)
                 self.instruments.supply.outp_OFF(channel=3)
                 self.instruments.supply.outp_OFF(channel=4)
