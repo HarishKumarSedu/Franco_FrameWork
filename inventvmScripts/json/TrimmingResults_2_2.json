@@ -5,11 +5,11 @@
             "RegisterAddress": 568,
             "RegisterLSB": 10,
             "RegisterMSB": 15,
-            "RegisterValue": 38
+            "RegisterValue": 37
         },
-        "MeasureValue": 2996100.0,
+        "MeasureValue": 3004300.0,
         "typical": 3000000,
-        "MinError": -0.13
+        "MinError": 0.14333333333333334
     },
     {
         "Name": "Aon BG vref 1.2V (VDDA 1.8V) trimming",
@@ -17,11 +17,11 @@
             "RegisterAddress": 596,
             "RegisterLSB": 13,
             "RegisterMSB": 17,
-            "RegisterValue": 0
+            "RegisterValue": 3
         },
-        "MeasureValue": 1.7992878725,
+        "MeasureValue": 1.80433428,
         "typical": 1.8,
-        "MinError": -0.0395626388888854
+        "MinError": 0.24079333333332847
     },
     {
         "Name": "Aon vref 0.6V trimming",
@@ -29,10 +29,10 @@
             "RegisterAddress": 596,
             "RegisterLSB": 3,
             "RegisterMSB": 7,
-            "RegisterValue": 2
+            "RegisterValue": 4
         },
-        "MeasureValue": 0.5996284555,
+        "MeasureValue": 0.59918648575,
         "typical": 0.6,
-        "MinError": -0.061924083333331215
+        "MinError": -0.13558570833333006
     }
 ]
