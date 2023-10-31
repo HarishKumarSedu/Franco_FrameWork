@@ -17,7 +17,7 @@ class PhxSy_Indcs_ZC_Trim:
 
     def PhxSy_Indcs_ZC_Test__SetUp(self):
         # self.startup.cirrus_Startup() # Run the buck powerup 
-        self.startup.IVM_Startup()
+        # self.startup.IVM_Startup()
         # self.startup.buck_PowerUp() # Run the buck powerup 
         # set the powersupply @vsys with sinfel quadrent 
         # self.supply.setCurrent_Priority(channel=3)
@@ -134,7 +134,7 @@ class PhxSy_Indcs_ZC_Trim:
             for register in self.registers:
                 self.apis.write_register(register=register,write_value=0)
             # self.startup.cirrus_PowerDown()
-            self.startup.IVM_Powerdown()
+            # self.startup.IVM_Powerdown()
                 
         self.scope.set_trigger__mode()
         self.scope.single_Trigger__RUN()

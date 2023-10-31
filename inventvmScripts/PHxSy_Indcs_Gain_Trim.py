@@ -17,7 +17,7 @@ class PhxSy_Indcs_Gain_Trim:
 
     def PhxSy_Indcs_Gain_Test__SetUp(self):
         # self.startup.cirrus_Startup() # Run the buck powerup 
-        self.startup.IVM_Startup() # Run the buck powerup 
+        # self.startup.IVM_Startup() # Run the buck powerup 
         # self.startup.buck_PowerUp() # Run the buck powerup 
         # set the powersupply @vsys with sinfel quadrent 
         self.supply.outp_OFF(channel=3)
@@ -145,6 +145,6 @@ class PhxSy_Indcs_Gain_Trim:
         for register in self.registers:
             self.apis.write_register(register=register,write_value=0)
         # self.startup.cirrus_PowerDown()
-        self.startup.IVM_Powerdown()
+        # self.startup.IVM_Powerdown()
     def PhxSy_Indcs_Gain_results (self):
         return self.trim_results

@@ -111,22 +111,16 @@ class Startup:
         self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_EN_OCP.value = 0
         self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_EN_OCP.value = 0
         self.dut.SIMULINK_MODEL.TEST_INNER_LOOP_VFLY.TEST_WKCFLY_DISABLE.value = 1
-        # self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN.value = 0
-        # # self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN_D.value = 0
-        # self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN.value = 1
-        # # self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN_D.value = 1
-        # self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN.value = 0
-        # # self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN_D.value = 0
-        # self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN.value = 1
-        # # self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN_D.value = 1
-        # self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN.value = 0
-        # # self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN_D.value = 0
-        # self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN.value = 1
-        # # self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN_D.value = 1
-        # self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN.value = 0
-        # # self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN_D.value = 0
-        # self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN.value = 1
-        # # self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN_D.value = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN.value = 0
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN.value = 0
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN.value = 0
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN.value = 0
+        sleep(0.1)
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN.value = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN.value = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN.value = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN.value = 1
+   
     
     def cirrus_PowerDown(self):
         self.dut.block_apis.SIMULINK_MODEL.set_standby_en(1)

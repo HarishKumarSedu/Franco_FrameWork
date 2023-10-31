@@ -18,7 +18,7 @@ class PhxSy_Indcs_Mirror_Trim:
 
     def PhxSy_Indcs_Mirror_Test__SetUp(self):
         # self.startup.cirrus_Startup() # Run the buck powerup 
-        self.startup.IVM_Startup() # Run the buck powerup 
+        # self.startup.IVM_Startup() # Run the buck powerup 
         # self.startup.buck_PowerUp() # Run the buck powerup 
         # set the powersupply @vsys with sinfel quadrent 
         # self.dut.IVM.REG_TEST0_RW.DS_PH1_DRV_TEST_HS.value=0
@@ -179,7 +179,7 @@ class PhxSy_Indcs_Mirror_Trim:
         for register in self.registers:
             self.apis.write_register(register=register,write_value=0)
         # self.startup.cirrus_PowerDown()
-        self.startup.IVM_Powerdown()
+        # self.startup.IVM_Powerdown()
 
 
     def PhxSy_Indcs_Mirror_results (self):

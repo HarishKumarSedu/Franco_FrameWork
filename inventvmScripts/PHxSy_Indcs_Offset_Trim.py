@@ -17,7 +17,7 @@ class PhxSy_Indcs_Offset_Trim:
 
 
     def PhxSy_Indcs_Offset_Test__SetUp(self):
-        self.startup.IVM_Startup()
+        # self.startup.IVM_Startup()
         # self.startup.cirrus_Startup() # Run the buck powerup 
         # self.startup.buck_PowerUp() # Run the buck powerup 
         # set the powersupply @vsys with sinfel quadrent 
@@ -120,7 +120,7 @@ class PhxSy_Indcs_Offset_Trim:
         for register in self.registers:
             self.apis.write_register(register=register,write_value=0)
         # self.startup.cirrus_PowerDown()
-        self.startup.IVM_Powerdown()
+        # self.startup.IVM_Powerdown()
         self.supply.outp_OFF(channel=3)
         
     def PhxSy_Indcs_Offset_results (self):
