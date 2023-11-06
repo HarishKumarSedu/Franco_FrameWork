@@ -22,6 +22,11 @@ class PhxSy_Indcs_Gain_Trim:
         # set the powersupply @vsys with sinfel quadrent 
         self.supply.outp_OFF(channel=3)
         self.supply.setCurrent_Priority(channel=3)
+        # applicabel to turn the High side (bat bet should be removed )
+        if re.search('S1',self.DFT.get('Trimming_Name ')):
+            # input('Gain Trim finished >')
+            self.supply.setVoltage(channel=4,voltage=4)
+            self.supply.outp_ON(channel=4)
         for Instruction in self.DFT.get("Instructions"):
             # parse Ldo_1p2V instruction register 
             if re.match(re.compile('0x'),Instruction):
@@ -31,6 +36,11 @@ class PhxSy_Indcs_Gain_Trim:
                     self.apis.write_register(register=reg_data)
             if re.search(re.compile('TrimSweep'),Instruction):
                 self.trim_register_data = self.apis.parse_trim_registerAddress_from_string(Instruction)
+                        # applicabel to turn the High side (bat bet should be removed )
+                if re.search('S1',self.DFT.get('Trimming_Name ')):
+                    time.sleep(1)
+                    self.supply.setVoltage(channel=4,voltage=0)
+                    self.supply.outp_OFF(channel=4)
                 self.PhxSy_Indcs_Gain_Values__Sweep()
 
     def PhxSy_Indcs_Gain_Values__Sweep(self):

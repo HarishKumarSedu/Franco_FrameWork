@@ -33,6 +33,13 @@ class PhxSy_Indcs_Mirror_Trim:
         self.supply.outp_OFF(channel=3)
         self.supply.setCurrent_Priority(channel=3)
         self.multimeter.set_Voltage__NPLC(1)
+        
+        # applicabel to turn the High side (bat bet should be removed )
+        if re.search('S1',self.DFT.get('Trimming_Name ')):
+            # input('Gain Trim finished >')
+            self.supply.setVoltage(channel=4,voltage=4)
+            self.supply.outp_ON(channel=4)
+
         time.sleep(0.1)
         for Instruction in self.DFT.get("Instructions"):
             # parse Ldo_1p2V instruction register 
@@ -44,7 +51,11 @@ class PhxSy_Indcs_Mirror_Trim:
             if re.search(re.compile('TrimSweep'),Instruction):
                 # input('>')
                 self.trim_register_data = self.apis.parse_trim_registerAddress_from_string(Instruction)
-
+        # applicabel to turn the High side (bat bet should be removed )
+        if re.search('S1',self.DFT.get('Trimming_Name ')):
+            time.sleep(1)
+            self.supply.setVoltage(channel=4,voltage=0)
+            self.supply.outp_OFF(channel=4)
 
         # force the 0A
         self.supply.outp_OFF(channel=3)

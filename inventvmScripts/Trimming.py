@@ -170,6 +170,7 @@ class Trim(object):
                             #     pass
                             # else:
                                 self.startup.buck_PowerUp()
+                                # input('>')
                                 sleep(0.1)
                                 print(trim.get('Trimming_Name '))
                                 self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
@@ -198,7 +199,7 @@ class Trim(object):
                                 print(result)
                                 trim_result.append(result)
                                 self.writeData(chip_Index=chip_index_start,trim_results=trim_result)
-                                self.startup.IVM_Powerdown()
+                                self.startup.buck_PowerDown()
                         elif re.search('IND CS Gain trimming',trim.get('Trimming_Name ')):
                             # if re.search('PH4',trim.get('Trimming_Name ')):
                             #     pass
@@ -214,7 +215,7 @@ class Trim(object):
                                 print(result)
                                 trim_result.append(result)
                                 self.writeData(chip_Index=chip_index_start,trim_results=trim_result)
-                                self.startup.IVM_Powerdown()
+                                self.startup.buck_PowerDown()
                         elif re.search('ZC Comparator trimming',trim.get('Trimming_Name ')):
                             self.startup.buck_PowerUp()
                             sleep(0.1)
@@ -226,7 +227,7 @@ class Trim(object):
                             print(result)
                             trim_result.append(result)
                             self.writeData(chip_Index=chip_index_start,trim_results=trim_result)
-                            self.startup.IVM_Powerdown()
+                            self.startup.buck_PowerDown()
                         
                     end_time = time()
 

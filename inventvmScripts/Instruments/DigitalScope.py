@@ -36,17 +36,19 @@ class dpo_2014B:
         self.scope.write(':TRIG:A:TYP EDG')
         self.scope.write(f':TRIG:A:EDGE:SOU {channel}')
         self.scope.write(':TRIG:A:EDGE:SLO RIS')
-        self.scope.write('ACTONEV:EVENTTYP TRIG')
-        self.scope.write(':ACTONEV:NUMACQ 1')
-        self.scope.write(':ACTONEV:REPEATC 1')
+        self.scope.write('ACQUIRE:STOPAFTER SEQUENCE')
+        # self.scope.write('ACTONEV:EVENTTYP TRIG')
+        # self.scope.write(':ACTONEV:NUMACQ 1')
+        # self.scope.write(':ACTONEV:REPEATC 1')
         
     def init_scopeNegEdge__Trigger(self,channel='CH1'):
         self.scope.write(':TRIG:A:TYP EDG')
         self.scope.write(f':TRIG:A:EDGE:SOU {channel}')
         self.scope.write(':TRIG:A:EDGE:SLO FALL')
-        self.scope.write('ACTONEV:EVENTTYP TRIG')
-        self.scope.write(':ACTONEV:NUMACQ 1')
-        self.scope.write(':ACTONEV:REPEATC 1')
+        self.scope.write('ACQUIRE:STOPAFTER SEQUENCE')
+        # self.scope.write('ACTONEV:EVENTTYP TRIG')
+        # self.scope.write(':ACTONEV:NUMACQ 1')
+        # self.scope.write(':ACTONEV:REPEATC 1')
 
     def single_Trigger__ON(self):
         self.scope.write('ACQuire:STATE ON')
@@ -97,21 +99,21 @@ class dpo_2014B:
         return int(float(self.scope.query('BUSY?')))
         
 if __name__ == '__main__':
-    scope = dpo_2014B('USB0::0x0699::0x0401::C021810::INSTR')
+    scope = dpo_2014B('USB0::0x0699::0x0456::C014546::INSTR')
     # print(scope.meas_Freq())
     # print(scope.get_error())
     # scope.set_trigger__mode(mode='AUTO')
     # scope.scope.write('ACQUIRE:STATE OFF')
-    # # scope.set_trigger__mode(mode='NORM')
+    scope.set_trigger__mode(mode='NORM')
     # time.sleep(1)
-    # scope.init_scopePosEdge__Trigger()
+    scope.init_scopePosEdge__Trigger(channel='CH3')
     # time.sleep(1)
     scope.single_Trigger__ON()
-    # time.sleep(1)
+    time.sleep(1)
     # print('State',scope.acquireState)
-    # while scope.acquireState == True :
-    #    print('rotate')
+    while scope.acquireState == True :
+       print('rotate')
     # time.sleep(1)
-    # scope.scope.write('ACQUIRE:STATE OFF')
+    scope.scope.write('ACQUIRE:STATE OFF')
     # scope.single_Trigger__RUN()
 

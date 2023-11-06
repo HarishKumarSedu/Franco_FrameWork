@@ -1,0 +1,18 @@
+[
+    {
+        "Name": "PH1S1 IND CS Mirror trimming",
+        "Register": {
+            "RegisterAddress": 632,
+            "RegisterLSB": 17,
+            "RegisterMSB": 21,
+            "RegisterValue": 16
+        },
+        "Vout_1A": 0.06998731329999999,
+        "Vout_m1A": 0.06944094440000001,
+        "Vout_0A": 0.004484629875,
+        "MeasureValue": 0.06998731329999999,
+        "typical": 0.075,
+        "MinError": 0.005012686700000005,
+        "Trim": true
+    }
+]
