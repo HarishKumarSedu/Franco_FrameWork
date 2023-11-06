@@ -82,5 +82,29 @@
         "MeasureValue": 4.796187,
         "typical": 4.8,
         "MinError": 0.0038130000000000663
+    },
+    {
+        "Name": "PH13 IND CS Buffer",
+        "Register": {
+            "RegisterAddress": 608,
+            "RegisterLSB": 29,
+            "RegisterMSB": 31,
+            "RegisterValue": 5
+        },
+        "MeasureValue": 0.6975024955,
+        "typical": 0.7,
+        "MinError": -0.0024975044999999696
+    },
+    {
+        "Name": "PH24 IND CS Buffer",
+        "Register": {
+            "RegisterAddress": 608,
+            "RegisterLSB": 26,
+            "RegisterMSB": 28,
+            "RegisterValue": 0
+        },
+        "MeasureValue": 0.70140452725,
+        "typical": 0.7,
+        "MinError": 0.001404527250000065
     }
 ]
