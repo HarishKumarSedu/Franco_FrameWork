@@ -40,12 +40,13 @@ class PhxSy_Indcs_ZC_Trim:
                     time.sleep(1)
                     self.supply.setVoltage(channel=4,voltage=0)
                     self.supply.outp_OFF(channel=4)
+                # input('Sweep>')
                 self.PhxSy_Indcs_ZC_Values__Sweep()
 
     def PhxSy_Indcs_ZC_Values__Sweep(self):
         self.scope.set_HScale(scale='800E-9')
-        self.scope.set_Channel__VScale(scale=0.1)
-        self.scope.set_trigger__level(level=0.2)
+        self.scope.set_Channel__VScale(scale=0.2)
+        self.scope.set_trigger__level(level=0.1)
         self.scope.set_trigger__mode(mode='NORM')
         self.scope.init_scopePosEdge__Trigger()
         # self.scope.single_Trigger__RUN()
@@ -69,7 +70,7 @@ class PhxSy_Indcs_ZC_Trim:
 
     def PhxSy_Indcs_ZC_Values__Sweep___Current(self):
         # time.sleep(0.1)
-        current=-0.6
+        current=-1
         self.supply.setCurrent(channel=3,current=current)
         self.supply.outp_ON(channel=3)
         # self.scope.single_Trigger__RUN()

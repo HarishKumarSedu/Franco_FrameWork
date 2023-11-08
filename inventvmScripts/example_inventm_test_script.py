@@ -43,6 +43,8 @@ from Trimming import Trim
 from LoadTrims import LoadTrims
 from Indcs_debug import Inducs_Debug
 from quick_Check import QuickCheck
+# from efficiency import Efficiency
+
 load_dotenv(r'C:\validation\Projects\Franco\python\franco_val\env\franco_val_inventm.env')
 load_dotenv(
     r'C:\validation\Projects\Franco\python\franco_val\env\station\\' + f'franco_val_{gethostname().upper()}.env')
@@ -84,11 +86,14 @@ input_cmd = "placeholder"
 
 #Startup 
 startup = Startup(dut=dut)
-
+dut.SIMULINK_MODEL.GAIN_CONFIG2.VBUS_GAIN.value = 0xC75
+dut.SIMULINK_MODEL.GAIN_CONFIG2.VBAT_GAIN.value = 0x435
+dut.SIMULINK_MODEL.GAIN_CONFIG3.IBAT_GAIN.value = 0x825
+dut.SIMULINK_MODEL.GAIN_CONFIG3.IBUS_GAIN.value = 0x460
 # QuickCheck(dut=dut)
 loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_200_200.json',chipid=200)
 trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json',loadTrim=loadTrim)
-
+# efficiency = Efficiency(dut=dut)
 
 print("-"*50)
 print("Enter Code to run... ")

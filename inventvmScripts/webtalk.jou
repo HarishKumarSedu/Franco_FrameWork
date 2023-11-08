@@ -2,11 +2,11 @@
 # Webtalk v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # 
-# Start of session at: Mon Nov  6 09:50:16 2023
-# Process ID: 264
+# Start of session at: Wed Nov  8 14:28:16 2023
+# Process ID: 17740
 # Current directory: C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts
-# Command line: wbtcv.exe -mode batch -source C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts/.Xil/vivado_lab-7720-PC_LAB_04/webtalk/labtool_webtalk.tcl -notrace
+# Command line: wbtcv.exe -mode batch -source C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts/.Xil/vivado_lab-8532-PC_LAB_04/webtalk/labtool_webtalk.tcl -notrace
 # Log file: C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts/webtalk.log
 # Journal file: C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts\webtalk.jou
 #-----------------------------------------------------------
-source C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts/.Xil/vivado_lab-7720-PC_LAB_04/webtalk/labtool_webtalk.tcl -notrace
+source C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts/.Xil/vivado_lab-8532-PC_LAB_04/webtalk/labtool_webtalk.tcl -notrace

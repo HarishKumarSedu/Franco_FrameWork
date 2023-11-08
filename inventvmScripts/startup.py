@@ -2,24 +2,24 @@
 import pandas as pd 
 import re 
 from time import sleep
-from Instruments_API import Instruments
+# from Instruments_API import Instruments
 class Startup:
 
     def __init__(self,dut):
         self.dut = dut
         self.regmap = pd.read_csv('chip_validation_regs.csv')
-        self.scope = Instruments().scope
+    #     self.scope = Instruments().scope
 
-    def SlewRate(self):
-        self.dut.IVM.REG_DRV_INDCS_RW.DS_INDCS_SAMPLE_DELAY.value = 0
-        for i in range (0,4):
-            self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_SLEW.value = i
-            self.scope.single_Trigger__ON()
-            input(f'Delay 0 , Slewrate {i}')
-        self.dut.IVM.REG_DRV_INDCS_RW.DS_INDCS_SAMPLE_DELAY.value = 1
-        for i in range (0,4):
-            self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_SLEW.value = i
-            input(f'Delay 1 , Slewrate {i}')
+    # def SlewRate(self):
+    #     self.dut.IVM.REG_DRV_INDCS_RW.DS_INDCS_SAMPLE_DELAY.value = 0
+    #     for i in range (0,4):
+    #         self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_SLEW.value = i
+    #         self.scope.single_Trigger__ON()
+    #         input(f'Delay 0 , Slewrate {i}')
+    #     self.dut.IVM.REG_DRV_INDCS_RW.DS_INDCS_SAMPLE_DELAY.value = 1
+    #     for i in range (0,4):
+    #         self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_SLEW.value = i
+    #         input(f'Delay 1 , Slewrate {i}')
 
 
 
@@ -49,16 +49,16 @@ class Startup:
         self.dut.IVM.REG_PWRUP1_RW.value = 0x0
         self.dut.IVM.REG_PWRUP0_RW.value = 0x0
 
-    def buck_ClosedLoop(self,vbat=4.5,ibat=1.0,ibus=3.0,phase=1):
+    def buck_ClosedLoop(self,vbat=4.5,ibat=3.5,icmd_ph=1.0,No_phase=0,ibus=3.0,phase=0):
         self.dut.startup_procedure()
         self.dut.block_apis.SIMULINK_MODEL.set_standby_en(1)
         self.dut.block_apis.SIMULINK_MODEL.set_vbat_buck_thld_V(vbat)
         self.dut.block_apis.SIMULINK_MODEL.set_ibus_buck_thld_A(ibus)
         self.dut.block_apis.SIMULINK_MODEL.set_ibat_buck_thld_A(ibat)
-        self.dut.block_apis.SIMULINK_MODEL.set_max_icmd_ph_A(3.0)
-        self.dut.block_apis.SIMULINK_MODEL.set_max_icmd_total_A(8.0)
+        self.dut.block_apis.SIMULINK_MODEL.set_max_icmd_ph_A(icmd_ph)
+        self.dut.block_apis.SIMULINK_MODEL.set_max_icmd_total_A(16.0)
         self.dut.SIMULINK_MODEL.TEST_INNER_LOOP_PH_MGMT.PHASE_INDUCTOR_MAP.value = phase
-        self.dut.SIMULINK_MODEL.INNERLOOP_CFG.MAX_PH.value = 1
+        self.dut.SIMULINK_MODEL.INNERLOOP_CFG.MAX_PH.value = No_phase
         self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_OC_MASK.value = 1
         self.dut.SIMULINK_MODEL.GAIN_CONFIG1.VCFLY_GAIN.value = 0x6A00
         sleep(0.1)
