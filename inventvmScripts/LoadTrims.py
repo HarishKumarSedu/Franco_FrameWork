@@ -11,7 +11,7 @@ class LoadTrims:
         with open(path, 'r', encoding='utf-8') as f:
             self.trimmedData = json.load(f)
         # print(self.trimmedData)
-        self.loadTrims()
+        # self.loadTrims()
     def loadTrims(self):
         for reg_data in self.trimmedData.get(str(self.chipid)):
             print(reg_data)

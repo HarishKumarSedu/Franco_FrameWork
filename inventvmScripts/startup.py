@@ -125,6 +125,27 @@ class Startup:
     def cirrus_PowerDown(self):
         self.dut.block_apis.SIMULINK_MODEL.set_standby_en(1)
 
+    def boost_ClosedLoop(self,vbus=5.0,phase=0):
+        self.dut.startup_procedure()
+        self.dut.block_apis.SIMULINK_MODEL.set_standby_en(1)
+        self.dut.SIMULINK_MODEL.POWERSTATE_CFG.BOOST_EN.vlaue = 1
+        self.dut.block_apis.SIMULINK_MODEL.set_vbus_boost_thld_V(vbus)
+        self.dut.block_apis.SIMULINK_MODEL.set_max_icmd_ph_A(3.0)
+        self.dut.block_apis.SIMULINK_MODEL.set_max_icmd_total_A(8.0)
+        self.dut.SIMULINK_MODEL.TEST_INNER_LOOP_PH_MGMT.PHASE_INDUCTOR_MAP.value = phase
+        self.dut.IVM.REG_DRV_INDCS_RW.IL_ZC_DET_SEL.value = phase
+        self.dut.SIMULINK_MODEL.INNERLOOP_CFG.MAX_PH.value = 2
+        self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_OC_MASK.value = 1
+        # self.dut.SIMULINK_MODEL.GAIN_CONFIG1.VCFLY_GAIN.value = 0x6000
+        sleep(0.1)
+        self.dut.block_apis.SIMULINK_MODEL.set_standby_en(0)
+        sleep(0.1)
+        self.dut.SIMULINK_MODEL.POWERSTATE_CFG.BOOST_EN.vlaue = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_EN_OCP.value = 0
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_EN_OCP.value = 0
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_EN_OCP.value = 0
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_EN_OCP.value = 0
+
     def buck_PowerUp(self):
     
         # startup_fields = {
