@@ -259,10 +259,10 @@ class Trim(object):
             self.instruments.supply.outp_OFF(channel=3)
             self.instruments.supply.outp_OFF(channel=4)
             
-            resultsfilename = f'TrimmingResults_{str(chip_index_start)}_{str(chip_index-1)}'
-            with open(f'json/{resultsfilename}.json', 'w', encoding='utf-8') as f:
-                print('................................')
-                json.dump(self.trim_results, f, ensure_ascii=False, indent=4)
+            # resultsfilename = f'TrimmingResults_{str(chip_index_start)}_{str(chip_index-1)}'
+            # with open(f'json/{resultsfilename}.json', 'w', encoding='utf-8') as f:
+            #     print('................................')
+            #     json.dump(self.trim_results, f, ensure_ascii=False, indent=4)
 
     def writeData(self,trim_results,chip_Index):
             resultsfilename = f'TrimmingResults_{str(chip_Index)}_{str(chip_Index)}'

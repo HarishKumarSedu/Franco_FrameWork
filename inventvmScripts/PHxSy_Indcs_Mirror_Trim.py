@@ -11,12 +11,12 @@ class PhxSy_Indcs_Mirror_Trim:
         self.multimeter = Instruments.multimeter
         self.supply = Instruments.supply
         time.sleep(5)
-        self.registers = []
-        self.trim_code = []
-        self.trim_results={}
 
 
     def PhxSy_Indcs_Mirror_Test__SetUp(self):
+        self.registers = []
+        self.trim_code = []
+        self.trim_results={}
         # self.startup.cirrus_Startup() # Run the buck powerup 
         # self.startup.IVM_Startup() # Run the buck powerup 
         # self.startup.buck_PowerUp() # Run the buck powerup 
