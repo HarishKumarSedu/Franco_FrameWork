@@ -31,7 +31,7 @@ class Vdd_Sns_Ovp_Trim:
     def Vdd_Sns_Ovp_Values__Sweep(self):
         self.scope.set_HScale(scale='800E-9')
         self.scope.set_Channel__VScale(scale=0.2)
-        self.scope.set_trigger__level(level=0.152)
+        self.scope.set_trigger__level(level=0.3)
         self.scope.set_trigger__mode(mode='NORM')
         self.scope.init_scopePosEdge__Trigger(channel='CH4')
         # self.scope.single_Trigger__RUN()
@@ -56,7 +56,9 @@ class Vdd_Sns_Ovp_Trim:
         self.supply.setVoltage(channel=4,voltage=voltage)
         self.supply.outp_ON(channel=4)
         self.scope.scopeTrigger_Acquire()
-        self.scope.single_Trigger__RUN()
+        # self.scope.single_Trigger__RUN()
+        self.scope.set_Channel__VScale(scale=0.2)
+        self.scope.set_trigger__level(level=0.3)
         time.sleep(0.1)
         # while(self.scope.acquireState == True):
         while(self.scope.scopeAcquire_BUSY):

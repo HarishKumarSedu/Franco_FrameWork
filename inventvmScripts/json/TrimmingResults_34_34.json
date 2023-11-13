@@ -1,16 +1,16 @@
 {
-    "200":[
+    "34": [
         {
             "Name": "DCO trimming",
             "Register": {
                 "RegisterAddress": 568,
                 "RegisterLSB": 10,
                 "RegisterMSB": 15,
-                "RegisterValue": 40
+                "RegisterValue": 37
             },
-            "MeasureValue": 3022600.0,
+            "MeasureValue": 3012000.0,
             "typical": 3000000,
-            "MinError": 0.7533333333333334
+            "MinError": 0.4
         },
         {
             "Name": "Aon BG vref 1.2V (VDDA 1.8V) trimming",
@@ -20,9 +20,9 @@
                 "RegisterMSB": 17,
                 "RegisterValue": 0
             },
-            "MeasureValue": 1.8039403125,
+            "MeasureValue": 1.7964813875,
             "typical": 1.8,
-            "MinError": 0.2189062499999962
+            "MinError": -0.19547847222222012
         },
         {
             "Name": "Aon vref 0.6V trimming",
@@ -30,11 +30,11 @@
                 "RegisterAddress": 596,
                 "RegisterLSB": 3,
                 "RegisterMSB": 7,
-                "RegisterValue": 2
+                "RegisterValue": 1
             },
-            "MeasureValue": 0.60097808475,
+            "MeasureValue": 0.5993166495000001,
             "typical": 0.6,
-            "MinError": 0.16301412500000872
+            "MinError": -0.11389174999998364
         },
         {
             "Name": "Aon ldo_vref_1p2 trimming",
@@ -42,11 +42,11 @@
                 "RegisterAddress": 596,
                 "RegisterLSB": 8,
                 "RegisterMSB": 12,
-                "RegisterValue": 0
+                "RegisterValue": 1
             },
-            "MeasureValue": 1.2003653925,
+            "MeasureValue": 1.2008067025,
             "typical": 1.2,
-            "MinError": 0.030449375000000483
+            "MinError": 0.06722520833333616
         },
         {
             "Name": "LDO1.2 Trimming ",
@@ -56,9 +56,9 @@
                 "RegisterMSB": 19,
                 "RegisterValue": 0
             },
-            "MeasureValue": 1.1977842175,
+            "MeasureValue": 1.1926481075000002,
             "typical": 1.2,
-            "MinError": -0.0022157824999999853
+            "MinError": -0.00735189249999979
         },
         {
             "Name": "Main BG Current Trimming ",
@@ -68,9 +68,9 @@
                 "RegisterMSB": 9,
                 "RegisterValue": 1
             },
-            "MeasureValue": 1.4591737575e-06,
+            "MeasureValue": 1.4816249675e-06,
             "typical": 1.5e-06,
-            "MinError": -4.082624249999995e-08
+            "MinError": -1.8375032500000122e-08
         },
         {
             "Name": "Aon vddsns_ovp trimming",
@@ -80,9 +80,9 @@
                 "RegisterMSB": 21,
                 "RegisterValue": 8
             },
-            "MeasureValue": 4.836532,
+            "MeasureValue": 4.856643,
             "typical": 4.8,
-            "MinError": -0.03653200000000023
+            "MinError": -0.05664300000000022
         },
         {
             "Name": "PH13 IND CS Buffer",
@@ -92,8 +92,21 @@
                 "RegisterMSB": 31,
                 "RegisterValue": 4
             },
-            "MeasureValue": 0.6995382547500001,
+            "MeasureValue": 0.7034273415,
             "typical": 0.7,
-            "MinError": -0.00046174524999986755
-        }]
+            "MinError": 0.003427341500000014
+        },
+        {
+            "Name": "PH24 IND CS Buffer",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 26,
+                "RegisterMSB": 28,
+                "RegisterValue": 4
+            },
+            "MeasureValue": 0.7034289010000001,
+            "typical": 0.7,
+            "MinError": 0.0034289010000001507
+        }
+    ]
 }
