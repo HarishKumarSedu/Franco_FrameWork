@@ -28,13 +28,13 @@ class Efficiency:
         # sleep(0.1)
         # self.phase_Effieciency(phase=3,sheet='ph4_vbat_4V_vbus_5V')
         # sleep(0.1)
-        # self.phase_Effieciency(phase=0,vbus=9.0,sheet='ph1_vbat_4V_vbus_9V')
+        # self.phase_Effieciency_1(phase=0,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='ph1_vbat_4V_vbus_9V')
         # sleep(0.1)
-        # self.phase_Effieciency(phase=1,vbus=9.0,sheet='ph2_vbat_4V_vbus_9V')
+        self.phase_Effieciency_1(phase=1,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='ph2_vbat_4V_vbus_9V')
+        sleep(0.1)
+        self.phase_Effieciency_1(phase=2,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='ph3_vbat_4V_vbus_9V')
         # sleep(0.1)
-        # self.phase_Effieciency(phase=2,vbus=9.0,sheet='ph3_vbat_4V_vbus_9V')
-        # sleep(0.1)
-        # self.phase_Effieciency(phase=3,vbus=9.0,sheet='ph4_vbat_4V_vbus_9V')
+        # self.phase_Effieciency_1(phase=3,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='ph4_vbat_4V_vbus_9V')
         # sleep(0.1)
         # self.phase_Effieciency(phase=0,vbus=15.0,sheet='ph1_vbat_4V_vbus_15V')
         # sleep(0.1)
@@ -45,7 +45,7 @@ class Efficiency:
         # self.phase_Effieciency(phase=3,vbus=15.0,sheet='ph4_vbat_4V_vbus_15V')
         # self.phase_Effieciency(phase=0,vbus=9.0,loop_current_limit=-6.005,sheet='ph12_vbat_4V_vbus_9V_0')
         # sleep(0.1)
-        self.phase_Effieciency_1(phase=0,phase_thld=1,No_phase=1,vbus=9.0,loop_current_limit=-2.005,sheet='ph12_ph1_vbat_4V_vbus_9V_1')
+        # self.phase_Effieciency_1(phase=1,phase_thld=0,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='dummy')
 
     def phase_Effieciency(self,phase=0,vbus=5.0,loop_current_limit=-3.005,sheet='ph1_vbat_4V_vbus_5V',):
         print(sheet)
@@ -83,7 +83,7 @@ class Efficiency:
     def phase_Effieciency_1(self,phase=0,phase_thld=0,vbus=5.0,No_phase=0,loop_current_limit=-3.005,sheet='ph1_vbat_4V_vbus_5V',):
         print(sheet)
         self.supply.setVoltage(channel=4,voltage=vbus)
-        self.startup.buck_ClosedLoop(vbat=4,ibat=14.0,No_phase=No_phase,ibus=3.3,icmd_ph=2.5,phase=phase)
+        self.startup.buck_ClosedLoop(vbat=4,ibat=14.0,No_phase=No_phase,ibus=3.3,icmd_ph=5.0,phase=phase)
         self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_SLEW.value = 1
         if vbus > 8 :
             self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_SLEW.value = 3
@@ -121,6 +121,7 @@ class Efficiency:
                 # self.Bat.setCurrent(current=loop_current_limit/8)
                 # sleep(0.5)
                 # self.Bat.setCurrent(current=0)
+                # input('>>>>>>>>>>>>>>>>>>>')
                 self.supply.setCurrent(channel=1,current=loop_current_limit/2)
                 sleep(0.5)
                 self.supply.setCurrent(channel=1,current=loop_current_limit/4)
@@ -129,7 +130,7 @@ class Efficiency:
                 sleep(0.5)
                 self.supply.setCurrent(channel=1,current=0)
                 self.dut.block_apis.SIMULINK_MODEL.set_standby_en(1)
-                writeInExcel(sheet=sheet,filename='effieciency\effiecincy1.xlsx',vbat_V=vbat_V,ibat_A=ibat_A,vbus_V=vbus_V,ibus_A=ibus_A,efficiency=efficiency)
+                writeInExcel(sheet=sheet,filename='effieciency\effiecincy_newFirmware.xlsx',vbat_V=vbat_V,ibat_A=ibat_A,vbus_V=vbus_V,ibus_A=ibus_A,efficiency=efficiency)
         except KeyboardInterrupt:
             self.supply.setCurrent(channel=1,current=-0.1)
 

@@ -60,7 +60,8 @@ class Startup:
         self.dut.SIMULINK_MODEL.TEST_INNER_LOOP_PH_MGMT.PHASE_INDUCTOR_MAP.value = phase
         self.dut.SIMULINK_MODEL.INNERLOOP_CFG.MAX_PH.value = No_phase
         self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_OC_MASK.value = 1
-        self.dut.SIMULINK_MODEL.GAIN_CONFIG1.VCFLY_GAIN.value = 0x6A00
+        # self.dut.SIMULINK_MODEL.GAIN_CONFIG1.VCFLY_GAIN.value = 0x6A00
+        self.dut.IVM.REG_DRV_INDCS_RW.IL_ZC_DET_SEL.value = phase
         sleep(0.1)
         self.dut.block_apis.SIMULINK_MODEL.set_standby_en(0)
         self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_EN_OCP.value = 0
@@ -82,7 +83,7 @@ class Startup:
         self.dut.block_apis.SIMULINK_MODEL.set_alpha_override_value(0)
         self.dut.block_apis.SIMULINK_MODEL.set_d_override_value(duty_cycle)
         self.dut.block_apis.SIMULINK_MODEL.set_d_override_en(True)
-        self.dut.SIMULINK_MODEL.GAIN_CONFIG1.VCFLY_GAIN.value = 0x7100
+        # self.dut.SIMULINK_MODEL.GAIN_CONFIG1.VCFLY_GAIN.value = 0x7100
         self.dut.SIMULINK_MODEL.TEST_INNER_LOOP_PH_MGMT.PHASE_INDUCTOR_MAP.value = phase
         # self.dut.SIMULINK_MODEL.POWERSTATE_CFG.STANDBY_EN.value=1
         sleep(1)
@@ -137,6 +138,7 @@ class Startup:
         self.dut.SIMULINK_MODEL.INNERLOOP_CFG.MAX_PH.value = 2
         self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_OC_MASK.value = 1
         # self.dut.SIMULINK_MODEL.GAIN_CONFIG1.VCFLY_GAIN.value = 0x6000
+        self.dut.IVM.REG_DRV_INDCS_RW.IL_ZC_DET_SEL.value = phase
         sleep(0.1)
         self.dut.block_apis.SIMULINK_MODEL.set_standby_en(0)
         sleep(0.1)

@@ -1,0 +1,100 @@
+{
+    "50": [
+        {
+            "Name": "DCO trimming",
+            "Register": {
+                "RegisterAddress": 568,
+                "RegisterLSB": 10,
+                "RegisterMSB": 15,
+                "RegisterValue": 36
+            },
+            "MeasureValue": 3021100.0,
+            "typical": 3000000,
+            "MinError": 0.7033333333333334
+        },
+        {
+            "Name": "Aon BG vref 1.2V (VDDA 1.8V) trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 13,
+                "RegisterMSB": 17,
+                "RegisterValue": 1
+            },
+            "MeasureValue": 1.8021680824999997,
+            "typical": 1.8,
+            "MinError": 0.12044902777775936
+        },
+        {
+            "Name": "Aon vref 0.6V trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 3,
+                "RegisterMSB": 7,
+                "RegisterValue": 2
+            },
+            "MeasureValue": 0.6010148825,
+            "typical": 0.6,
+            "MinError": 0.16914708333333936
+        },
+        {
+            "Name": "Aon ldo_vref_1p2 trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 8,
+                "RegisterMSB": 12,
+                "RegisterValue": 1
+            },
+            "MeasureValue": 1.1975292775000002,
+            "typical": 1.2,
+            "MinError": -0.20589354166665003
+        },
+        {
+            "Name": "Main BG Current Trimming ",
+            "Register": {
+                "RegisterAddress": 600,
+                "RegisterLSB": 6,
+                "RegisterMSB": 9,
+                "RegisterValue": 1
+            },
+            "MeasureValue": 1.4700770100000002e-06,
+            "typical": 1.5e-06,
+            "MinError": -2.992298999999988e-08
+        },
+        {
+            "Name": "Aon vddsns_ovp trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 18,
+                "RegisterMSB": 21,
+                "RegisterValue": 8
+            },
+            "MeasureValue": 4.845417,
+            "typical": 4.8,
+            "MinError": -0.045417000000000485
+        },
+        {
+            "Name": "PH13 IND CS Buffer",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 29,
+                "RegisterMSB": 31,
+                "RegisterValue": 4
+            },
+            "MeasureValue": 0.700079525,
+            "typical": 0.7,
+            "MinError": 7.952500000008023e-05
+        },
+        {
+            "Name": "PH24 IND CS Buffer",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 26,
+                "RegisterMSB": 28,
+                "RegisterValue": 0
+            },
+            "MeasureValue": 0.6995412885,
+            "typical": 0.7,
+            "MinError": -0.0004587114999999864
+        }
+    ]
+}

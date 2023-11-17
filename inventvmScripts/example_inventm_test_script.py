@@ -44,6 +44,8 @@ from LoadTrims import LoadTrims
 from Indcs_debug import Inducs_Debug
 from quick_Check import QuickCheck
 from efficiency import Efficiency
+from AON_Charecterization import AONChar
+
 
 load_dotenv(r'C:\validation\Projects\Franco\python\franco_val\env\franco_val_inventm.env')
 load_dotenv(
@@ -66,14 +68,15 @@ print(test_station.audio_hub.ping())
 ############ DUT BringUp ##########
 test_station.pins.mb_pwr_en.output = 1
 
-test_station.pins.fpga_reset.output = 0
-test_station.pins.fpga_reset.output = 1
+# test_station.pins.fpga_reset.output = 0
+# test_station.pins.fpga_reset.output = 1
 
-test_station.pins.system_adcs_reset.output = 0
-test_station.pins.system_adcs_reset.output = 1
+# test_station.pins.system_adcs_reset.output = 0
+# test_station.pins.system_adcs_reset.output = 1
 
-test_station.pins.franco_tc_reset.output = 0
-test_station.pins.franco_tc_reset.output = 1
+# test_station.pins.franco_tc_reset.output = 0
+# test_station.pins.franco_tc_reset.output = 1
+dut.reset()
 time.sleep(0.01)
 
 test_station.eeb.config_dacs()
@@ -86,14 +89,17 @@ input_cmd = "placeholder"
 
 #Startup 
 startup = Startup(dut=dut)
-dut.SIMULINK_MODEL.GAIN_CONFIG2.VBUS_GAIN.value = 0xC75
-dut.SIMULINK_MODEL.GAIN_CONFIG2.VBAT_GAIN.value = 0x435
-dut.SIMULINK_MODEL.GAIN_CONFIG3.IBAT_GAIN.value = 0x825
-dut.SIMULINK_MODEL.GAIN_CONFIG3.IBUS_GAIN.value = 0x460
+# dut.SIMULINK_MODEL.GAIN_CONFIG2.VBUS_GAIN.value = 0xC75
+# dut.SIMULINK_MODEL.GAIN_CONFIG2.VBAT_GAIN.value = 0x435
+# dut.SIMULINK_MODEL.GAIN_CONFIG3.IBAT_GAIN.value = 0x825
+# dut.SIMULINK_MODEL.GAIN_CONFIG3.IBUS_GAIN.value = 0x460
 # QuickCheck(dut=dut)
-loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_200_200.json',chipid=200)
+loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_16_16.json',chipid=16)
 trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json',loadTrim=loadTrim)
 # efficiency = Efficiency(dut=dut)
+
+#charecterization
+# char = AONChar(dut=dut)
 
 print("-"*50)
 print("Enter Code to run... ")
