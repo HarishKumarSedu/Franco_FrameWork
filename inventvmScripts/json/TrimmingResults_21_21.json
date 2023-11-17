@@ -1,26 +1,112 @@
-[
-    {
-        "Name": "DCO trimming",
-        "Register": {
-            "RegisterAddress": 568,
-            "RegisterLSB": 10,
-            "RegisterMSB": 15,
-            "RegisterValue": 35
+{
+    "21": [
+        {
+            "Name": "DCO trimming",
+            "Register": {
+                "RegisterAddress": 568,
+                "RegisterLSB": 10,
+                "RegisterMSB": 15,
+                "RegisterValue": 37
+            },
+            "MeasureValue": 2997100.0,
+            "typical": 3000000,
+            "MinError": -0.09666666666666666
         },
-        "MeasureValue": 2992900.0,
-        "typical": 3000000,
-        "MinError": -0.23666666666666666
-    },
-    {
-        "Name": "Aon BG vref 1.2V (VDDA 1.8V) trimming",
-        "Register": {
-            "RegisterAddress": 596,
-            "RegisterLSB": 13,
-            "RegisterMSB": 17,
-            "RegisterValue": 31
+        {
+            "Name": "Aon BG vref 1.2V (VDDA 1.8V) trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 13,
+                "RegisterMSB": 17,
+                "RegisterValue": 0
+            },
+            "MeasureValue": 1.80274701,
+            "typical": 1.8,
+            "MinError": 0.15261166666666634
         },
-        "MeasureValue": 1.797580255,
-        "typical": 1.8,
-        "MinError": -0.13443027777778244
-    }
-]
+        {
+            "Name": "Aon vref 0.6V trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 3,
+                "RegisterMSB": 7,
+                "RegisterValue": 1
+            },
+            "MeasureValue": 0.5996792897500001,
+            "typical": 0.6,
+            "MinError": -0.05345170833331858
+        },
+        {
+            "Name": "Aon ldo_vref_1p2 trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 8,
+                "RegisterMSB": 12,
+                "RegisterValue": 31
+            },
+            "MeasureValue": 1.19782799,
+            "typical": 1.2,
+            "MinError": -0.1810008333333335
+        },
+        {
+            "Name": "LDO1.2 Trimming ",
+            "Register": {
+                "RegisterAddress": 604,
+                "RegisterLSB": 14,
+                "RegisterMSB": 19,
+                "RegisterValue": 15
+            },
+            "MeasureValue": 1.185334905,
+            "typical": 1.2,
+            "MinError": -0.014665095000000017
+        },
+        {
+            "Name": "Main BG Current Trimming ",
+            "Register": {
+                "RegisterAddress": 600,
+                "RegisterLSB": 6,
+                "RegisterMSB": 9,
+                "RegisterValue": 1
+            },
+            "MeasureValue": 1.467953755e-06,
+            "typical": 1.5e-06,
+            "MinError": -3.204624500000001e-08
+        },
+        {
+            "Name": "Aon vddsns_ovp trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 18,
+                "RegisterMSB": 21,
+                "RegisterValue": 10
+            },
+            "MeasureValue": 4.867077,
+            "typical": 4.8,
+            "MinError": -0.06707700000000028
+        },
+        {
+            "Name": "PH13 IND CS Buffer",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 29,
+                "RegisterMSB": 31,
+                "RegisterValue": 5
+            },
+            "MeasureValue": 0.698279038,
+            "typical": 0.7,
+            "MinError": -0.001720961999999937
+        },
+        {
+            "Name": "PH24 IND CS Buffer",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 26,
+                "RegisterMSB": 28,
+                "RegisterValue": 4
+            },
+            "MeasureValue": 0.700144431,
+            "typical": 0.7,
+            "MinError": 0.00014443100000005593
+        }
+    ]
+}
