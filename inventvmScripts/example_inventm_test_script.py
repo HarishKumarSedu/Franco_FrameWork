@@ -94,12 +94,14 @@ startup = Startup(dut=dut)
 # dut.SIMULINK_MODEL.GAIN_CONFIG3.IBAT_GAIN.value = 0x825
 # dut.SIMULINK_MODEL.GAIN_CONFIG3.IBUS_GAIN.value = 0x460
 # QuickCheck(dut=dut)
-loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_16_16.json',chipid=16)
-trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json',loadTrim=loadTrim)
+loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_22_22.json',chipid=22)
+loadTrim.loadTrims()
+# trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json',loadTrim=loadTrim)
 # efficiency = Efficiency(dut=dut)
 
 #charecterization
-# char = AONChar(dut=dut)
+char = AONChar(dut=dut)
+
 
 print("-"*50)
 print("Enter Code to run... ")
