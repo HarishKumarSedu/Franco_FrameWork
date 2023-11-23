@@ -24,14 +24,14 @@ class Vdd_Sns_Ovp_Trim:
                     self.registers.append(reg_data)
                     self.apis.write_register(register=reg_data)
             if re.search(re.compile('TrimSweep'),Instruction):
-                # input('Vbat ovp >')
+                
                 self.trim_register_data = self.apis.parse_trim_registerAddress_from_string(Instruction)
                 self.Vdd_Sns_Ovp_Values__Sweep()
 
     def Vdd_Sns_Ovp_Values__Sweep(self):
         self.scope.set_HScale(scale='800E-9')
-        self.scope.set_Channel__VScale(scale=0.2)
-        self.scope.set_trigger__level(level=0.3)
+        self.scope.set_Channel__VScale(channel=1,scale=0.2)
+        self.scope.set_trigger__level(level=0.15)
         self.scope.set_trigger__mode(mode='NORM')
         self.scope.init_scopePosEdge__Trigger(channel='CH4')
         # self.scope.single_Trigger__RUN()
@@ -39,11 +39,14 @@ class Vdd_Sns_Ovp_Trim:
         self.supply.setVoltage(channel=4,voltage=4)
         time.sleep(1)
         self.measure_values=[]
+        self.supply.outp_ON(channel=4)
+        time.sleep(1)
         if self.trim_register_data:
             for value in range(0,2**(self.trim_register_data.get('RegisterMSB') - self.trim_register_data.get('RegisterLSB') +1),1):
                 self.apis.write_register(register=self.trim_register_data,write_value=value)
                 self.trim_code.append(value)
                 time.sleep(0.05)
+                # input('Vbat ovp >')
                 self.measure_values.append(self.Vdd_Sns_Ovp_Values__Sweep___Voltage()) # get the frequency values from multimeter
         self.supply.setVoltage(channel=4,voltage=0)
         self.supply.outp_OFF(channel=4)
@@ -54,18 +57,17 @@ class Vdd_Sns_Ovp_Trim:
         # time.sleep(0.1)
         voltage=4.2
         self.supply.setVoltage(channel=4,voltage=voltage)
-        self.supply.outp_ON(channel=4)
         self.scope.scopeTrigger_Acquire()
         # self.scope.single_Trigger__RUN()
-        self.scope.set_Channel__VScale(scale=0.2)
-        self.scope.set_trigger__level(level=0.3)
+        # self.scope.set_Channel__VScale(scale=0.1)
+        # self.scope.set_trigger__level(level=0.15)
         time.sleep(0.1)
         # while(self.scope.acquireState == True):
         while(self.scope.scopeAcquire_BUSY):
-                time.sleep(0.005)
+                time.sleep(0.01)
                 self.supply.setVoltage(channel=4,voltage=voltage)
                 voltage=voltage+0.005
-                if voltage > 6 :
+                if voltage > 5.5 :
                     break
         # self.supply.setVoltage(channel=4,voltage=-0.1)
         return self.supply.getVoltage(channel=4)

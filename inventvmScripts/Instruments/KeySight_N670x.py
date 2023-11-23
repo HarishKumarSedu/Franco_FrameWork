@@ -248,8 +248,17 @@ class N670x:
         self.my_instr.write(f'ARB:VOLT:PULS:STAR  {str(initial_Voltage)},(@{str(channel)})')
         self.my_instr.write(f'ARB:VOLT:PULS:TOP  {str(end_Voltage)},(@{str(channel)})')
         self.my_instr.write(f'ARB:VOLT:PULS:STAR:TIM  {str(initial_Time)},(@{str(channel)})')
-        self.my_instr.write(f'ARB:VOLT:PULS:STAR:TIM  {str(top_Time)},(@{str(channel)})')
+        self.my_instr.write(f'ARB:VOLT:PULS:TOP:TIM  {str(top_Time)},(@{str(channel)})')
         self.my_instr.write(f'ARB:VOLT:PULS:END:TIM   {str(end_Time)},(@{str(channel)})')
+    def arb_Pulse__Current(self,channel:int,initial_Current:float,end_Current:float,initial_Time:float,top_Time:float,end_Time:float):
+        self.my_instr.write(f'ARB:CURR:PULS:STAR  {str(initial_Current)},(@{str(channel)})')
+        self.my_instr.write(f'ARB:CURR:PULS:TOP  {str(end_Current)},(@{str(channel)})')
+        self.my_instr.write(f'ARB:CURR:PULS:STAR:TIM  {str(initial_Time)},(@{str(channel)})')
+        self.my_instr.write(f'ARB:CURR:PULS:TOP:TIM  {str(top_Time)},(@{str(channel)})')
+        self.my_instr.write(f'ARB:CURR:PULS:END:TIM   {str(end_Time)},(@{str(channel)})')
+        self.my_instr.write(f'ARB:TERM:LAST OFF,(@{str(channel)})')
+        self.my_instr.write(f'TRIG:ARB:SOUR BUS')
+        self.my_instr.write(f'INIT:TRAN(@{str(channel)})')
     
     # The parameter setting remains at the last Arb value after the Arb completes.
     def arbLast_Value_ON(self,channel:int):

@@ -31,7 +31,7 @@ class DCO_Trim:
 
     def dco_Values__Sweep(self):
         # self.scope.set_autoSet()
-        self.scope.set_trigger__mode(mode='AUTO')
+        self.scope.set_trigger__mode(mode='NORM')
         self.scope.set_HScale()
         self.scope.set_Channel__VScale(scale=0.1)
         # self.scope.init_scopePosEdge__Trigger(channel='CH1')
@@ -41,6 +41,7 @@ class DCO_Trim:
                 self.apis.write_register(register=self.trim_register_data,write_value=value)
                 time.sleep(0.01)
                 freq = 0
+                # input('>>>>>>>>')
                 for i in range(0,10):
                     freq= freq + self.scope.meas_Freq()
                 self.measure_values.append(freq/10) # get the frequency values from scope

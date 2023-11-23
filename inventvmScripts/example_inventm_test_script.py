@@ -95,14 +95,14 @@ startup = Startup(dut=dut)
 # dut.SIMULINK_MODEL.GAIN_CONFIG3.IBUS_GAIN.value = 0x460
 # QuickCheck(dut=dut)
 loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_22_22.json',chipid=22)
-loadTrim.loadTrims()
-# trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json',loadTrim=loadTrim)
+# loadTrim.loadTrims()
+trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json',loadTrim=loadTrim)
 # efficiency = Efficiency(dut=dut)
 
 #charecterization
-char = AONChar(dut=dut)
+# char = AONChar(dut=dut)
 
-
+# startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=6,No_phase=1,ibus=3.3,phase=1)
 print("-"*50)
 print("Enter Code to run... ")
 while(input_cmd.lower() != quit_cmd):

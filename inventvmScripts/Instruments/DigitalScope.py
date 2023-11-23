@@ -81,7 +81,7 @@ class dpo_2014B:
     def set_trigger__level(self,level):
         self.scope.write(f'TRIGger:MAIn:LEVel {str(level)}')
 
-    def scopeTrigger_Acquire(self,channel='CH1'):
+    def scopeTrigger_Acquire(self,channel='CH4'):
         self.scope.write('ACQUIRE:STATE OFF')
         self.scope.write(f'SELECT:{channel} ON')
         self.scope.write('ACQUIRE:MODE SAMPLE')
@@ -97,7 +97,19 @@ class dpo_2014B:
     @property
     def scopeAcquire_BUSY(self):
         return int(float(self.scope.query('BUSY?')))
-        
+
+    def Meas_Amp(self,channel='CH1',Meas='MEAS1'):
+        # self.scope.write('MEASUREMENT:IMMED:TYPE AMPLITUDE')
+        # self.scope.write(f'MEASUREMENT:IMMED:SOURCE {channel}')
+        self.scope.write(f'MEASUrement:{Meas}:TYPE AMPLITUDE')
+        return float(self.scope.query(f'MEASUrement:{Meas}:VALUE?'))
+    
+    def Meas_Mean(self,channel='CH1',Meas='MEAS1'):
+        # self.scope.write('MEASUREMENT:IMMED:TYPE AMPLITUDE')
+        # self.scope.write(f'MEASUREMENT:IMMED:SOURCE {channel}')
+        self.scope.write(f'MEASUrement:{Meas}:TYPE MEAN')
+        return float(self.scope.query(f'MEASUrement:{Meas}:VALUE?'))
+    
 if __name__ == '__main__':
     scope = dpo_2014B('USB0::0x0699::0x0456::C014546::INSTR')
     # print(scope.meas_Freq())

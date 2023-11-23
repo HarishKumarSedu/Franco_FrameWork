@@ -28,13 +28,14 @@ class AONChar:
         # sleep(0.1)
         self.dut.IVM.REG_PWRUP2_RW.TEMP_ENABLE.value = 1
         input('80C>>>>>>>>>>>>>')
-        # while True:
-        #     temp = int(self.dut.IVM_TEMPMON.TEMP_STS.TEMP_STS.value) 
-        #     print(f'Temperature {temp}')
-        #     if temp >= 75:
-        #         input('80C>>>>>>>>>>>>>')
-        #         break 
-        self.hvldo_por()
+        while True:
+            temp = int(self.dut.IVM_TEMPMON.TEMP_STS.TEMP_STS.value) 
+            print(f'Temperature {temp}')
+            if temp >= 75:
+                input('80C>>>>>>>>>>>>>')
+                break 
+        # self.hvldo_por()
+        self.vdda_por()
         # self.vdd_sns_uvlo()
         # self.vbus_uvlo()
         # self.vdd_sns_ovp() 
@@ -151,27 +152,62 @@ class AONChar:
 
     def hvldo_por(self):
         # self.startup.buck_PowerUp()
+        self.dut.IVM.REG_FORCE_RW.DS_HVLDO_FORCE_EN.value = 1
+        self.dut.IVM.REG_FORCE_RW.DS_HVLDO_FORCE_SEL.value = 0
+        self.dut.IVM.REG_FORCE_RW.DS_AON_EN_VBUS_FORCE.value = 1
         self.dut.IVM.REG_PWRUP0_RW.DS_HVLDO_EN.value = 1
         self.dut.IVM.REG_VIS_MUX_RW.TST1_BLOCK_SEL.value = 1
         self.dut.IVM.REG_VIS_MUX_RW.TST1_SEL.value = 4
-        input('>>>>>>>>>>>>')
+        volt=1.8
+        self.supply.setVoltage(channel=1,voltage=volt)
+        input('hvldo >>>>>>>>>>>>')
         self.scope.set_HScale(scale='800E-9')
         self.scope.set_Channel__VScale(scale=0.02)
-        self.scope.set_trigger__level(level=0.01)
+        self.scope.set_trigger__level(level=0.02)
         self.scope.set_trigger__mode(mode='NORM')
-        self.scope.init_scopeNegEdge__Trigger()
+        self.scope.init_scopePosEdge__Trigger()
         sleep(0.1)
         self.scope.scopeTrigger_Acquire()
-        volt=2.3
+        
         sleep(0.1)
         while(self.scope.scopeAcquire_BUSY):
-            sleep(0.01)
+            # sleep(0.001)
             hvldo_por = self.voltmeter.meas_V()
             self.supply.setVoltage(channel=1,voltage=volt)
-            volt=volt-0.001
-            if volt < 0.9 :
+            volt=volt+0.001
+            if volt > 4.0 :
                 break
         print(f'HV ldo por voltage {hvldo_por}')
+        self.supply.setVoltage(channel=1,voltage=4)
+
+    def vdda_por(self):
+        self.dut.IVM.REG_FORCE_RW.DS_HVLDO_FORCE_EN.value = 1
+        self.dut.IVM.REG_FORCE_RW.DS_HVLDO_FORCE_SEL.value =0
+        self.dut.IVM.REG_FORCE_RW.DS_AON_EN_VBUS_FORCE.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_HVLDO_EN.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_LDO1P8_PDNB.value = 1
+        self.dut.IVM.REG_VIS_MUX_RW.TST1_BLOCK_SEL.value = 1
+        self.dut.IVM.REG_VIS_MUX_RW.TST1_SEL.value = 1
+        input('vdda por >>>>>>>>>>>>')
+        volt=1.4
+        self.supply.setVoltage(channel=1,voltage=volt)
+        self.scope.set_HScale(scale='800E-9')
+        self.scope.set_Channel__VScale(scale=0.02)
+        self.scope.set_trigger__level(level=0.02)
+        self.scope.set_trigger__mode(mode='NORM')
+        self.scope.init_scopePosEdge__Trigger()
+        sleep(0.1)
+        self.scope.scopeTrigger_Acquire()
+        
+        sleep(0.1)
+        while(self.scope.scopeAcquire_BUSY):
+            # sleep(0.001)
+            vdda_por = self.voltmeter.meas_V()
+            self.supply.setVoltage(channel=1,voltage=volt)
+            volt=volt+0.001
+            if volt > 4:
+                break
+        print(f'vdda ldo por voltage {vdda_por}')
         self.supply.setVoltage(channel=1,voltage=4)
 
     def vbus_uvlo(self):
