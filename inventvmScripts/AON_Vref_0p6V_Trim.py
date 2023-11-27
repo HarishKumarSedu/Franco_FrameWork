@@ -30,7 +30,7 @@ class Aon_Vref_0p6V_Trim:
         # self.voltmeter.set_Voltage__NPLC(10) # set voltmeter in fast mode 
         while(True):
             # voltage = self.voltmeter.meas_V()
-            if self.voltmeter.meas_V() < 0.650:
+            if self.voltmeter.meas_V() < 0.665:
             # if self.voltmeter.meas_V() < 0.9 :
                 self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_SEL.value=7   
                 self.dut.IVM.REG_TEST0_RW.DS_TEST1_VIS_EN.value=1
