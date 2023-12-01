@@ -81,7 +81,7 @@ class dpo_2014B:
     def set_trigger__level(self,level):
         self.scope.write(f'TRIGger:MAIn:LEVel {str(level)}')
 
-    def scopeTrigger_Acquire(self,channel='CH4'):
+    def scopeTrigger_Acquire(self,channel='CH1'):
         self.scope.write('ACQUIRE:STATE OFF')
         self.scope.write(f'SELECT:{channel} ON')
         self.scope.write('ACQUIRE:MODE SAMPLE')

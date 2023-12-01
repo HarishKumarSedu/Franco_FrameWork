@@ -1,0 +1,444 @@
+{
+    "71": [
+        {
+            "Name": "PH1S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 3
+            },
+            "Vout_1A": 0.080134222125,
+            "Vout_m1A": 0.08675385025,
+            "Vout_0A": 0.0032919086175,
+            "MeasureValue": 0.080134222125,
+            "typical": 0.075,
+            "MinError": 0.005134222125000004,
+            "Trim": true
+        },
+        {
+            "Name": "PH1S1 IND CS Offset trimming",
+            "Register": {
+                "RegisterAddress": 636,
+                "RegisterLSB": 27,
+                "RegisterMSB": 31,
+                "RegisterValue": 2
+            },
+            "MeasureValue": 0.000729378097,
+            "typical": 0.00121,
+            "MinError": 0.00048062190299999995,
+            "Trim": true
+        },
+        {
+            "Name": "PH1S1 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 6,
+                "RegisterMSB": 11,
+                "RegisterValue": 43
+            },
+            "MeasureValue": 0.07510872002499999,
+            "typical": 0.07575,
+            "MinError": 0.00010872002499999478,
+            "Trim": true
+        },
+        {
+            "Name": "PH1S1 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 636,
+                "RegisterLSB": 5,
+                "RegisterMSB": 9,
+                "RegisterValue": 3
+            },
+            "MeasureValue": 0.01524934,
+            "typical": 0.016,
+            "MinError": 0.0007506600000000002,
+            "Trim": true
+        },
+        {
+            "Name": "PH1S4 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 12,
+                "RegisterMSB": 16,
+                "RegisterValue": 2
+            },
+            "Vout_1A": 0.070304246825,
+            "Vout_m1A": 0.07681500865,
+            "Vout_0A": 0.0032395419249999996,
+            "MeasureValue": 0.070304246825,
+            "typical": 0.075,
+            "MinError": 0.0046957531749999976,
+            "Trim": true
+        },
+        {
+            "Name": "PH1S4 IND CS Offset trimming",
+            "Register": {
+                "RegisterAddress": 636,
+                "RegisterLSB": 22,
+                "RegisterMSB": 26,
+                "RegisterValue": 1
+            },
+            "MeasureValue": -0.000841683705,
+            "typical": 0.00121,
+            "MinError": 0.00036831629499999995,
+            "Trim": true
+        },
+        {
+            "Name": "PH1S4 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 0,
+                "RegisterMSB": 5,
+                "RegisterValue": 32
+            },
+            "MeasureValue": -0.074857425775,
+            "typical": 0.07575,
+            "MinError": 0.00014257422499999728,
+            "Trim": true
+        },
+        {
+            "Name": "PH1S4 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 636,
+                "RegisterLSB": 0,
+                "RegisterMSB": 4,
+                "RegisterValue": 20
+            },
+            "MeasureValue": -0.009771962,
+            "typical": 0.016,
+            "MinError": 0.006228038,
+            "Trim": true
+        },
+        {
+            "Name": "PH2S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 624,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 4
+            },
+            "Vout_1A": 0.083708261125,
+            "Vout_m1A": 0.08326513287500001,
+            "Vout_0A": 0.00026479053125,
+            "MeasureValue": 0.083708261125,
+            "typical": 0.075,
+            "MinError": 0.008708261125000005,
+            "Trim": true
+        },
+        {
+            "Name": "PH2S1 IND CS Offset trimming",
+            "Register": {
+                "RegisterAddress": 628,
+                "RegisterLSB": 27,
+                "RegisterMSB": 31,
+                "RegisterValue": 17
+            },
+            "MeasureValue": 0.0011471102425000001,
+            "typical": 0.00121,
+            "MinError": 6.288975749999979e-05,
+            "Trim": true
+        },
+        {
+            "Name": "PH2S1 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 624,
+                "RegisterLSB": 6,
+                "RegisterMSB": 11,
+                "RegisterValue": 43
+            },
+            "MeasureValue": 0.07533738070000001,
+            "typical": 0.07575,
+            "MinError": 0.0003373807000000145,
+            "Trim": true
+        },
+        {
+            "Name": "PH2S1 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 628,
+                "RegisterLSB": 5,
+                "RegisterMSB": 9,
+                "RegisterValue": 8
+            },
+            "MeasureValue": -0.009767187,
+            "typical": 0.016,
+            "MinError": 0.006232813,
+            "Trim": true
+        },
+        {
+            "Name": "PH2S4 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 624,
+                "RegisterLSB": 12,
+                "RegisterMSB": 16,
+                "RegisterValue": 2
+            },
+            "Vout_1A": 0.07147368509999999,
+            "Vout_m1A": 0.07430161525,
+            "Vout_0A": 0.001294412085,
+            "MeasureValue": 0.07147368509999999,
+            "typical": 0.075,
+            "MinError": 0.0035263149000000077,
+            "Trim": true
+        },
+        {
+            "Name": "PH2S4 IND CS Offset trimming",
+            "Register": {
+                "RegisterAddress": 628,
+                "RegisterLSB": 22,
+                "RegisterMSB": 26,
+                "RegisterValue": 17
+            },
+            "MeasureValue": -0.0009007571572500001,
+            "typical": 0.00121,
+            "MinError": 0.0003092428427499998,
+            "Trim": true
+        },
+        {
+            "Name": "PH2S4 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 624,
+                "RegisterLSB": 0,
+                "RegisterMSB": 5,
+                "RegisterValue": 3
+            },
+            "MeasureValue": -0.07491143575,
+            "typical": 0.07575,
+            "MinError": 8.856424999999224e-05,
+            "Trim": true
+        },
+        {
+            "Name": "PH2S4 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 628,
+                "RegisterLSB": 0,
+                "RegisterMSB": 4,
+                "RegisterValue": 18
+            },
+            "MeasureValue": 0.01523829,
+            "typical": 0.016,
+            "MinError": 0.0007617100000000005,
+            "Trim": true
+        },
+        {
+            "Name": "PH3S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 616,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 4
+            },
+            "Vout_1A": 0.08268717625,
+            "Vout_m1A": 0.08830244255,
+            "Vout_0A": 0.0027216505175000003,
+            "MeasureValue": 0.08268717625,
+            "typical": 0.075,
+            "MinError": 0.007687176249999997,
+            "Trim": true
+        },
+        {
+            "Name": "PH3S1 IND CS Offset trimming",
+            "Register": {
+                "RegisterAddress": 620,
+                "RegisterLSB": 27,
+                "RegisterMSB": 31,
+                "RegisterValue": 1
+            },
+            "MeasureValue": 0.0012730625049999999,
+            "typical": 0.00121,
+            "MinError": -6.306250499999995e-05,
+            "Trim": true
+        },
+        {
+            "Name": "PH3S1 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 616,
+                "RegisterLSB": 6,
+                "RegisterMSB": 11,
+                "RegisterValue": 46
+            },
+            "MeasureValue": 0.075063035175,
+            "typical": 0.07575,
+            "MinError": 6.303517500000355e-05,
+            "Trim": true
+        },
+        {
+            "Name": "PH3S1 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 620,
+                "RegisterLSB": 5,
+                "RegisterMSB": 9,
+                "RegisterValue": 6
+            },
+            "MeasureValue": 0.01025286,
+            "typical": 0.016,
+            "MinError": 0.0057471399999999995,
+            "Trim": true
+        },
+        {
+            "Name": "PH3S4 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 616,
+                "RegisterLSB": 12,
+                "RegisterMSB": 16,
+                "RegisterValue": 2
+            },
+            "Vout_1A": 0.086728036075,
+            "Vout_m1A": 0.08264781510000001,
+            "Vout_0A": 0.00203710263,
+            "MeasureValue": 0.086728036075,
+            "typical": 0.075,
+            "MinError": 0.011728036075000003,
+            "Trim": true
+        },
+        {
+            "Name": "PH3S4 IND CS Offset trimming",
+            "Register": {
+                "RegisterAddress": 620,
+                "RegisterLSB": 22,
+                "RegisterMSB": 26,
+                "RegisterValue": 16
+            },
+            "MeasureValue": 0.0009449711637500001,
+            "typical": 0.00121,
+            "MinError": 0.00026502883624999985,
+            "Trim": true
+        },
+        {
+            "Name": "PH3S4 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 616,
+                "RegisterLSB": 0,
+                "RegisterMSB": 5,
+                "RegisterValue": 42
+            },
+            "MeasureValue": -0.0751702235,
+            "typical": 0.07575,
+            "MinError": 0.00017022349999999686,
+            "Trim": true
+        },
+        {
+            "Name": "PH3S4 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 620,
+                "RegisterLSB": 0,
+                "RegisterMSB": 4,
+                "RegisterValue": 17
+            },
+            "MeasureValue": -0.02476807,
+            "typical": 0.016,
+            "MinError": -0.00876807,
+            "Trim": true
+        },
+        {
+            "Name": "PH4S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 3
+            },
+            "Vout_1A": 0.08771117915000001,
+            "Vout_m1A": 0.081618927525,
+            "Vout_0A": 0.0030202092275,
+            "MeasureValue": 0.08771117915000001,
+            "typical": 0.075,
+            "MinError": 0.012711179150000015,
+            "Trim": true
+        },
+        {
+            "Name": "PH4S1 IND CS Offset trimming",
+            "Register": {
+                "RegisterAddress": 612,
+                "RegisterLSB": 27,
+                "RegisterMSB": 31,
+                "RegisterValue": 19
+            },
+            "MeasureValue": 0.0012479122249999999,
+            "typical": 0.00121,
+            "MinError": -3.791222499999994e-05,
+            "Trim": true
+        },
+        {
+            "Name": "PH4S1 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 6,
+                "RegisterMSB": 11,
+                "RegisterValue": 44
+            },
+            "MeasureValue": 0.075232527825,
+            "typical": 0.07575,
+            "MinError": 0.00023252782500000901,
+            "Trim": true
+        },
+        {
+            "Name": "PH4S1 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 612,
+                "RegisterLSB": 5,
+                "RegisterMSB": 9,
+                "RegisterValue": 6
+            },
+            "MeasureValue": 0.01524222,
+            "typical": 0.016,
+            "MinError": 0.0007577799999999996,
+            "Trim": true
+        },
+        {
+            "Name": "PH4S4 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 12,
+                "RegisterMSB": 16,
+                "RegisterValue": 1
+            },
+            "Vout_1A": 0.071108086125,
+            "Vout_m1A": 0.07829337175000001,
+            "Vout_0A": 0.003621170515,
+            "MeasureValue": 0.071108086125,
+            "typical": 0.075,
+            "MinError": 0.003891913875,
+            "Trim": true
+        },
+        {
+            "Name": "PH4S4 IND CS Offset trimming",
+            "Register": {
+                "RegisterAddress": 612,
+                "RegisterLSB": 22,
+                "RegisterMSB": 26,
+                "RegisterValue": 23
+            },
+            "MeasureValue": 0.0012511569,
+            "typical": 0.00121,
+            "MinError": -4.115690000000018e-05,
+            "Trim": true
+        },
+        {
+            "Name": "PH4S4 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 0,
+                "RegisterMSB": 5,
+                "RegisterValue": 11
+            },
+            "MeasureValue": -0.075038867725,
+            "typical": 0.07575,
+            "MinError": 3.886772500000246e-05,
+            "Trim": true
+        },
+        {
+            "Name": "PH4S4 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 612,
+                "RegisterLSB": 0,
+                "RegisterMSB": 4,
+                "RegisterValue": 20
+            },
+            "MeasureValue": 0.01523314,
+            "typical": 0.016,
+            "MinError": 0.0007668600000000012,
+            "Trim": true
+        }
+    ]
+}

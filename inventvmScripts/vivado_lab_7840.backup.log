@@ -1,0 +1,101 @@
+#-----------------------------------------------------------
+# Vivado Lab Edition v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# 
+# Start of session at: Thu Nov 30 15:08:00 2023
+# Process ID: 7840
+# Current directory: C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts
+# Command line: vivado_lab.exe -mode batch -source C:\validation\Projects\Franco\python\franco_val\venv\lib\site-packages\program_fpga\program_fpga.tcl -tclargs -hw_server localhost:3121 -hw_device xc7v585t_1 -bit_file C:\Validation\Projects\Franco\python\franco_val\inventm\fpga_images/e1072_04_1_franco_efuse_key.bit -hw_target 210299B721A0 -speed 15000000
+# Log file: C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts/vivado_lab.log
+# Journal file: C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts\vivado_lab.jou
+#-----------------------------------------------------------
+source {C:\validation\Projects\Franco\python\franco_val\venv\lib\site-packages\program_fpga\program_fpga.tcl}
+# array set optional [list -hw_server "" -hw_device "" -bit_file "" -hw_target "" -speed "" {*}$argv]
+# set hw_server $optional(-hw_server)
+# set hw_device $optional(-hw_device)
+# set bit_file $optional(-bit_file)
+# set hw_target $optional(-hw_target)
+# set speed $optional(-speed)
+# proc programHwDevice {hw_device bit_file} {
+# 	current_hw_device [get_hw_devices $hw_device]
+# 	refresh_hw_device -update_hw_probes false [lindex [get_hw_devices $hw_device] 0]
+# 	set_property PROBES.FILE {} [get_hw_devices $hw_device]
+# 	set_property FULL_PROBES.FILE {} [get_hw_devices $hw_device]
+# 	set_property PROGRAM.FILE $bit_file [get_hw_devices $hw_device]
+# 	program_hw_devices [get_hw_devices $hw_device]
+# }
+# proc setUpHwTarget {hw_target speed} {
+# 	if {[string match "2*" $hw_target]} {
+# 		current_hw_target [get_hw_targets */xilinx_tcf/Digilent/$hw_target]
+# 	    set_property PARAM.FREQUENCY $speed [get_hw_targets */xilinx_tcf/Digilent/$hw_target]
+# 	} elseif {[string match "0*" $hw_target]} {
+# 		current_hw_target [get_hw_targets */xilinx_tcf/Xilinx/$hw_target]
+# 	    set_property PARAM.FREQUENCY $speed [get_hw_targets */xilinx_tcf/Xilinx/$hw_target]
+# 	} else {
+# 	    current_hw_target [get_hw_targets */xilinx_tcf/$hw_target]
+# 	    set_property PARAM.FREQUENCY $speed [get_hw_targets */xilinx_tcf/$hw_target]
+# 	}
+# }
+# open_hw
+WARNING: 'open_hw' is deprecated, please use 'open_hw_manager' instead.
+# connect_hw_server -url $hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2019.2
+  **** Build date : Nov  6 2019 at 22:12:23
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+****** Xilinx cs_server v2019.2.0
+  **** Build date : Nov 07 2019-06:28:22
+    ** Copyright 2017-2019 Xilinx, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 178.645 ; gain = 31.176
+# if {$hw_target eq "auto"} {
+# 	set hw_targets [get_hw_targets]
+#     set found 0
+# 	for {set i 0} {$found eq 0 && $i < [llength $hw_targets]} {incr i} {
+# 		current_hw_target [lindex $hw_targets $i]
+# 		set_property PARAM.FREQUENCY $speed [lindex $hw_targets $i]
+# 		open_hw_target
+# 		set hw_devices [get_hw_devices]
+# 		for {set j 0} {$found eq 0 && $j < [llength $hw_devices]} {incr j} {
+# 			# Check if current hardware target contains the requested hardware device
+# 			if {[lindex $hw_devices $j] eq $hw_device} {
+# 				incr found
+# 				programHwDevice $hw_device $bit_file
+# 			}
+# 		}
+# 		close_hw_target
+# 	}
+# } else {
+# 	setUpHwTarget $hw_target $speed
+# 	open_hw_target
+# 	programHwDevice $hw_device $bit_file
+# 	close_hw_target
+# }
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210299B721A0
+INFO: [Labtools 27-1435] Device xc7v585t (JTAG device index = 1) is not programmed (DONE status = 0).
+refresh_hw_device: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1412.078 ; gain = 1233.434
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1412.582 ; gain = 0.504
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210299B721A0
+# disconnect_hw_server [current_hw_server]
+# close_hw
+WARNING: 'close_hw' is deprecated, please use 'close_hw_manager' instead.
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts/.Xil/vivado_lab-7840-PC_LAB_04/webtalk/labtool_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Nov 30 15:08:27 2023...
+INFO: [Common 17-206] Exiting vivado_lab at Thu Nov 30 15:08:27 2023...

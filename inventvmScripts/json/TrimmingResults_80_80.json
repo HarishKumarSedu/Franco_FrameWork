@@ -1,0 +1,51 @@
+[
+    {
+        "Name": "DCO trimming",
+        "Register": {
+            "RegisterAddress": 568,
+            "RegisterLSB": 10,
+            "RegisterMSB": 15,
+            "RegisterValue": 38
+        },
+        "MeasureValue": 3016900.0,
+        "typical": 3000000,
+        "MinError": 0.5633333333333334
+    },
+    {
+        "Name": "Aon BG vref 1.2V (VDDA 1.8V) trimming",
+        "Register": {
+            "RegisterAddress": 596,
+            "RegisterLSB": 13,
+            "RegisterMSB": 17,
+            "RegisterValue": 2
+        },
+        "MeasureValue": 1.8019651525,
+        "typical": 1.8,
+        "MinError": 0.10917513888888644
+    },
+    {},
+    {
+        "Name": "Aon ldo_vref_1p2 trimming",
+        "Register": {
+            "RegisterAddress": 596,
+            "RegisterLSB": 8,
+            "RegisterMSB": 12,
+            "RegisterValue": 2
+        },
+        "MeasureValue": 1.2000125700000002,
+        "typical": 1.2,
+        "MinError": 0.0010475000000176315
+    },
+    {
+        "Name": "LDO1.2 Trimming ",
+        "Register": {
+            "RegisterAddress": 604,
+            "RegisterLSB": 14,
+            "RegisterMSB": 19,
+            "RegisterValue": 0
+        },
+        "MeasureValue": 1.1914348175,
+        "typical": 1.2,
+        "MinError": -0.008565182499999935
+    }
+]

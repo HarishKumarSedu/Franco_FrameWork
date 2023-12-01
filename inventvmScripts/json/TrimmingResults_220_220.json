@@ -1,0 +1,86 @@
+[
+    {
+        "Name": "DCO trimming",
+        "Register": {
+            "RegisterAddress": 568,
+            "RegisterLSB": 10,
+            "RegisterMSB": 15,
+            "RegisterValue": 34
+        },
+        "MeasureValue": 2981000.0,
+        "typical": 3000000,
+        "MinError": -0.6333333333333333
+    },
+    {
+        "Name": "Aon BG vref 1.2V (VDDA 1.8V) trimming",
+        "Register": {
+            "RegisterAddress": 596,
+            "RegisterLSB": 13,
+            "RegisterMSB": 17,
+            "RegisterValue": 31
+        },
+        "MeasureValue": 1.7989740775,
+        "typical": 1.8,
+        "MinError": -0.05699569444444435
+    },
+    {
+        "Name": "Aon vref 0.6V trimming",
+        "Register": {
+            "RegisterAddress": 596,
+            "RegisterLSB": 3,
+            "RegisterMSB": 7,
+            "RegisterValue": 1
+        },
+        "MeasureValue": 0.6009491822499999,
+        "typical": 0.6,
+        "MinError": 0.15819704166665968
+    },
+    {
+        "Name": "Aon ldo_vref_1p2 trimming",
+        "Register": {
+            "RegisterAddress": 596,
+            "RegisterLSB": 8,
+            "RegisterMSB": 12,
+            "RegisterValue": 31
+        },
+        "MeasureValue": 1.2000595825,
+        "typical": 1.2,
+        "MinError": 0.004965208333336987
+    },
+    {
+        "Name": "LDO1.2 Trimming ",
+        "Register": {
+            "RegisterAddress": 604,
+            "RegisterLSB": 14,
+            "RegisterMSB": 19,
+            "RegisterValue": 0
+        },
+        "MeasureValue": 1.1995533950000001,
+        "typical": 1.2,
+        "MinError": -0.0004466049999998223
+    },
+    {
+        "Name": "Main BG Current Trimming ",
+        "Register": {
+            "RegisterAddress": 600,
+            "RegisterLSB": 6,
+            "RegisterMSB": 9,
+            "RegisterValue": 1
+        },
+        "MeasureValue": 1.489813695e-06,
+        "typical": 1.5e-06,
+        "MinError": -1.018630500000011e-08
+    },
+    {
+        "Name": "Aon vddsns_ovp trimming",
+        "Register": {
+            "RegisterAddress": 596,
+            "RegisterLSB": 18,
+            "RegisterMSB": 21,
+            "RegisterValue": 8
+        },
+        "MeasureValue": 4.799811,
+        "typical": 4.8,
+        "MinError": 0.00018899999999977268
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "Name": "DCO trimming",
+        "Register": {
+            "RegisterAddress": 568,
+            "RegisterLSB": 10,
+            "RegisterMSB": 15,
+            "RegisterValue": 40
+        },
+        "MeasureValue": 2997600.0,
+        "typical": 3000000,
+        "MinError": -0.08
+    },
+    {
+        "Name": "Aon BG vref 1.2V (VDDA 1.8V) trimming",
+        "Register": {
+            "RegisterAddress": 596,
+            "RegisterLSB": 13,
+            "RegisterMSB": 17,
+            "RegisterValue": 30
+        },
+        "MeasureValue": 1.8006598900000002,
+        "typical": 1.8,
+        "MinError": 0.03666055555556152
+    }
+]

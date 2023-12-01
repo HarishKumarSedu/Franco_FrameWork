@@ -54,61 +54,61 @@ class Matrix:
            self.relayMatrix1.ph24_indcs_buff_1(True)
            self.relayMatrix1.GND(True)
            sleep(0.2)
-        if re.search('PH1S1 IND CS',TrimFieldName):
+        if re.search('PH1S1',TrimFieldName):
            # self.reset()
            sleep(0.1)
            self.relayMatrix1.ph13_indcs_buff_2(True)
            self.relayMatrix1.ph1_IL_Out(True)
            sleep(0.2)
-        if re.search('PH1S4 IND CS',TrimFieldName):
+        if re.search('PH1S4',TrimFieldName):
            # self.reset()
            sleep(0.1)
            self.relayMatrix1.ph13_indcs_buff_2(True)
            self.relayMatrix1.ph1_IL_Out(True)
            sleep(0.2)
-        if re.search('PH2S1 IND CS',TrimFieldName):
+        if re.search('PH2S1',TrimFieldName):
            # self.reset()
            sleep(0.1)
            self.relayMatrix1.ph24_indcs_buff_2(True)
            self.relayMatrix2.ph2_IL_Out(True)
            sleep(0.2)
-        if re.search('PH2S4 IND CS',TrimFieldName):
+        if re.search('PH2S4',TrimFieldName):
            # self.reset()
            sleep(0.1)
            self.relayMatrix1.ph24_indcs_buff_2(True)
            self.relayMatrix2.ph2_IL_Out(True)
            sleep(0.2)
-        if re.search('PH2S1 IND CS',TrimFieldName):
+        if re.search('PH2S1',TrimFieldName):
            # self.reset()
            sleep(0.1)
            self.relayMatrix1.ph24_indcs_buff_2(True)
            self.relayMatrix2.ph2_IL_Out(True)
            sleep(0.2)
-        if re.search('PH2S4 IND CS',TrimFieldName):
+        if re.search('PH2S4',TrimFieldName):
            # self.reset()
            sleep(0.1)
            self.relayMatrix1.ph24_indcs_buff_2(True)
            self.relayMatrix2.ph2_IL_Out(True)
            sleep(0.2)
-        if re.search('PH3S1 IND CS',TrimFieldName):
+        if re.search('PH3S1',TrimFieldName):
            # self.reset()
            sleep(0.1)
            self.relayMatrix1.ph13_indcs_buff_2(True)
            self.relayMatrix2.ph3_IL_Out(True)
            sleep(0.2)
-        if re.search('PH3S4 IND CS',TrimFieldName):
+        if re.search('PH3S4',TrimFieldName):
            # self.reset()
            sleep(0.1)
            self.relayMatrix1.ph13_indcs_buff_2(True)
            self.relayMatrix2.ph3_IL_Out(True)
            sleep(0.2)
-        if re.search('PH4S1 IND CS',TrimFieldName):
+        if re.search('PH4S1',TrimFieldName):
            # self.reset()
            sleep(0.1)
            self.relayMatrix1.ph24_indcs_buff_2(True)
            self.relayMatrix2.ph4_IL_Out(True)
            sleep(0.2)
-        if re.search('PH4S4 IND CS',TrimFieldName):
+        if re.search('PH4S4',TrimFieldName):
            # self.reset()
            sleep(0.1)
            self.relayMatrix1.ph24_indcs_buff_2(True)

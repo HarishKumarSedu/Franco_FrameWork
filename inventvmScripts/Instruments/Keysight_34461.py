@@ -236,7 +236,7 @@ class A34461:
     # <range>: 100 mV, 1 V, 10 V, 100 V, 1000 V, AUTO (default) or DEFault
     # <resolution> (DC): optional and ignored; fixed at 6½ digits.  
     # # Resolution 0.001 PLC 0.002 PLC 0.006 PLC 0.02 PLC 0.06 PLC  0.2 PLC  1 PLC  10 PLC 100 PLC
-    def meas_meter__DcCurrent(self):
+    def meas_meter__DcVoltage(self):
         return float(self.meter.query('MEAS:VOLT:DC?'))
     
     # <range>: 100 mV, 1 V, 10 V, 100 V, 1000 V, AUTO (default) or DEFault
@@ -250,7 +250,14 @@ class A34461:
 
     # 0 to ~3600 seconds (~1 µs steps). Default: 1 s.
     def set_meter__Trigger___Delay(self,delay:float):
+        self.meter.write(f'SAMP:COUN 1')
+        self.meter.write(f'TRIGger:DELay:AUTO OFF')
         self.meter.write(f'TRIG:DEL {str(delay)}')
+        self.meter.write('CONF:VOLT:DC 1,0.0001') 
+        self.meter.write('TRIG:SOUR INT')                   
+        self.meter.write('TRIG:LEV 0.75')
+        self.meter.write('TRIG:SLOP POS')
+        self.meter.write('INIT')
 
     # 0 to ~3600 seconds (~1 µs steps). Default: 1 s.
     def get_meter__Trigger___Delay(self):
@@ -286,6 +293,7 @@ class A34461:
         self.meter.write(f'VOLT:DC:NPLC {str(NPLC)}')
 
 if __name__ == '__main__':
-    meter = A34461('USB0::0x2A8D::0x1301::MY57229855::INSTR')
-    print(meter.meas_V())
-    print(meter.meas_I())
+    meter = A34461('USB0::0x2A8D::0x1401::MY57216238::INSTR')
+    # print(meter.meas_V())
+    # print(meter.meas_I())
+    print(meter.fetch_meter__Reading() )

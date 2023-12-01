@@ -41,11 +41,11 @@ from ph1_indcs import ph1_indcs
 from startup import Startup
 from Trimming import Trim
 from LoadTrims import LoadTrims
-from Indcs_debug import Inducs_Debug
-from quick_Check import QuickCheck
-from efficiency import Efficiency
-from AON_Charecterization import AONChar
-
+# from Indcs_debug import Inducs_Debug
+# from quick_Check import QuickCheck
+# from efficiency import Efficiency
+# from AON_Charecterization import AONChar
+from InnerLoop_Char import InnerLoop
 
 load_dotenv(r'C:\validation\Projects\Franco\python\franco_val\env\franco_val_inventm.env')
 load_dotenv(
@@ -94,19 +94,19 @@ startup = Startup(dut=dut)
 # dut.SIMULINK_MODEL.GAIN_CONFIG3.IBAT_GAIN.value = 0x825
 # dut.SIMULINK_MODEL.GAIN_CONFIG3.IBUS_GAIN.value = 0x460
 # QuickCheck(dut=dut)
-loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_33_33.json',chipid=33)
-loadTrim.loadTrims()
-# trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json',loadTrim=loadTrim)
-# efficiency = Efficiency(dut=dut)cc
-
+loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_70_70.json',chipid=70)
+# loadTrim.loadTrims()
+trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json',loadTrim=loadTrim)
+# efficiency = Efficiency(dut=dut)
+# innerloop = InnerLoop(dut=dut,loadtrims=loadTrim)
 #charecterization
 # char = AONChar(dut=dut)
 
-# startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=6,No_phase=1,ibus=3.3,phase=1)
+# startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=6,No_phase=1,ibus=3.3,phase=0)
 print("-"*50)
 print("Enter Code to run... ")
 while(input_cmd.lower() != quit_cmd):
-    input_cmd = input("> ")
+    input_cmd = input("> ")                                                                                                                                                                                                                                                                                                                                                                                                          
     try:
         exec(input_cmd)
     except:
