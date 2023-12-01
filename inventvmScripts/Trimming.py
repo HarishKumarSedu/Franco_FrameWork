@@ -119,14 +119,14 @@ class Trim(object):
                         print(result)
                         trim_result.append(result)
                         self.writeData(chip_Index=chip_index_start,trim_results=trim_result)
-                    # elif re.search('Aon vddsns_ovp trimming',trim.get('Trimming_Name ')):
+                    elif re.search('Aon vddsns_ovp trimming',trim.get('Trimming_Name ')):
                         
-                    #     vdd_sns_ovp = Vdd_Sns_Ovp_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                    #     vdd_sns_ovp. Vdd_Sns_Ovp_Test__SetUp()
-                    #     result=vdd_sns_ovp. Vdd_Sns_Ovp_results()
-                    #     print(result)
-                    #     trim_result.append(result)
-                    #     self.writeData(chip_Index=chip_index_start,trim_results=trim_result)
+                        vdd_sns_ovp = Vdd_Sns_Ovp_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                        vdd_sns_ovp. Vdd_Sns_Ovp_Test__SetUp()
+                        result=vdd_sns_ovp. Vdd_Sns_Ovp_results()
+                        print(result)
+                        trim_result.append(result)
+                        self.writeData(chip_Index=chip_index_start,trim_results=trim_result)
                     elif re.search('PH13 IND CS Buffer',trim.get('Trimming_Name ')):
 
                         print(trim.get('Trimming_Name '))
@@ -216,18 +216,18 @@ class Trim(object):
                                 trim_result.append(result)
                                 self.writeData(chip_Index=chip_index_start,trim_results=trim_result)
                                 self.startup.buck_PowerDown()
-                        # elif re.search('ZC Comparator trimming',trim.get('Trimming_Name ')):
-                        #     self.startup.buck_PowerUp()
-                        #     sleep(0.1)
-                        #     print(trim.get('Trimming_Name '))
-                        #     self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
-                        #     PhxSy_indcs_zc = PhxSy_Indcs_ZC_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
-                        #     PhxSy_indcs_zc.PhxSy_Indcs_ZC_Test__SetUp()
-                        #     result=PhxSy_indcs_zc.PhxSy_Indcs_ZC_results()
-                        #     print(result)
-                        #     trim_result.append(result)
-                        #     self.writeData(chip_Index=chip_index_start,trim_results=trim_result)
-                        #     self.startup.buck_PowerDown()
+                        elif re.search('ZC Comparator trimming',trim.get('Trimming_Name ')):
+                            self.startup.buck_PowerUp()
+                            sleep(0.1)
+                            print(trim.get('Trimming_Name '))
+                            self.matrix.force_Matrix__Switchx(trim.get('Trimming_Name '))
+                            PhxSy_indcs_zc = PhxSy_Indcs_ZC_Trim(dut=self.dut,DFT=trim,Instruments=self.instruments)
+                            PhxSy_indcs_zc.PhxSy_Indcs_ZC_Test__SetUp()
+                            result=PhxSy_indcs_zc.PhxSy_Indcs_ZC_results()
+                            print(result)
+                            trim_result.append(result)
+                            self.writeData(chip_Index=chip_index_start,trim_results=trim_result)
+                            self.startup.buck_PowerDown()
                         
                     end_time = time()
 
