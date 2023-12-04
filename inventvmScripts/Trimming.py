@@ -246,7 +246,7 @@ class Trim(object):
                         chip_index:trim_result
                     })
                 chip_index=chip_index+1
-                resultsfilename = f'TrimmingResults_{str(chip_index-1)}_{str(chip_index-1)}'
+                resultsfilename = f'TrimmingResults_TrimTemp_{str(chip_index-1)}_{str(chip_index-1)}'
                 with open(f'json/{resultsfilename}.json', 'w', encoding='utf-8') as f:
                     print('................................')
                     json.dump(self.trim_results, f, ensure_ascii=False, indent=4)
@@ -265,7 +265,7 @@ class Trim(object):
             #     json.dump(self.trim_results, f, ensure_ascii=False, indent=4)
 
     def writeData(self,trim_results,chip_Index):
-            resultsfilename = f'TrimmingResults_{str(chip_Index)}_{str(chip_Index)}'
+            resultsfilename = f'TrimmingResults_TrimTemp_{str(chip_Index)}_{str(chip_Index)}'
             with open(f'json/{resultsfilename}.json', 'w', encoding='utf-8') as f:
                 print('................................')
                 json.dump(trim_results, f, ensure_ascii=False, indent=4)
