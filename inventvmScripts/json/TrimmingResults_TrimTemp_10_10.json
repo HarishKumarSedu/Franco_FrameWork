@@ -1,5 +1,5 @@
 {
-    "83": [
+    "10": [
         {
             "Name": "DCO trimming",
             "Register": {
@@ -8,9 +8,9 @@
                 "RegisterMSB": 15,
                 "RegisterValue": 35
             },
-            "MeasureValue": 3003540.0,
+            "MeasureValue": 2983300.0,
             "typical": 3000000,
-            "MinError": 0.11800000000000001
+            "MinError": -0.5566666666666666
         },
         {
             "Name": "Aon BG vref 1.2V (VDDA 1.8V) trimming",
@@ -18,11 +18,11 @@
                 "RegisterAddress": 596,
                 "RegisterLSB": 13,
                 "RegisterMSB": 17,
-                "RegisterValue": 2
+                "RegisterValue": 30
             },
-            "MeasureValue": 1.7947017674999999,
+            "MeasureValue": 1.79595802,
             "typical": 1.8,
-            "MinError": -0.2943462500000092
+            "MinError": -0.22455444444444447
         },
         {
             "Name": "Aon ldo_vref_1p2 trimming",
@@ -30,11 +30,11 @@
                 "RegisterAddress": 596,
                 "RegisterLSB": 8,
                 "RegisterMSB": 12,
-                "RegisterValue": 1
+                "RegisterValue": 31
             },
-            "MeasureValue": 1.1978370125,
+            "MeasureValue": 1.2029737125,
             "typical": 1.2,
-            "MinError": -0.1802489583333326
+            "MinError": 0.24780937500000028
         },
         {
             "Name": "LDO1.2 Trimming ",
@@ -42,11 +42,11 @@
                 "RegisterAddress": 604,
                 "RegisterLSB": 14,
                 "RegisterMSB": 19,
-                "RegisterValue": 0
+                "RegisterValue": 15
             },
-            "MeasureValue": 1.1921482025,
+            "MeasureValue": 1.1958421875,
             "typical": 1.2,
-            "MinError": -0.007851797499999869
+            "MinError": -0.004157812499999913
         },
         {
             "Name": "Main BG Current Trimming ",
@@ -56,9 +56,9 @@
                 "RegisterMSB": 9,
                 "RegisterValue": 1
             },
-            "MeasureValue": 1.492148555e-06,
+            "MeasureValue": 1.467838315e-06,
             "typical": 1.5e-06,
-            "MinError": -7.851445000000114e-09
+            "MinError": -3.216168500000012e-08
         },
         {
             "Name": "Aon vddsns_ovp trimming",
@@ -66,11 +66,11 @@
                 "RegisterAddress": 596,
                 "RegisterLSB": 18,
                 "RegisterMSB": 21,
-                "RegisterValue": 8
+                "RegisterValue": 1
             },
-            "MeasureValue": 4.807326,
+            "MeasureValue": 5.503284,
             "typical": 4.8,
-            "MinError": -0.007325999999999944
+            "MinError": -0.703284
         },
         {
             "Name": "PH13 IND CS Buffer",
@@ -78,11 +78,11 @@
                 "RegisterAddress": 608,
                 "RegisterLSB": 29,
                 "RegisterMSB": 31,
-                "RegisterValue": 5
+                "RegisterValue": 0
             },
-            "MeasureValue": 0.697529122,
+            "MeasureValue": 0.70366743725,
             "typical": 0.7,
-            "MinError": -0.0024708780000000097
+            "MinError": 0.003667437250000072
         },
         {
             "Name": "PH24 IND CS Buffer",
@@ -90,11 +90,11 @@
                 "RegisterAddress": 608,
                 "RegisterLSB": 26,
                 "RegisterMSB": 28,
-                "RegisterValue": 0
+                "RegisterValue": 4
             },
-            "MeasureValue": 0.69978454775,
+            "MeasureValue": 0.7007597165,
             "typical": 0.7,
-            "MinError": -0.00021545224999997004
+            "MinError": 0.0007597165000000627
         },
         {
             "Name": "PH1S1 IND CS Mirror trimming",
@@ -104,12 +104,12 @@
                 "RegisterMSB": 21,
                 "RegisterValue": 2
             },
-            "Vout_1A": 0.0835716973,
-            "Vout_m1A": 0.085526038725,
-            "Vout_0A": 0.00101082096025,
-            "MeasureValue": 0.0835716973,
+            "Vout_1A": 0.083848207275,
+            "Vout_m1A": 0.08534290075,
+            "Vout_0A": 0.00074307071425,
+            "MeasureValue": 0.083848207275,
             "typical": 0.075,
-            "MinError": 0.0085716973,
+            "MinError": 0.008848207275000006,
             "Trim": true
         },
         {
@@ -118,11 +118,11 @@
                 "RegisterAddress": 636,
                 "RegisterLSB": 27,
                 "RegisterMSB": 31,
-                "RegisterValue": 0
+                "RegisterValue": 16
             },
-            "MeasureValue": 0.0009741669170000001,
+            "MeasureValue": 0.000775632541,
             "typical": 0.00121,
-            "MinError": 0.00023583308299999985,
+            "MinError": 0.00043436745899999997,
             "Trim": true
         },
         {
@@ -133,9 +133,9 @@
                 "RegisterMSB": 11,
                 "RegisterValue": 44
             },
-            "MeasureValue": 0.07528585705,
+            "MeasureValue": 0.0751226337,
             "typical": 0.07575,
-            "MinError": 0.0002858570500000046,
+            "MinError": 0.0001226336999999994,
             "Trim": true
         },
         {
@@ -144,11 +144,11 @@
                 "RegisterAddress": 636,
                 "RegisterLSB": 5,
                 "RegisterMSB": 9,
-                "RegisterValue": 10
+                "RegisterValue": 8
             },
-            "MeasureValue": -0.009779646,
+            "MeasureValue": 0.005225031,
             "typical": 0.016,
-            "MinError": 0.006220354000000001,
+            "MinError": 0.010774969,
             "Trim": true
         },
         {
@@ -157,14 +157,14 @@
                 "RegisterAddress": 632,
                 "RegisterLSB": 12,
                 "RegisterMSB": 16,
-                "RegisterValue": 1
+                "RegisterValue": 2
             },
-            "Vout_1A": 0.072637113,
-            "Vout_m1A": 0.07805652445000001,
-            "Vout_0A": 0.002695052435,
-            "MeasureValue": 0.072637113,
+            "Vout_1A": 0.07212628239999999,
+            "Vout_m1A": 0.07833877189999999,
+            "Vout_0A": 0.0030783966725,
+            "MeasureValue": 0.07212628239999999,
             "typical": 0.075,
-            "MinError": 0.002362886999999994,
+            "MinError": 0.002873717600000006,
             "Trim": true
         },
         {
@@ -173,11 +173,11 @@
                 "RegisterAddress": 636,
                 "RegisterLSB": 22,
                 "RegisterMSB": 26,
-                "RegisterValue": 18
+                "RegisterValue": 19
             },
-            "MeasureValue": -0.00093914312025,
+            "MeasureValue": 0.000946476387,
             "typical": 0.00121,
-            "MinError": 0.00027085687974999994,
+            "MinError": 0.0002635236129999999,
             "Trim": true
         },
         {
@@ -186,11 +186,11 @@
                 "RegisterAddress": 632,
                 "RegisterLSB": 0,
                 "RegisterMSB": 5,
-                "RegisterValue": 34
+                "RegisterValue": 0
             },
-            "MeasureValue": -0.0747806177,
+            "MeasureValue": -0.075234363075,
             "typical": 0.07575,
-            "MinError": 0.00021938230000000114,
+            "MinError": 0.00023436307500000753,
             "Trim": true
         },
         {
@@ -199,11 +199,11 @@
                 "RegisterAddress": 636,
                 "RegisterLSB": 0,
                 "RegisterMSB": 4,
-                "RegisterValue": 19
+                "RegisterValue": 4
             },
-            "MeasureValue": 0.01522551,
+            "MeasureValue": -0.009789983,
             "typical": 0.016,
-            "MinError": 0.0007744900000000009,
+            "MinError": 0.006210017,
             "Trim": true
         },
         {
@@ -214,12 +214,12 @@
                 "RegisterMSB": 21,
                 "RegisterValue": 2
             },
-            "Vout_1A": 0.08324676665,
-            "Vout_m1A": 0.0866561571,
-            "Vout_0A": 0.001717895445,
-            "MeasureValue": 0.08324676665,
+            "Vout_1A": 0.084949763725,
+            "Vout_m1A": 0.08415468685,
+            "Vout_0A": 0.00037026919275,
+            "MeasureValue": 0.084949763725,
             "typical": 0.075,
-            "MinError": 0.00824676665,
+            "MinError": 0.009949763725000005,
             "Trim": true
         },
         {
@@ -228,11 +228,11 @@
                 "RegisterAddress": 628,
                 "RegisterLSB": 27,
                 "RegisterMSB": 31,
-                "RegisterValue": 2
+                "RegisterValue": 17
             },
-            "MeasureValue": -0.0010934248125,
+            "MeasureValue": 0.0008848084082499999,
             "typical": 0.00121,
-            "MinError": 0.00011657518749999996,
+            "MinError": 0.00032519159175,
             "Trim": true
         },
         {
@@ -241,11 +241,11 @@
                 "RegisterAddress": 624,
                 "RegisterLSB": 6,
                 "RegisterMSB": 11,
-                "RegisterValue": 43
+                "RegisterValue": 44
             },
-            "MeasureValue": 0.074712961675,
+            "MeasureValue": 0.075026910425,
             "typical": 0.07575,
-            "MinError": 0.0002870383250000025,
+            "MinError": 2.6910424999998517e-05,
             "Trim": true
         },
         {
@@ -254,11 +254,11 @@
                 "RegisterAddress": 628,
                 "RegisterLSB": 5,
                 "RegisterMSB": 9,
-                "RegisterValue": 8
+                "RegisterValue": 5
             },
-            "MeasureValue": -0.01977395,
+            "MeasureValue": -0.01477927,
             "typical": 0.016,
-            "MinError": -0.003773949999999998,
+            "MinError": 0.0012207299999999997,
             "Trim": true
         },
         {
@@ -267,14 +267,14 @@
                 "RegisterAddress": 624,
                 "RegisterLSB": 12,
                 "RegisterMSB": 16,
-                "RegisterValue": 3
+                "RegisterValue": 2
             },
-            "Vout_1A": 0.0760935474,
-            "Vout_m1A": 0.0786823115,
-            "Vout_0A": 0.0012919334599999998,
-            "MeasureValue": 0.0760935474,
+            "Vout_1A": 0.071016114325,
+            "Vout_m1A": 0.07968118657500001,
+            "Vout_0A": 0.0042925259125,
+            "MeasureValue": 0.071016114325,
             "typical": 0.075,
-            "MinError": 0.0010935474000000056,
+            "MinError": 0.003983885674999993,
             "Trim": true
         },
         {
@@ -283,11 +283,11 @@
                 "RegisterAddress": 628,
                 "RegisterLSB": 22,
                 "RegisterMSB": 26,
-                "RegisterValue": 19
+                "RegisterValue": 18
             },
-            "MeasureValue": 0.00076190870525,
+            "MeasureValue": 0.000821553888,
             "typical": 0.00121,
-            "MinError": 0.00044809129474999987,
+            "MinError": 0.00038844611199999996,
             "Trim": true
         },
         {
@@ -298,9 +298,9 @@
                 "RegisterMSB": 5,
                 "RegisterValue": 1
             },
-            "MeasureValue": -0.07488942445,
+            "MeasureValue": -0.075167397875,
             "typical": 0.07575,
-            "MinError": 0.00011057554999999164,
+            "MinError": 0.0001673978750000027,
             "Trim": true
         },
         {
@@ -309,11 +309,11 @@
                 "RegisterAddress": 628,
                 "RegisterLSB": 0,
                 "RegisterMSB": 4,
-                "RegisterValue": 19
+                "RegisterValue": 16
             },
-            "MeasureValue": -0.01477692,
+            "MeasureValue": 0.01022925,
             "typical": 0.016,
-            "MinError": 0.0012230799999999997,
+            "MinError": 0.00577075,
             "Trim": true
         },
         {
@@ -322,14 +322,14 @@
                 "RegisterAddress": 616,
                 "RegisterLSB": 17,
                 "RegisterMSB": 21,
-                "RegisterValue": 3
+                "RegisterValue": 4
             },
-            "Vout_1A": 0.08587421064999999,
-            "Vout_m1A": 0.08589964185,
-            "Vout_0A": 2.9646948525e-05,
-            "MeasureValue": 0.08587421064999999,
+            "Vout_1A": 0.08464300124999999,
+            "Vout_m1A": 0.089724102,
+            "Vout_0A": 0.0025245264825,
+            "MeasureValue": 0.08464300124999999,
             "typical": 0.075,
-            "MinError": 0.010874210649999994,
+            "MinError": 0.009643001249999991,
             "Trim": true
         },
         {
@@ -338,11 +338,11 @@
                 "RegisterAddress": 620,
                 "RegisterLSB": 27,
                 "RegisterMSB": 31,
-                "RegisterValue": 17
+                "RegisterValue": 1
             },
-            "MeasureValue": 0.0013038098175,
+            "MeasureValue": 0.00110886653,
             "typical": 0.00121,
-            "MinError": -9.380981750000002e-05,
+            "MinError": 0.00010113346999999985,
             "Trim": true
         },
         {
@@ -351,11 +351,11 @@
                 "RegisterAddress": 616,
                 "RegisterLSB": 6,
                 "RegisterMSB": 11,
-                "RegisterValue": 46
+                "RegisterValue": 47
             },
-            "MeasureValue": 0.07481473115000001,
+            "MeasureValue": 0.075310471925,
             "typical": 0.07575,
-            "MinError": 0.00018526884999998938,
+            "MinError": 0.00031047192499999987,
             "Trim": true
         },
         {
@@ -364,11 +364,11 @@
                 "RegisterAddress": 620,
                 "RegisterLSB": 5,
                 "RegisterMSB": 9,
-                "RegisterValue": 9
+                "RegisterValue": 17
             },
-            "MeasureValue": 0.02024296,
+            "MeasureValue": 0.01522189,
             "typical": 0.016,
-            "MinError": -0.0042429600000000005,
+            "MinError": 0.0007781100000000003,
             "Trim": true
         },
         {
@@ -377,14 +377,14 @@
                 "RegisterAddress": 616,
                 "RegisterLSB": 12,
                 "RegisterMSB": 16,
-                "RegisterValue": 1
+                "RegisterValue": 3
             },
-            "Vout_1A": 0.074473262875,
-            "Vout_m1A": 0.078808150875,
-            "Vout_0A": 0.0021321963,
-            "MeasureValue": 0.074473262875,
+            "Vout_1A": 0.077861338825,
+            "Vout_m1A": 0.080211914875,
+            "Vout_0A": 0.00120261394,
+            "MeasureValue": 0.077861338825,
             "typical": 0.075,
-            "MinError": 0.0005267371249999958,
+            "MinError": 0.002861338825000004,
             "Trim": true
         },
         {
@@ -393,11 +393,11 @@
                 "RegisterAddress": 620,
                 "RegisterLSB": 22,
                 "RegisterMSB": 26,
-                "RegisterValue": 18
+                "RegisterValue": 1
             },
-            "MeasureValue": -0.001080436385,
+            "MeasureValue": -0.001159789515,
             "typical": 0.00121,
-            "MinError": 0.000129563615,
+            "MinError": 5.021048499999998e-05,
             "Trim": true
         },
         {
@@ -406,11 +406,11 @@
                 "RegisterAddress": 616,
                 "RegisterLSB": 0,
                 "RegisterMSB": 5,
-                "RegisterValue": 35
+                "RegisterValue": 36
             },
-            "MeasureValue": -0.07501389645,
+            "MeasureValue": -0.0752799267,
             "typical": 0.07575,
-            "MinError": 1.3896450000008831e-05,
+            "MinError": 0.0002799267000000022,
             "Trim": true
         },
         {
@@ -419,11 +419,11 @@
                 "RegisterAddress": 620,
                 "RegisterLSB": 0,
                 "RegisterMSB": 4,
-                "RegisterValue": 18
+                "RegisterValue": 19
             },
-            "MeasureValue": -0.01978168,
+            "MeasureValue": 0.01522087,
             "typical": 0.016,
-            "MinError": -0.003781679999999999,
+            "MinError": 0.0007791300000000011,
             "Trim": true
         },
         {
@@ -434,12 +434,12 @@
                 "RegisterMSB": 21,
                 "RegisterValue": 3
             },
-            "Vout_1A": 0.08451166852500001,
-            "Vout_m1A": 0.08936159034999999,
-            "Vout_0A": 0.00241660359,
-            "MeasureValue": 0.08451166852500001,
+            "Vout_1A": 0.08460491625,
+            "Vout_m1A": 0.090543885125,
+            "Vout_0A": 0.0029203222324999997,
+            "MeasureValue": 0.08460491625,
             "typical": 0.075,
-            "MinError": 0.009511668525000017,
+            "MinError": 0.009604916249999998,
             "Trim": true
         },
         {
@@ -448,11 +448,11 @@
                 "RegisterAddress": 612,
                 "RegisterLSB": 27,
                 "RegisterMSB": 31,
-                "RegisterValue": 1
+                "RegisterValue": 3
             },
-            "MeasureValue": 0.0010360039625,
+            "MeasureValue": -0.0012349432725,
             "typical": 0.00121,
-            "MinError": 0.0001739960374999999,
+            "MinError": -2.494327250000014e-05,
             "Trim": true
         },
         {
@@ -461,11 +461,11 @@
                 "RegisterAddress": 608,
                 "RegisterLSB": 6,
                 "RegisterMSB": 11,
-                "RegisterValue": 47
+                "RegisterValue": 45
             },
-            "MeasureValue": 0.075094211625,
+            "MeasureValue": 0.075367402925,
             "typical": 0.07575,
-            "MinError": 9.42116250000069e-05,
+            "MinError": 0.00036740292499999605,
             "Trim": true
         },
         {
@@ -474,11 +474,11 @@
                 "RegisterAddress": 612,
                 "RegisterLSB": 5,
                 "RegisterMSB": 9,
-                "RegisterValue": 7
+                "RegisterValue": 6
             },
-            "MeasureValue": -0.019777,
+            "MeasureValue": 0.01522034,
             "typical": 0.016,
-            "MinError": -0.003776999999999999,
+            "MinError": 0.0007796599999999997,
             "Trim": true
         },
         {
@@ -489,12 +489,12 @@
                 "RegisterMSB": 16,
                 "RegisterValue": 2
             },
-            "Vout_1A": 0.07732613299999999,
-            "Vout_m1A": 0.077578619425,
-            "Vout_0A": 9.400692712499999e-05,
-            "MeasureValue": 0.07732613299999999,
+            "Vout_1A": 0.0798786558,
+            "Vout_m1A": 0.07873266865,
+            "Vout_0A": 0.00060560079175,
+            "MeasureValue": 0.0798786558,
             "typical": 0.075,
-            "MinError": 0.002326132999999994,
+            "MinError": 0.004878655800000006,
             "Trim": true
         },
         {
@@ -503,11 +503,11 @@
                 "RegisterAddress": 612,
                 "RegisterLSB": 22,
                 "RegisterMSB": 26,
-                "RegisterValue": 1
+                "RegisterValue": 0
             },
-            "MeasureValue": -0.00125560441,
+            "MeasureValue": -0.000805810076,
             "typical": 0.00121,
-            "MinError": -4.5604410000000184e-05,
+            "MinError": 0.0004041899239999999,
             "Trim": true
         },
         {
@@ -516,11 +516,11 @@
                 "RegisterAddress": 608,
                 "RegisterLSB": 0,
                 "RegisterMSB": 5,
-                "RegisterValue": 37
+                "RegisterValue": 40
             },
-            "MeasureValue": -0.07507189645,
+            "MeasureValue": -0.07515354492500001,
             "typical": 0.07575,
-            "MinError": 7.189644999999745e-05,
+            "MinError": 0.0001535449250000126,
             "Trim": true
         },
         {
@@ -529,115 +529,11 @@
                 "RegisterAddress": 612,
                 "RegisterLSB": 0,
                 "RegisterMSB": 4,
-                "RegisterValue": 2
+                "RegisterValue": 20
             },
-            "MeasureValue": -0.01477403,
+            "MeasureValue": -0.01478469,
             "typical": 0.016,
-            "MinError": 0.0012259699999999998,
-            "Trim": true
-        },
-        {
-            "Name": "PH1S1 ZC Comparator trimming",
-            "Register": {
-                "RegisterAddress": 636,
-                "RegisterLSB": 5,
-                "RegisterMSB": 9,
-                "RegisterValue": 18
-            },
-            "MeasureValue": 0.008237497,
-            "typical": 0.016,
-            "MinError": 0.0077625030000000005,
-            "Trim": true
-        },
-        {
-            "Name": "PH1S4 ZC Comparator trimming",
-            "Register": {
-                "RegisterAddress": 636,
-                "RegisterLSB": 0,
-                "RegisterMSB": 4,
-                "RegisterValue": 28
-            },
-            "MeasureValue": -0.01177911,
-            "typical": 0.016,
-            "MinError": 0.00422089,
-            "Trim": true
-        },
-        {
-            "Name": "PH2S1 ZC Comparator trimming",
-            "Register": {
-                "RegisterAddress": 628,
-                "RegisterLSB": 5,
-                "RegisterMSB": 9,
-                "RegisterValue": 17
-            },
-            "MeasureValue": 0.0002301512,
-            "typical": 0.016,
-            "MinError": 0.0157698488,
-            "Trim": true
-        },
-        {
-            "Name": "PH2S4 ZC Comparator trimming",
-            "Register": {
-                "RegisterAddress": 628,
-                "RegisterLSB": 0,
-                "RegisterMSB": 4,
-                "RegisterValue": 26
-            },
-            "MeasureValue": -0.0007779102,
-            "typical": 0.016,
-            "MinError": 0.0152220898,
-            "Trim": true
-        },
-        {
-            "Name": "PH3S1 ZC Comparator trimming",
-            "Register": {
-                "RegisterAddress": 620,
-                "RegisterLSB": 5,
-                "RegisterMSB": 9,
-                "RegisterValue": 0
-            },
-            "MeasureValue": -0.0007810963,
-            "typical": 0.016,
-            "MinError": 0.0152189037,
-            "Trim": true
-        },
-        {
-            "Name": "PH3S4 ZC Comparator trimming",
-            "Register": {
-                "RegisterAddress": 620,
-                "RegisterLSB": 0,
-                "RegisterMSB": 4,
-                "RegisterValue": 28
-            },
-            "MeasureValue": -0.005783685,
-            "typical": 0.016,
-            "MinError": 0.010216315,
-            "Trim": true
-        },
-        {
-            "Name": "PH4S1 ZC Comparator trimming",
-            "Register": {
-                "RegisterAddress": 612,
-                "RegisterLSB": 5,
-                "RegisterMSB": 9,
-                "RegisterValue": 17
-            },
-            "MeasureValue": -0.008804834,
-            "typical": 0.016,
-            "MinError": 0.007195166000000001,
-            "Trim": true
-        },
-        {
-            "Name": "PH4S4 ZC Comparator trimming",
-            "Register": {
-                "RegisterAddress": 612,
-                "RegisterLSB": 0,
-                "RegisterMSB": 4,
-                "RegisterValue": 24
-            },
-            "MeasureValue": -0.0007814413,
-            "typical": 0.016,
-            "MinError": 0.0152185587,
+            "MinError": 0.0012153100000000007,
             "Trim": true
         }
     ]

@@ -13,9 +13,12 @@ class LoadTrims:
         # print(self.trimmedData)
         # self.loadTrims()
     def loadTrims(self):
+        print('Loading Trimming Values ...')
         for reg_data in self.trimmedData.get(str(self.chipid)):
-            print(reg_data)
+            # print(reg_data)
             self.apis.write_register(register=reg_data.get('Register'))
+        print('Done.....!')
+
 
 
 if __name__ == '__main__':

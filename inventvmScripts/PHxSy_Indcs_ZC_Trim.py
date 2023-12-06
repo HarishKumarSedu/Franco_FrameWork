@@ -61,8 +61,9 @@ class PhxSy_Indcs_ZC_Trim:
                 self.apis.write_register(register=self.trim_register_data,write_value=value)
                 self.trim_code.append(value)
                 time.sleep(0.01)
-                # input(f'ZC Trim Sweep code : {value} >')
+                print(f'ZC Trim Sweep code : {value} >')
                 self.measure_values.append(self.PhxSy_Indcs_ZC_Values__Sweep___Current()) # get the frequency values from multimeter
+                print(self.measure_values[-1])
         self.supply.setCurrent(channel=3,current=0)
         self.supply.outp_OFF(channel=3)
         self.PhxSy_Indcs_ZC_Limit__Check()
@@ -70,7 +71,7 @@ class PhxSy_Indcs_ZC_Trim:
 
     def PhxSy_Indcs_ZC_Values__Sweep___Current(self):
         # time.sleep(0.1)
-        current=-1
+        current=-0.65
         self.supply.setCurrent(channel=3,current=current)
         self.supply.outp_ON(channel=3)
         # self.scope.single_Trigger__RUN()
@@ -78,10 +79,10 @@ class PhxSy_Indcs_ZC_Trim:
         # while(self.scope.acquireState == True):
         self.scope.scopeTrigger_Acquire()
         while(self.scope.scopeAcquire_BUSY):
-                time.sleep(0.005)
+                time.sleep(0.01)
                 self.supply.setCurrent(channel=3,current=current)
-                current=current+0.005
-                if current > 0.6 :
+                current=current+0.001
+                if current > 0.65 :
                     break
         # self.supply.setCurrent(channel=3,current=-0.1)
         return self.supply.getCurrent(channel=3)
@@ -97,7 +98,7 @@ class PhxSy_Indcs_ZC_Trim:
         measure_values_abs=[]
         for i in self.measure_values:
             err = typical-abs(i)
-            error_abs.append(abs(err))
+            error_abs.append(abs(i))
             error.append(err)
             measure_values_abs.append(abs(i))
 

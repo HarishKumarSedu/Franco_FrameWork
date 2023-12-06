@@ -1,0 +1,15 @@
+[
+    {
+        "Name": "PH1S1 ZC Comparator trimming",
+        "Register": {
+            "RegisterAddress": 636,
+            "RegisterLSB": 5,
+            "RegisterMSB": 9,
+            "RegisterValue": 4
+        },
+        "MeasureValue": 0.005235275,
+        "typical": 0.016,
+        "MinError": 0.010764725,
+        "Trim": true
+    }
+]
