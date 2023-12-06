@@ -36,9 +36,13 @@ class InnerLoop:
         '''
             Zero current sweep 
         '''
-        self.ZC_Sweep(sheet='Device2_ZC_HighSide_25C')
+        self.ZC_Sweep(sheet='Device1_ZC_HighSide_25C')
         sleep(1)
-        self.ZC_Sweep(sheet='Device2_ZC_LowSide_25C')
+        self.ZC_Sweep(sheet='Device1_ZC_LowSide_25C')
+        # input('85c')
+        # self.ZC_Sweep(sheet='Device1_ZC_HighSide_85C')
+        # sleep(1)
+        # self.ZC_Sweep(sheet='Device1_ZC_LowSide_85C')
 
     def InputCurr_Step(self):
         self.scope.set_HScale(scale='20E-3')
@@ -471,14 +475,16 @@ class InnerLoop:
         self.scope.scopeTrigger_Acquire(channel='CH1')
         phases = {0:'PH1S1',1:'PH2S1',2:'PH3S1',3:'PH4S1'}
         if re.search('Low',sheet):
-            # phases = {0:'PH1S1'}
             phases = {0:'PH1S4',1:'PH2S4',2:'PH3S4',3:'PH4S4'}
+        # phases = {0:'PH1S1'}
         try :
             zc_th = [[],[],[],[]]
             zc_meas = [[],[],[],[]]
+            zc_stepsize = [[],[],[],[]]
             error = [[],[],[],[]]
             for phaseIndex,phase in phases.items() :
-                print(phase)
+
+                print(phase,len(phases))
                 self.matrix.reset()
                 print(f'Operating Phase {phase} and the Phase Index {phaseIndex}')
                 self.Phase_Select(phase,Test1_block=4,TestSignal=phaseIndex,current_index=0,DriverEnable=True)
@@ -486,13 +492,52 @@ class InnerLoop:
                 self.scope.scopeTrigger_Acquire()
                 sleep(1)
                 if True:
-                    for i in range(0,64,4):
+                    for j in range(0,24,4):
+                        self.Zc_select(phase=phase,zc_threshold=j)
+                        # if i >= 32:
+                        #     zc_th[phaseIndex].append(0.0322*32 - i*0.0322)
+                        # else:
+                        zc_th[phaseIndex].append( j*0.0322)
+                        current= -(abs(zc_th[phaseIndex][-1]) + 0.2)
+                        sleep(0.1)
+                        self.supply.setCurrent(channel=3,current=current)
+                        self.supply.outp_ON(channel=3)
+                        sleep(0.1)
+                        self.scope.scopeTrigger_Acquire()
+                        sleep(0.5)
+                        # print('first loop')
+                        while(self.scope.scopeAcquire_BUSY):
+                                sleep(0.005)
+                                self.supply.setCurrent(channel=3,current=current)
+                                current=current+0.001
+                                # if current > (abs(zc_th[phaseIndex][-1])*2 + 0.3):
+                                #     break
+                        zc_meas[phaseIndex].append(-1*self.supply.getCurrent(channel=3))
+                        self.supply.setCurrent(channel=3,current=0)
+                        if abs(zc_th[phaseIndex][-1]) == 0:
+                            error[phaseIndex].append(zc_meas[phaseIndex][0])
+                        else:
+                            error[phaseIndex].append(((abs(zc_meas[phaseIndex][-1]) - abs(zc_th[phaseIndex][-1]))/abs(zc_th[phaseIndex][-1]))*100)
+
+                        if len(zc_meas[phaseIndex]) > 1 :
+                            step_size = (zc_meas[phaseIndex][-1] - zc_meas[phaseIndex][-2])/4
+                            if abs(step_size) < 0.1:
+                                zc_stepsize[phaseIndex].append(step_size)
+                            else:
+                                if zc_th[phaseIndex][-1] == 0:
+                                    zc_stepsize[phaseIndex].append(zc_meas[phaseIndex][-1])
+
+                        else:
+                                zc_stepsize[phaseIndex].append(zc_meas[phaseIndex][0])
+                        print(f'ZC Threshold {zc_th[phaseIndex][-1]} Triggered Curret {zc_meas[phaseIndex][-1]}, zc step size {zc_stepsize[phaseIndex][-1]},error {error[phaseIndex][-1]}')
+
+                    for i in range(32,56,4):
                         self.Zc_select(phase=phase,zc_threshold=i)
                         if i >= 32:
                             zc_th[phaseIndex].append(0.0322*32 - i*0.0322)
                         else:
                             zc_th[phaseIndex].append( i*0.0322)
-                        current= -(abs(zc_th[phaseIndex][-1]*2) + 0.3)
+                        current= -0.2-zc_th[phaseIndex][-1]
                         sleep(0.1)
                         self.supply.setCurrent(channel=3,current=current)
                         self.supply.outp_ON(channel=3)
@@ -508,16 +553,33 @@ class InnerLoop:
                         zc_meas[phaseIndex].append(-1*self.supply.getCurrent(channel=3))
                         self.supply.setCurrent(channel=3,current=0)
                         if abs(zc_th[phaseIndex][-1]) == 0:
-                            error[phaseIndex].append(0)
+                            error[phaseIndex].append(zc_meas[phaseIndex][0])
                         else:
                             error[phaseIndex].append(((abs(zc_meas[phaseIndex][-1]) - abs(zc_th[phaseIndex][-1]))/abs(zc_th[phaseIndex][-1]))*100)
-                        print(f'ZC Threshold {zc_th[phaseIndex][-1]} Triggered Curret {zc_meas[phaseIndex][-1]},error {error[phaseIndex][-1]}')
+
+                        if len(zc_meas[phaseIndex]) > 1 :
+                            step_size = (zc_meas[phaseIndex][-1] - zc_meas[phaseIndex][-2])/4
+                            if abs(step_size) < 0.1:
+                                zc_stepsize[phaseIndex].append(step_size)
+                            else:
+                                if zc_th[phaseIndex][-1] == 0:
+                                    zc_stepsize[phaseIndex].append(zc_meas[phaseIndex][-1])
+
+                        else:
+                                zc_stepsize[phaseIndex].append(zc_meas[phaseIndex][0])
+                        
+                    
+
+                       
+                        print(f'ZC Threshold {zc_th[phaseIndex][-1]} Triggered Curret {zc_meas[phaseIndex][-1]}, zc step size {zc_stepsize[phaseIndex][-1]},error {error[phaseIndex][-1]}')
                     self.Phase_Select(DriverEnable=False)
+                    if len(zc_stepsize[phaseIndex]) == len(zc_meas[phaseIndex]):
+                        print(f'Phase {phase} Zc measurement Done ')
             writeInExcel(sheet=sheet,filename='InnerLoop_Char\InnerLoop_ZC.xlsx',\
-                         ph1_zc_th=zc_th[0],ph1_zc_meas = zc_meas[0],ph1_error = error[0],\
-                         ph2_zc_th=zc_th[1],ph2_zc_meas = zc_meas[1],ph2_error = error[1],\
-                         ph3_zc_th=zc_th[2],ph3_zc_meas = zc_meas[2],ph3_error = error[2],\
-                         ph4_zc_th=zc_th[3],ph4_zc_meas = zc_meas[3],ph4_error = error[3],\
+                         ph1_zc_th=zc_th[0],ph1_zc_meas = zc_meas[0],ph1_zc_stepsize = zc_stepsize[0],ph1_error = error[0],\
+                         ph2_zc_th=zc_th[1],ph2_zc_meas = zc_meas[1],ph2_zc_stepsize = zc_stepsize[1],ph2_error = error[1],\
+                         ph3_zc_th=zc_th[2],ph3_zc_meas = zc_meas[2],ph3_zc_stepsize = zc_stepsize[2],ph3_error = error[2],\
+                         ph4_zc_th=zc_th[3],ph4_zc_meas = zc_meas[3],ph4_zc_stepsize = zc_stepsize[3],ph4_error = error[3],\
                             )
         except KeyboardInterrupt:
             self.supply.setCurrent(channel=3,current=0)

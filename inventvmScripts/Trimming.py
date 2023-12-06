@@ -151,7 +151,7 @@ class Trim(object):
                     #     trim_result.append(result)
                     #     self.writeData(chip_Index=chip_index_start,trim_results=trim_result)
                     #     self.startup.buck_PowerDown()
-                    elif re.search('PH',trim.get('Trimming_Name ')):
+                    elif re.search('ZC',trim.get('Trimming_Name ')):
                         # sleep(1)
                         # self.instruments.supply.outp_OFF(channel=1)
                         self.instruments.supply.setVoltage(channel=1,voltage=0)
