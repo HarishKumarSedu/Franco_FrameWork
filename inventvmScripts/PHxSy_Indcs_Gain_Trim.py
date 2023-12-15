@@ -55,10 +55,11 @@ class PhxSy_Indcs_Gain_Trim:
                 self.apis.write_register(register=self.trim_register_data,write_value=value)
                 self.trim_code.append(value)
                 time.sleep(0.01)
-                if re.search('S4',self.DFT.get('Trimming_Name ')):
-                    self.measure_values_1A.append(self.multimeter.meas_V() + 0.075) # get the frequency values from multimeter
-                else:
-                    self.measure_values_1A.append(self.multimeter.meas_V() - 0.075) # get the frequency values from multimeter
+                self.measure_values_1A.append(abs(self.multimeter.meas_V()) - 0.075) # get the frequency values from multimeter
+                # if re.search('S4',self.DFT.get('Trimming_Name ')):
+                #     self.measure_values_1A.append(self.multimeter.meas_V() + 0.075) # get the frequency values from multimeter
+                # else:
+                #     self.measure_values_1A.append(self.multimeter.meas_V() - 0.075) # get the frequency values from multimeter
                 # input('Gain move >')
         self.supply.setCurrent(channel=3,current=0)
         self.supply.outp_OFF(channel=3)
@@ -97,13 +98,47 @@ class PhxSy_Indcs_Gain_Trim:
                     "RegisterValue":self.trim_code[error_min__Index]
                 })
 
+            if re.search('S4',self.DFT.get('Trimming_Name ')):
+                # input('Gain Trim finished >')
+                self.supply.outp_ON(channel=3)
+                self.supply.setCurrent(channel=3,current=1) 
+                time.sleep(0.5)
+                vout_m1A = self.multimeter.meas_V()
+                # input(f'vout 1A {vout_1A}')
+                time.sleep(0.5)
+                self.supply.setCurrent(channel=3,current=-1) 
+                time.sleep(0.5)
+                vout_1A = self.multimeter.meas_V() 
+                # input(f'vout -1A {vout_m1A}')
+            else:
+                # input('Gain Trim finished >')
+                self.supply.outp_ON(channel=3)
+                self.supply.setCurrent(channel=3,current=-1) 
+                time.sleep(0.5)
+                vout_1A = self.multimeter.meas_V() 
+                # input(f'vout 1A {vout_1A}')
+                time.sleep(0.5)
+                self.supply.setCurrent(channel=3,current=1) 
+                time.sleep(0.5)
+                vout_m1A = self.multimeter.meas_V() 
+                # input(f'vout -1A {vout_m1A}')
+            time.sleep(0.5)
+            self.supply.setCurrent(channel=3,current=0) 
+            time.sleep(0.5)
+            vout_0A = abs(self.multimeter.meas_V()) 
+            # input(f'vout 0A {vout_0A}')
+            time.sleep(0.5)
+            print('Limit max',limit_max,'limit min',limit_min,'Vout_1A',vout_1A,'Vout_m1A',vout_m1A,'Vout_0A',vout_0A,'error_meas',error_meas)
             self.trim_results = {
                 "Name" : self.DFT.get('Trimming_Name '),
                 "Register":self.trim_register_data,
                 "MeasureValue":measure_value,
                 "typical":typical,
                 "MinError":measure_values_1A_abs[error_min__Index],
-                "Trim": True
+                "vout_1A":vout_1A,
+                "vout_m1A":vout_m1A,
+                "vout_0A":vout_0A,
+                "Trim":True
             }
 
             # self.startup.IVM_Powerdown() # Run the buck powerup 
@@ -112,46 +147,16 @@ class PhxSy_Indcs_Gain_Trim:
                     "RegisterValue":self.trim_code[error_min__Index]
                 })
 
-            self.trim_results = {
-                "Name" : self.DFT.get('Trimming_Name '),
-                "Register":self.trim_register_data,
-                "MeasureValue":measure_value,
-                "typical":typical,
-                "MinError":measure_values_1A_abs[error_min__Index],
-                "Trim":False
-            }
+            # self.trim_results = {
+            #     "Name" : self.DFT.get('Trimming_Name '),
+            #     "Register":self.trim_register_data,
+            #     "MeasureValue":measure_value,
+            #     "typical":typical,
+            #     "MinError":measure_values_1A_abs[error_min__Index],
+            #     "Trim":False
+            # }
   
-        if re.search('S4',self.DFT.get('Trimming_Name ')):
-            # input('Gain Trim finished >')
-            self.supply.outp_ON(channel=3)
-            self.supply.setCurrent(channel=3,current=1) 
-            time.sleep(0.5)
-            vout_m1A = abs(self.multimeter.meas_V()) 
-            # input(f'vout 1A {vout_1A}')
-            time.sleep(0.5)
-            self.supply.setCurrent(channel=3,current=-1) 
-            time.sleep(0.5)
-            vout_1A = abs(self.multimeter.meas_V()) 
-            # input(f'vout -1A {vout_m1A}')
-        else:
-            # input('Gain Trim finished >')
-            self.supply.outp_ON(channel=3)
-            self.supply.setCurrent(channel=3,current=1) 
-            time.sleep(0.5)
-            vout_1A = abs(self.multimeter.meas_V()) 
-            # input(f'vout 1A {vout_1A}')
-            time.sleep(0.5)
-            self.supply.setCurrent(channel=3,current=-1) 
-            time.sleep(0.5)
-            vout_m1A = abs(self.multimeter.meas_V()) 
-            # input(f'vout -1A {vout_m1A}')
-        time.sleep(0.5)
-        self.supply.setCurrent(channel=3,current=0) 
-        time.sleep(0.5)
-        vout_0A = abs(self.multimeter.meas_V()) 
-        # input(f'vout 0A {vout_0A}')
-        time.sleep(0.5)
-        print('Limit max',limit_max,'limit min',limit_min,'Vout_1A',vout_1A,'Vout_m1A',vout_m1A,'Vout_0A',vout_0A,'error_meas',error_meas)
+
         for register in self.registers:
             self.apis.write_register(register=register,write_value=0)
         # self.startup.cirrus_PowerDown()

@@ -28,14 +28,14 @@ class Efficiency:
         # sleep(0.1)
         # self.phase_Effieciency(phase=3,sheet='ph4_vbat_4V_vbus_5V')
         # sleep(0.1)
-        self.phase_Effieciency_1(phase=0,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='charboard_ph1_vbat_4V_vbus_9V')
-        # sleep(0.1)
-        # self.phase_Effieciency_1(phase=1,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='charboard_ph2_vbat_4V_vbus_9V')
-        # sleep(0.1)
-        # self.phase_Effieciency_1(phase=2,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='charboard_ph3_vbat_4V_vbus_9V')
-        # sleep(0.1)
-        # self.phase_Effieciency_1(phase=3,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='charboard_ph4_vbat_4V_vbus_9V')
-        # sleep(0.1)
+        self.phase_Effieciency_1(phase=0,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='device4_ph1_vbat4V_vbus9V_25C')
+        sleep(0.1)
+        self.phase_Effieciency_1(phase=1,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='device4_ph2_vbat4V_vbus9V_25C')
+        sleep(0.1)
+        self.phase_Effieciency_1(phase=2,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='device4_ph3_vbat4V_vbus9V_25C')
+        sleep(0.1)
+        self.phase_Effieciency_1(phase=3,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='device4_ph4_vbat_4V_vbus_9V')
+        sleep(0.1)
         # self.phase_Effieciency_1(phase=0,phase_thld=2,No_phase=1,vbus=15.0,loop_current_limit=-3.005,sheet='ph1_vbat_4V_vbus_15V')
         # sleep(0.1)
         # self.phase_Effieciency_1(phase=1,phase_thld=2,No_phase=1,vbus=15.0,loop_current_limit=-3.005,sheet='ph2_vbat_4V_vbus_15V')
@@ -83,22 +83,23 @@ class Efficiency:
         print(sheet)
         # self.supply.outp_OFF(channel=1)
         # self.startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=6,No_phase=1,ibus=3.3,phase=1)
+        self.supply.setVoltage(channel=4,voltage=9)
         self.startup.buck_ClosedLoop(vbat=4,ibat=16.0,No_phase=No_phase,ibus=3.3,icmd_ph=6.0,phase=phase)
         sleep(1)
         self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_SLEW.value = 1
         if vbus > 8 :
             self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_SLEW.value = 3
 
-        # volt=5
-        # if vbus >= 5 :
-        #     self.supply.setVoltage(channel=4,voltage=volt)
-        #     while volt < vbus:
-        #         volt=volt+0.1
-        #         self.supply.setVoltage(channel=4,voltage=volt)
-        #         sleep(0.01)
-        #     self.supply.setVoltage(channel=4,voltage=vbus)
-        input('>>>>>>>>>>>>>>')
-        self.supply.setCurrent(channel=1,current=-0.1)
+        # self.supply.setCurrent(channel=1,current=-0.1)
+        volt=9
+        if vbus >= 9 :
+            self.supply.setVoltage(channel=4,voltage=volt)
+            while volt < vbus:
+                volt=volt+0.1
+                self.supply.setVoltage(channel=4,voltage=volt)
+                sleep(0.01)
+            self.supply.setVoltage(channel=4,voltage=vbus)
+        # input('>>>>>>>>>>>>>>')
         sleep(1)
         ibat_set = 0
         # self.dut.SIMULINK_MODEL.TEST_INNER_LOOP_PH_MGMT.TEST_PHASE_ADD_THLD.value = phase_thld
@@ -137,7 +138,7 @@ class Efficiency:
                 # sleep(0.5)
                 # self.Bat.setCurrent(current=0)
                 # input('>>>>>>>>>>>>>>>>>>>')
-                writeInExcel(sheet=sheet,filename='effieciency\effiecincy_3.xlsx',vbat_V=vbat_V,ibat_A=ibat_A,vbus_V=vbus_V,ibus_A=ibus_A,efficiency=efficiency)
+                writeInExcel(sheet=sheet,filename='effieciency\effiecincy_4.xlsx',vbat_V=vbat_V,ibat_A=ibat_A,vbus_V=vbus_V,ibus_A=ibus_A,efficiency=efficiency)
                 while ibat_set >= 0:
                     ibat_set = ibat_set - 0.1
                     self.supply.setCurrent(channel=1,current=-ibat_set)
@@ -155,5 +156,9 @@ class Efficiency:
                 self.dut.block_apis.SIMULINK_MODEL.set_standby_en(1)
         except KeyboardInterrupt:
             self.supply.setCurrent(channel=3,current=-0.1)
+            while ibat_set >= 0:
+                ibat_set = ibat_set - 0.1
+                self.supply.setCurrent(channel=1,current=-ibat_set)
+                sleep(0.01)
 
         

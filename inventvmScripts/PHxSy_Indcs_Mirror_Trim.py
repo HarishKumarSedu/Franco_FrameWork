@@ -58,22 +58,39 @@ class PhxSy_Indcs_Mirror_Trim:
             self.supply.outp_OFF(channel=4)
 
         # force the 0A
-        self.supply.outp_OFF(channel=3)
-        self.supply.setCurrent(channel=3,current=0)
-        self.measure_values_0A = self.PhxSy_Indcs_Mirror_Values__Sweep()
-        time.sleep(0.1)
-        self.supply.setCurrent(channel=3,current=1)
-        self.supply.outp_ON(channel=3)
-        self.measure_values_1A=self.PhxSy_Indcs_Mirror_Values__Sweep()
-        self.supply.outp_OFF(channel=3)
-        time.sleep(0.1)
-        self.supply.setCurrent(channel=3,current=-1)
-        self.supply.outp_ON(channel=3)
-        time.sleep(0.1)
-        self.measure_values_m1A=self.PhxSy_Indcs_Mirror_Values__Sweep()
-        time.sleep(0.1)
-        self.supply.outp_OFF(channel=3)
-        # print(self.measure_values_0A,self.measure_values_1A,self.measure_values_m1A)
+        if re.search('S1',self.DFT.get('Trimming_Name ')):
+            self.supply.outp_OFF(channel=3)
+            self.supply.setCurrent(channel=3,current=0)
+            self.measure_values_0A = self.PhxSy_Indcs_Mirror_Values__Sweep()
+            time.sleep(0.1)
+            self.supply.setCurrent(channel=3,current=-1)
+            self.supply.outp_ON(channel=3)
+            self.measure_values_1A=self.PhxSy_Indcs_Mirror_Values__Sweep()
+            self.supply.outp_OFF(channel=3)
+            time.sleep(0.1)
+            self.supply.setCurrent(channel=3,current=1)
+            self.supply.outp_ON(channel=3)
+            time.sleep(0.1)
+            self.measure_values_m1A=self.PhxSy_Indcs_Mirror_Values__Sweep()
+            time.sleep(0.1)
+            self.supply.outp_OFF(channel=3)
+            # print(self.measure_values_0A,self.measure_values_1A,self.measure_values_m1A)
+        if re.search('S4',self.DFT.get('Trimming_Name ')):
+            self.supply.setCurrent(channel=3,current=0)
+            self.measure_values_0A = self.PhxSy_Indcs_Mirror_Values__Sweep()
+            time.sleep(0.1)
+            self.supply.setCurrent(channel=3,current=1)
+            self.supply.outp_ON(channel=3)
+            self.measure_values_1A=self.PhxSy_Indcs_Mirror_Values__Sweep()
+            self.supply.outp_OFF(channel=3)
+            time.sleep(0.1)
+            self.supply.setCurrent(channel=3,current=-1)
+            self.supply.outp_ON(channel=3)
+            time.sleep(0.1)
+            self.measure_values_m1A=self.PhxSy_Indcs_Mirror_Values__Sweep()
+            time.sleep(0.1)
+            self.supply.outp_OFF(channel=3)
+            # print(self.measure_values_0A,self.measure_values_1A,self.measure_values_m1A)
         
         self.PhxSy_Indcs_Mirror_Limit__Check()
 
@@ -90,13 +107,21 @@ class PhxSy_Indcs_Mirror_Trim:
         return measure_values
     
     def PhxSy_Indcs_Mirror_Limit__Check(self):
+        # print('vout1A',self.measure_values_1A)
+        # print('vout0A',self.measure_values_0A)
+        # print('voutm1A',self.measure_values_m1A)
         # limits are not in percentage
         vout=[]
         vout_abs=[]
         typical = 0.075
         # print('self.measure_values_1A[i] ',len(self.measure_values_1A ),'self.measure_values_0A[i]',self.measure_values_0A,'self.measure_values_m1A[i]',len(self.trim_code))
         for i in range(0,len(self.trim_code)):
-            vout.append((self.measure_values_1A[i] - 2*self.measure_values_0A[i]+self.measure_values_m1A[i] ))
+            # vout.append((self.measure_values_1A[i] -2*self.measure_values_0A[i]+self.measure_values_m1A[i] ))
+            if re.search('S1',self.DFT.get('Trimming_Name ')):
+                vout.append((self.measure_values_1A[i] - 2*self.measure_values_0A[i]+self.measure_values_m1A[i] ))
+            else:
+                vout.append((self.measure_values_1A[i] +2*self.measure_values_0A[i]+self.measure_values_m1A[i] ))
+
             vout_abs.append(abs(vout[i]))
 
         error_min = min(vout_abs)
@@ -170,6 +195,9 @@ class PhxSy_Indcs_Mirror_Trim:
                 "MeasureValue":vout_1A,
                 "typical":typical,
                 "MinError":abs(typical - vout_1A),
+                # "vout1A":self.measure_values_1A,
+                # "vout0A":self.measure_values_0A,
+                # "voutmA":self.measure_values_m1A,
                 "Trim":True
             }
         else:

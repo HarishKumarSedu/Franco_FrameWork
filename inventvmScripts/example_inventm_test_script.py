@@ -43,9 +43,11 @@ from Trimming import Trim
 from LoadTrims import LoadTrims
 # from Indcs_debug import Inducs_Debug
 # from quick_Check import QuickCheck
-# from efficiency import Efficiency
+from efficiency import Efficiency
 # from AON_Charecterization import AONChar
 from InnerLoop_Char import InnerLoop
+from input_CurrentSense_Char import InputCurrSense
+from cfly_char import CflyChar
 
 load_dotenv(r'C:\validation\Projects\Franco\python\franco_val\env\franco_val_inventm.env')
 load_dotenv(
@@ -98,11 +100,13 @@ loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_10_10.json',chipid=10)
 # loadTrim.loadTrims()
 # trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json',loadTrim=loadTrim)
 # efficiency = Efficiency(dut=dut)
+# cflychar = CflyChar(dut=dut)
 innerloop = InnerLoop(dut=dut,loadtrims=loadTrim)
 #charecterization
 # char = AONChar(dut=dut)
 
 # startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=6,No_phase=1,ibus=3.3,phase=0)
+# inCS = InputCurrSense(dut=dut)
 print("-"*50)
 print("Enter Code to run... ")
 while(input_cmd.lower() != quit_cmd):

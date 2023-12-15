@@ -16,7 +16,8 @@ class LoadTrims:
         print('Loading Trimming Values ...')
         for reg_data in self.trimmedData.get(str(self.chipid)):
             # print(reg_data)
-            self.apis.write_register(register=reg_data.get('Register'))
+            if reg_data:
+                self.apis.write_register(register=reg_data.get('Register'))
         print('Done.....!')
 
 

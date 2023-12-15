@@ -53,11 +53,12 @@ class PhxSy_Indcs_Offset_Trim:
         self.PhxSy_Indcs_Offset_Limit__Check()
 
     def PhxSy_Indcs_Offset_Limit__Check(self):
+        # print('vout0A',self.measure_values_0A)
         # limits are not in percentage
         limit_max = float(self.DFT.get("MAX_LIMIT"))
         limit_min = float(self.DFT.get("MIN_LIMIT"))
         limit_unit = self.DFT.get("Unit")   
-        typical = 1.21
+        typical = 0
         # multiply limit with milli
         if re.search("m",limit_unit):
             limit_max = limit_max*0.001
@@ -87,14 +88,19 @@ class PhxSy_Indcs_Offset_Trim:
             #write the optimal code 
             self.apis.write_register(register=self.trim_register_data)
             # update the trim results 
-            self.trim_results = {
-                "Name" : self.DFT.get('Trimming_Name '),
-                "Register":self.trim_register_data,
-                "MeasureValue":self.measure_values_0A[error_min__Index],
-                "typical":typical,
-                "MinError":error[error_min__Index],
-                "Trim":True
-            }
+            # self.trim_results = {
+            #     "Name" : self.DFT.get('Trimming_Name '),
+            #     "Register":self.trim_register_data,
+            #     "MeasureValue":self.measure_values_0A[error_min__Index],
+            #     "typical":typical,
+            #     "MinError":error[error_min__Index],
+            #     "Vout_1A":vout_1A,
+            #     "Vout_m1A":vout_m1A,
+            #     "Vout_0A":vout_0A,
+            #     "typical":typical,
+            #     "vout0A":self.measure_values_0A,
+            #     "Trim":True
+            # }
         else:
             self.trim_register_data.update({
                     "RegisterValue":self.trim_code[error_min__Index]
@@ -102,22 +108,15 @@ class PhxSy_Indcs_Offset_Trim:
             #write the optimal code 
             self.apis.write_register(register=self.trim_register_data)
             # update the trim results 
-            self.trim_results = {
-                "Name" : self.DFT.get('Trimming_Name '),
-                "Register":self.trim_register_data,
-                "MeasureValue":self.measure_values_0A[error_min__Index],
-                "typical":typical,
-                "MinError":error[error_min__Index],
-                "Trim":False
-            }
+
         self.supply.outp_ON(channel=3)
         self.supply.setCurrent(channel=3,current=1) 
         time.sleep(0.5)
-        vout_1A = abs(self.multimeter.meas_V()) 
+        vout_1A = self.multimeter.meas_V()
         time.sleep(0.5)
         self.supply.setCurrent(channel=3,current=-1) 
         time.sleep(0.5)
-        vout_m1A = abs(self.multimeter.meas_V()) 
+        vout_m1A = self.multimeter.meas_V() 
         time.sleep(0.5)
         self.supply.setCurrent(channel=3,current=0) 
         time.sleep(0.5)
@@ -125,6 +124,19 @@ class PhxSy_Indcs_Offset_Trim:
         time.sleep(0.5)
         print('Limit max',limit_max,'limit min',limit_min,'Vout_1A',vout_1A,'Vout_m1A',vout_m1A,'Vout_0A',vout_0A,'error min',error_min)
         #reset the test driver 
+        self.trim_results = {
+                "Name" : self.DFT.get('Trimming_Name '),
+                "Register":self.trim_register_data,
+                "MeasureValue":self.measure_values_0A[error_min__Index],
+                "typical":typical,
+                "MinError":error[error_min__Index],
+                "Vout_1A":vout_1A,
+                "Vout_m1A":vout_m1A,
+                "Vout_0A":vout_0A,
+                "typical":typical,
+                # "vout0A":self.measure_values_0A,
+                "Trim":True
+            }
         for register in self.registers:
             self.apis.write_register(register=register,write_value=0)
         # self.startup.cirrus_PowerDown()

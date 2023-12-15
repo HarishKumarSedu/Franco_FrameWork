@@ -260,6 +260,7 @@ class Startup:
         self.dut.IVM.REG_PWRUP0_RW.DS_PH24_INDCS_EN_BUF.value = 1
         self.dut.IVM.REG_PWRUP1_RW.DS_PH1_DRV_BST_EN.value = 1
         self.dut.IVM.REG_PWRUP2_RW.DS_PH1_DRV_BST12_EN.value = 1
+        self.dut.IVM.REG_PWRUP2_RW.TEMP_ENABLE.value = 1
         self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN.value = 1
         self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN_D.value = 1
         self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_SENSE_EN.value = 1

@@ -10,7 +10,7 @@ class InnerLoop:
         self.dut = dut 
         self.startup = Startup(dut=dut)
         self.supply = Instruments().supply
-        self.scope = Instruments().scope
+        # self.scope = Instruments().scope
         self.multimeter = Instruments().multimeter
         self.voltmeter = Instruments().voltmeter
         self.multimeter.set_Voltage__NPLC(NPLC=1)
@@ -27,23 +27,33 @@ class InnerLoop:
             exampler : self.Indctor_OCP_Reference__Sweep(sheet='Device2_OCP_reference_25C') 
             Note Measure Reference in Test1 with respect to the GND
         '''
-        # self.Inductor_OCP_static(sheet='Device2_4phases_LowSide_25C_OCP')
-        # self.Indctor_OCP_Reference__Sweep(sheet='Device2_OCP_reference_25C')
+        # self.Inductor_OCP_static(sheet='Device1_4phases_LowSide_25C_OCP')
+        # self.Indctor_OCP_Reference__Sweep(sheet='Device3_OCP_reference_85C')
         # input('Set 85C')
+        # self.Inductor_OCP_static(sheet='Device1_4phases_LowSide_85C_OCP')
         # self.Inductor_OCP_static(sheet='Device2_4phases_LowSide_85C_OCP')
-        # self.Indctor_OCP_Reference__Sweep(sheet='Device2_OCP_reference_85C')
+        self.Indctor_OCP_Reference__Sweep(sheet='Device3_OCP_reference_0C')
+
+        #Inductor current sense voltage sweep
+        # self.Indcs_Sweep_static(sheet='Device3_indcsHigh_buck_25C')
+        # input('buck 85C')
+        # self.Indcs_Sweep_static(sheet='Device3_indcsHigh_buck_85C')
+        # input('boost')
+        # self.Indcs_Sweep_static(sheet='Device3_indcsHigh_boost_25C')
+        # input('boost 85C')
+        # self.Indcs_Sweep_static(sheet='Device3_indcsHigh_boost_85C')
 
         '''
             Zero current sweep 
         '''
-        self.ZC_Sweep(sheet='Device1_ZC_HighSide_25C')
-        sleep(1)
-        self.ZC_Sweep(sheet='Device1_ZC_LowSide_25C')
+        # self.ZC_Sweep(sheet='Device1_ZC_HighSide_25C')
+        # sleep(1)
+        # self.ZC_Sweep(sheet='Device1_ZC_LowSide_25C')
         # input('85c')
         # self.ZC_Sweep(sheet='Device1_ZC_HighSide_85C')
         # sleep(1)
         # self.ZC_Sweep(sheet='Device1_ZC_LowSide_85C')
-
+        # self.Indcs_Sweep___Switching()
     def InputCurr_Step(self):
         self.scope.set_HScale(scale='20E-3')
         self.scope.set_Channel__VScale(scale=0.2)
@@ -53,7 +63,7 @@ class InnerLoop:
         # for i in range(1,8,1):
         for i in range(1,8,1):
             self.supply.setCurrent(channel=1,current=0)
-            self.scope.scopeTrigger_Acquire()
+            self.scope.scopeTriggercquire()
             while(self.scope.scopeAcquire_BUSY):
                 sleep(0.01)
                 self.supply.setCurrent(channel=1,current=0)
@@ -62,9 +72,9 @@ class InnerLoop:
             # sleep(0.01)
             # self.supply.setCurrent(channel=1,current=0)
             # sleep(0.1)
-            print(self.scope.Meas_Amp())
+            print(self.scope.Measmp())
             sleep(0.1)
-            # print(self.scope.Meas_Amp(Meas='MEAS2'))
+            # print(self.scope.Measmp(Meas='MEAS2'))
     
     def Inductor_OCP_static(self,sheet='Device1_4phases_HighSide_85C_OCP'):
             self.scope.set_HScale(scale='1E-3')
@@ -78,7 +88,7 @@ class InnerLoop:
             self.loadtrims.loadTrims()
             self.supply.setCurrent(channel=1,current=0)
             sleep(0.2)
-            self.scope.scopeTrigger_Acquire(channel='CH1')
+            self.scope.scopeTriggercquire(channel='CH1')
             if re.search('High',sheet):
                 
                 # phases = {0:'PH1S1'}
@@ -96,11 +106,11 @@ class InnerLoop:
                         for i in range(0,5,1):
                             self.Phase_Select(phase,TestSignal=phaseIndex,current_index=i,DriverEnable=True)
                             sleep(0.2)
-                            self.scope.scopeTrigger_Acquire(channel='CH1')
+                            self.scope.scopeTriggercquire(channel='CH1')
                             print('i',i,'phase',phase)
                             sleep(0.2)
                             if abs(self.supply.getVoltage(channel=1)) > 2.5:
-                                self.scope.scopeTrigger_Acquire(channel='CH1')
+                                self.scope.scopeTriggercquire(channel='CH1')
                                 # input('>>>>>>>>')
                                 sleep(0.5)
                                 while(self.scope.scopeAcquire_BUSY):
@@ -152,12 +162,12 @@ class InnerLoop:
                         self.matrix.reset()
                         current =4.5
                         self.Phase_Select(phase,TestSignal=phaseIndex,current_index=0,DriverEnable=True)
-                        self.scope.scopeTrigger_Acquire(channel='CH1')
+                        self.scope.scopeTriggercquire(channel='CH1')
                         sleep(0.1)
                         for i in range(0,5,1):
                             self.Phase_Select(phase,TestSignal=phaseIndex,current_index=i,DriverEnable=True)
                             sleep(0.1)
-                            self.scope.scopeTrigger_Acquire(channel='CH1')
+                            self.scope.scopeTriggercquire(channel='CH1')
                             sleep(0.1)
                             # input('>>>>>>')
                             # if abs(self.supply.getVoltage(channel=1)) <= 0:
@@ -188,7 +198,7 @@ class InnerLoop:
                             current=current-0.01
                             sleep(0.01)
                         self.Phase_Select(DriverEnable=False)
-                    writeInExcel(sheet=sheet,filename='InnerLoop_Char\InnerLoop_Char2.xlsx',ph1_OCPthershold=OCPthershold[0],ph1_loadCurrent=loadCurrent[0],ph1_IndcsVoltage=IndcsVoltage[0],ph1_error=error[0], \
+                    writeInExcel(sheet=sheet,filename='InnerLoop_Char\InnerLoop_Char3.xlsx',ph1_OCPthershold=OCPthershold[0],ph1_loadCurrent=loadCurrent[0],ph1_IndcsVoltage=IndcsVoltage[0],ph1_error=error[0], \
                                  ph2_OCPthershold=OCPthershold[1],ph2_loadCurrent=loadCurrent[1],ph2_IndcsVoltage=IndcsVoltage[1],ph2_error=error[1],ph3_OCPthershold=OCPthershold[2],ph3_loadCurrent=loadCurrent[2],ph3_IndcsVoltage=IndcsVoltage[2],ph3_error=error[2],\
                                  ph4_OCPthershold=OCPthershold[3],ph4_loadCurrent=loadCurrent[3],ph4_IndcsVoltage=IndcsVoltage[3],ph4_error=error[3])
                 except KeyboardInterrupt:
@@ -205,7 +215,7 @@ class InnerLoop:
             sleep(0.2)
             if re.search('High',sheet):
                 
-                # phases = {2:'PH3S1'}
+                # phases = {3:'PH4S1'}
                 phases = {0:'PH1S1',1:'PH2S1',2:'PH3S1',3:'PH4S1'}
                 try :
                     loadCurrent = [[],[],[],[]]
@@ -216,7 +226,7 @@ class InnerLoop:
                         print(phase)
                         self.matrix.reset()
                         current = 0.1
-                        sleep(0.1)
+                        sleep(0.2)
                         self.Phase_Select(phase,TestSignal=phaseIndex,current_index=4,DriverEnable=True)
                         print('phase',phase)
                         sleep(0.1)
@@ -224,18 +234,18 @@ class InnerLoop:
                             # input('>>>>>>')
                             while current < 7.61:
                                 self.supply.setCurrent(channel=1,current=-current)
-                                sleep(0.05)
+                                sleep(0.1)
                                 loadCurrent[phaseIndex].append(abs(self.supply.getCurrent(channel=1)))
                                 IndcsVoltage[phaseIndex].append(self.multimeter.meas_V())
                                 IndcsVoltage_th[phaseIndex].append(0.075*current)
-                                error[phaseIndex].append((((IndcsVoltage[phaseIndex][-1]) - IndcsVoltage_th[phaseIndex][-1])/(IndcsVoltage_th[phaseIndex][-1]))*100)
+                                error[phaseIndex].append(((abs((IndcsVoltage[phaseIndex][-1])) - IndcsVoltage_th[phaseIndex][-1])/(IndcsVoltage_th[phaseIndex][-1]))*100)
                                 current=current+0.1
                         while current >= 0 :
                             self.supply.setCurrent(channel=1,current=-current)
                             current=current-0.01
                             sleep(0.01)
                         self.Phase_Select(DriverEnable=False)
-                    writeInExcel(sheet=sheet,filename='InnerLoop_Char\InnerLoop_Char2.xlsx',ph1_IndcsVoltage_th=IndcsVoltage_th[0],ph1_loadCurrent=loadCurrent[0],ph1_IndcsVoltage=IndcsVoltage[0],ph1_error=error[0], \
+                    writeInExcel(sheet=sheet,filename='InnerLoop_Char\InnerLoop_HighSide.xlsx',ph1_IndcsVoltage_th=IndcsVoltage_th[0],ph1_loadCurrent=loadCurrent[0],ph1_IndcsVoltage=IndcsVoltage[0],ph1_error=error[0], \
                                  ph2_IndcsVoltage_th=IndcsVoltage_th[1],ph2_loadCurrent=loadCurrent[1],ph2_IndcsVoltage=IndcsVoltage[1],ph2_error=error[1],ph3_IndcsVoltage_th=IndcsVoltage_th[2],ph3_loadCurrent=loadCurrent[2],ph3_IndcsVoltage=IndcsVoltage[2],ph3_error=error[2],\
                                  ph4_IndcsVoltage_th=IndcsVoltage_th[3],ph4_loadCurrent=loadCurrent[3],ph4_IndcsVoltage=IndcsVoltage[3],ph4_error=error[3])
                 except KeyboardInterrupt:
@@ -267,14 +277,15 @@ class InnerLoop:
                                 loadCurrent[phaseIndex].append(abs(self.supply.getCurrent(channel=1)))
                                 IndcsVoltage[phaseIndex].append(self.multimeter.meas_V())
                                 IndcsVoltage_th[phaseIndex].append(0.075*current)
-                                error[phaseIndex].append((((IndcsVoltage[phaseIndex][-1]) - IndcsVoltage_th[phaseIndex][-1])/(IndcsVoltage_th[phaseIndex][-1]))*100)
+                                error[phaseIndex].append(((abs((IndcsVoltage[phaseIndex][-1])) - IndcsVoltage_th[phaseIndex][-1])/(IndcsVoltage_th[phaseIndex][-1]))*100)
                                 current=current+0.1
                         while current >= 0 :
                             self.supply.setCurrent(channel=1,current=current)
                             current=current-0.01
                             sleep(0.01)
                         self.Phase_Select(DriverEnable=False)
-                    writeInExcel(sheet=sheet,filename='InnerLoop_Char\InnerLoop_Char2.xlsx',ph1_IndcsVoltage_th=IndcsVoltage_th[0],ph1_loadCurrent=loadCurrent[0],ph1_IndcsVoltage=IndcsVoltage[0],ph1_error=error[0], \
+                        self.supply.setCurrent(channel=1,current=0)
+                    writeInExcel(sheet=sheet,filename='InnerLoop_Char\InnerLoop_Indcs_Lowside1.xlsx',ph1_IndcsVoltage_th=IndcsVoltage_th[0],ph1_loadCurrent=loadCurrent[0],ph1_IndcsVoltage=IndcsVoltage[0],ph1_error=error[0], \
                                  ph2_IndcsVoltage_th=IndcsVoltage_th[1],ph2_loadCurrent=loadCurrent[1],ph2_IndcsVoltage=IndcsVoltage[1],ph2_error=error[1],ph3_IndcsVoltage_th=IndcsVoltage_th[2],ph3_loadCurrent=loadCurrent[2],ph3_IndcsVoltage=IndcsVoltage[2],ph3_error=error[2],\
                                  ph4_IndcsVoltage_th=IndcsVoltage_th[3],ph4_loadCurrent=loadCurrent[3],ph4_IndcsVoltage=IndcsVoltage[3],ph4_error=error[3])
                 except KeyboardInterrupt:
@@ -282,6 +293,66 @@ class InnerLoop:
                         self.supply.setCurrent(channel=1,current=current)
                         current=current-0.01
                         sleep(0.01)
+                    self.supply.setCurrent(channel=1,current=0)
+    def Indcs_Sweep___Switching(self,sheet='Device1_4phases_indcs_switching'):
+            
+            self.loadtrims.loadTrims()
+            self.supply.setCurrent(channel=1,current=0)
+            sleep(0.2)
+
+            phases = {0:'PH1S1',1:'PH2S1',2:'PH3S1',3:'PH4S1'}
+            # phases = {1:'PH2S1',2:'PH3S1',3:'PH4S1'}
+            try :
+
+                IndcsVoltage = [[],[],[],[]]
+                shuntVoltage = [[],[],[],[]]
+                error = [[],[],[],[]]
+                for phaseIndex,phase in phases.items() :
+                    print(phase)
+                    self.matrix.reset()
+                    current = 0.1
+                    self.matrix.force_Matrix__Switchx(phase)
+                    sleep(1)
+                    self.startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=6,No_phase=1,ibus=3.3,phase=phaseIndex)
+                    sleep(5)
+                    print('phase',phase)
+                    input('>>>>>>')
+                    sleep(1)
+                    if abs(self.supply.getVoltage(channel=1)) > 2.5:
+                        # input('>>>>>>')
+                        while current < 5.1:
+                            self.supply.setCurrent(channel=1,current=-current)
+                            sleep(0.1)
+                            IndcsVoltage[phaseIndex].append(self.multimeter.meas_V())
+                            shuntVoltage[phaseIndex].append((self.voltmeter.meas_V())/(20))
+                            current=current+0.1
+                    while current >= 0 :
+                        self.supply.setCurrent(channel=1,current=-current)
+                        current=current-0.01
+                        sleep(0.01)
+                    # self.Phase_Select(DriverEnable=False)
+                    self.dut.block_apis.SIMULINK_MODEL.set_standby_en(1)
+                writeInExcel(sheet=sheet,filename='InnerLoop_Char\InnerLoop_Indcs_Switching.xlsx',\
+                             ph1_IndcsVoltage = IndcsVoltage[0],ph1_shuntVoltage = shuntVoltage[0],\
+                             ph2_IndcsVoltage = IndcsVoltage[1],ph2_shuntVoltage = shuntVoltage[1],\
+                             ph3_IndcsVoltage = IndcsVoltage[2],ph3_shuntVoltage = shuntVoltage[2],\
+                             ph4_IndcsVoltage = IndcsVoltage[3],ph4_shuntVoltage = shuntVoltage[3],\
+                            )
+            except (KeyboardInterrupt,IOError) as e:
+                while current >= 0 :
+                    self.supply.setCurrent(channel=1,current=-current)
+                    current=current-0.01
+                    sleep(0.01)
+                self.dut.block_apis.SIMULINK_MODEL.set_standby_en(1)
+            finally:
+                while current >= 0 :
+                    self.supply.setCurrent(channel=1,current=-current)
+                    current=current-0.01
+                    sleep(0.01)
+                self.supply.setCurrent(channel=1,current=0)
+                self.dut.block_apis.SIMULINK_MODEL.set_standby_en(1)
+
+
     #select the particlar phase according to the phase selection in the sequence 
     def Phase_Select(self,phase='PH1S1',Test1_block=3,TestSignal=0,current_index=0,DriverEnable=False):
         self.matrix.force_Matrix__Switchx(phase)
@@ -430,6 +501,7 @@ class InnerLoop:
     def Indctor_OCP_Reference__Sweep(self,sheet='device2_reference'):
         self.startup.buck_PowerUp()
         self.loadtrims.loadTrims()
+        input('>>>>>>>>>')
         phases = {0:'PH1S1',1:'PH2S1',2:'PH3S1',3:'PH4S1'}
         try :
             ocp_th = [[],[],[],[]]
@@ -453,7 +525,7 @@ class InnerLoop:
                     ocp_ref_meas[phaseIndex].append(self.voltmeter.meas_V()- 0.7)
                     error[phaseIndex].append(((ocp_ref_meas[phaseIndex][-1] - ocp_ref_th[phaseIndex][-1])/ocp_ref_th[phaseIndex][-1])*100)
                 test_phase=test_phase-1
-            writeInExcel(sheet=sheet,filename='InnerLoop_Char\InnerLoop_Char3.xlsx',ph1_ocp_th = ocp_th[0],ph1_ocp_ref_th=ocp_ref_th[0],ph1_ocp_ref_meas=ocp_ref_meas[0],ph1_error=error[0],\
+            writeInExcel(sheet=sheet,filename='InnerLoop_Char\InnerLoop_Reference_0C.xlsx',ph1_ocp_th = ocp_th[0],ph1_ocp_ref_th=ocp_ref_th[0],ph1_ocp_ref_meas=ocp_ref_meas[0],ph1_error=error[0],\
                           ph2_ocp_th = ocp_th[1],ph2_ocp_ref_th=ocp_ref_th[1],ph2_ocp_ref_meas=ocp_ref_meas[1],ph2_error=error[1],\
                           ph3_ocp_th = ocp_th[2],ph3_ocp_ref_th=ocp_ref_th[2],ph3_ocp_ref_meas=ocp_ref_meas[2],ph3_error=error[2],\
                           ph4_ocp_th = ocp_th[3],ph4_ocp_ref_th=ocp_ref_th[3],ph4_ocp_ref_meas=ocp_ref_meas[3],ph4_error=error[3])
@@ -472,7 +544,7 @@ class InnerLoop:
         self.loadtrims.loadTrims()
         self.supply.setCurrent(channel=3,current=0)
         sleep(0.2)
-        self.scope.scopeTrigger_Acquire(channel='CH1')
+        self.scope.scopeTriggercquire(channel='CH1')
         phases = {0:'PH1S1',1:'PH2S1',2:'PH3S1',3:'PH4S1'}
         if re.search('Low',sheet):
             phases = {0:'PH1S4',1:'PH2S4',2:'PH3S4',3:'PH4S4'}
@@ -489,7 +561,7 @@ class InnerLoop:
                 print(f'Operating Phase {phase} and the Phase Index {phaseIndex}')
                 self.Phase_Select(phase,Test1_block=4,TestSignal=phaseIndex,current_index=0,DriverEnable=True)
                 sleep(0.1)
-                self.scope.scopeTrigger_Acquire()
+                self.scope.scopeTriggercquire()
                 sleep(1)
                 if True:
                     for j in range(0,24,4):
@@ -503,7 +575,7 @@ class InnerLoop:
                         self.supply.setCurrent(channel=3,current=current)
                         self.supply.outp_ON(channel=3)
                         sleep(0.1)
-                        self.scope.scopeTrigger_Acquire()
+                        self.scope.scopeTriggercquire()
                         sleep(0.5)
                         # print('first loop')
                         while(self.scope.scopeAcquire_BUSY):
@@ -542,7 +614,7 @@ class InnerLoop:
                         self.supply.setCurrent(channel=3,current=current)
                         self.supply.outp_ON(channel=3)
                         sleep(0.1)
-                        self.scope.scopeTrigger_Acquire()
+                        self.scope.scopeTriggercquire()
                         sleep(0.5)
                         while(self.scope.scopeAcquire_BUSY):
                                 sleep(0.005)
@@ -586,6 +658,7 @@ class InnerLoop:
             pass 
 
     def Zc_select(self,phase='PH1S1',zc_threshold=0):
+
         if phase == 'PH1S1':
            self.dut.IVM.REG_TRIM10_RW.DS_PH1_INDCS_TRIM_ZC_S1.value=zc_threshold
         if phase == 'PH1S4':

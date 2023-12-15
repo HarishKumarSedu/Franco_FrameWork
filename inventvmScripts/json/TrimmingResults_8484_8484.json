@@ -1,0 +1,108 @@
+{
+    "8484": [
+        {
+            "Name": "PH1S1 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 636,
+                "RegisterLSB": 5,
+                "RegisterMSB": 9,
+                "RegisterValue": 19
+            },
+            "MeasureValue": -0.007783155,
+            "typical": 0.016,
+            "MinError": 0.008216845,
+            "Trim": true
+        },
+        {
+            "Name": "PH1S4 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 636,
+                "RegisterLSB": 0,
+                "RegisterMSB": 4,
+                "RegisterValue": 20
+            },
+            "MeasureValue": 0.004196619,
+            "typical": 0.016,
+            "MinError": 0.011803381,
+            "Trim": true
+        },
+        {
+            "Name": "PH2S1 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 628,
+                "RegisterLSB": 5,
+                "RegisterMSB": 9,
+                "RegisterValue": 21
+            },
+            "MeasureValue": -0.001788496,
+            "typical": 0.016,
+            "MinError": 0.014211504,
+            "Trim": true
+        },
+        {
+            "Name": "PH2S4 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 628,
+                "RegisterLSB": 0,
+                "RegisterMSB": 4,
+                "RegisterValue": 28
+            },
+            "MeasureValue": 0.005216741,
+            "typical": 0.016,
+            "MinError": 0.010783259,
+            "Trim": true
+        },
+        {
+            "Name": "PH3S1 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 620,
+                "RegisterLSB": 5,
+                "RegisterMSB": 9,
+                "RegisterValue": 20
+            },
+            "MeasureValue": 0.007227416,
+            "typical": 0.016,
+            "MinError": 0.008772584,
+            "Trim": true
+        },
+        {
+            "Name": "PH3S4 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 620,
+                "RegisterLSB": 0,
+                "RegisterMSB": 4,
+                "RegisterValue": 24
+            },
+            "MeasureValue": 0.001218831,
+            "typical": 0.016,
+            "MinError": 0.014781169,
+            "Trim": true
+        },
+        {
+            "Name": "PH4S1 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 612,
+                "RegisterLSB": 5,
+                "RegisterMSB": 9,
+                "RegisterValue": 19
+            },
+            "MeasureValue": 0.008227504,
+            "typical": 0.016,
+            "MinError": 0.007772496,
+            "Trim": true
+        },
+        {
+            "Name": "PH4S4 ZC Comparator trimming",
+            "Register": {
+                "RegisterAddress": 612,
+                "RegisterLSB": 0,
+                "RegisterMSB": 4,
+                "RegisterValue": 25
+            },
+            "MeasureValue": -0.003788658,
+            "typical": 0.016,
+            "MinError": 0.012211342,
+            "Trim": true
+        }
+    ]
+}

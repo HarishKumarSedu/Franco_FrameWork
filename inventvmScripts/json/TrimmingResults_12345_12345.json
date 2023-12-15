@@ -1,0 +1,136 @@
+{
+    "12345":[
+        {
+            "Name": "DCO trimming",
+            "Register": {
+                "RegisterAddress": 568,
+                "RegisterLSB": 10,
+                "RegisterMSB": 15,
+                "RegisterValue": 36
+            },
+            "MeasureValue": 2983000.0,
+            "typical": 3000000,
+            "MinError": -0.5666666666666667
+        },
+        {
+            "Name": "Aon BG vref 1.2V (VDDA 1.8V) trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 13,
+                "RegisterMSB": 17,
+                "RegisterValue": 31
+            },
+            "MeasureValue": 1.7953558025,
+            "typical": 1.8,
+            "MinError": -0.25801097222222236
+        },
+        {
+            "Name": "Aon ldo_vref_1p2 trimming",
+            "Register": {
+                "RegisterAddress": 596,
+                "RegisterLSB": 8,
+                "RegisterMSB": 12,
+                "RegisterValue": 31
+            },
+            "MeasureValue": 1.19876543,
+            "typical": 1.2,
+            "MinError": -0.10288083333333717
+        },
+        {
+            "Name": "LDO1.2 Trimming ",
+            "Register": {
+                "RegisterAddress": 604,
+                "RegisterLSB": 14,
+                "RegisterMSB": 19,
+                "RegisterValue": 0
+            },
+            "MeasureValue": 1.19721772,
+            "typical": 1.2,
+            "MinError": -0.002782279999999915
+        },
+        {
+            "Name": "Main BG Current Trimming ",
+            "Register": {
+                "RegisterAddress": 600,
+                "RegisterLSB": 6,
+                "RegisterMSB": 9,
+                "RegisterValue": 1
+            },
+            "MeasureValue": 1.4702337275e-06,
+            "typical": 1.5e-06,
+            "MinError": -2.9766272500000118e-08
+        },
+        {
+            "Name": "PH13 IND CS Buffer",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 29,
+                "RegisterMSB": 31,
+                "RegisterValue": 0
+            },
+            "MeasureValue": 0.697990925,
+            "typical": 0.7,
+            "MinError": -0.002009074999999916
+        },
+        {
+            "Name": "PH24 IND CS Buffer",
+            "Register": {
+                "RegisterAddress": 608,
+                "RegisterLSB": 26,
+                "RegisterMSB": 28,
+                "RegisterValue": 0
+            },
+            "MeasureValue": 0.7016912785,
+            "typical": 0.7,
+            "MinError": 0.0016912785000000596
+        },
+        {
+            "Name": "PH1S1 IND CS Mirror trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 17,
+                "RegisterMSB": 21,
+                "RegisterValue": 4
+            },
+            "Vout_1A": 0.077635650325,
+            "Vout_m1A": 0.0729632245,
+            "Vout_0A": 0.002331045225,
+            "MeasureValue": 0.077635650325,
+            "typical": 0.075,
+            "MinError": 0.0026356503250000024,
+            "Trim": true
+        },
+        {
+            "Name": "PH1S1 IND CS Offset trimming",
+            "Register": {
+                "RegisterAddress": 636,
+                "RegisterLSB": 27,
+                "RegisterMSB": 31,
+                "RegisterValue": 17
+            },
+            "MeasureValue": 8.8985270275e-06,
+            "typical": 0.0,
+            "MinError": -8.8985270275e-06,
+            "Vout_1A": -0.075314581325,
+            "Vout_m1A": 0.07529874605,
+            "Vout_0A": 4.357778995e-06,
+            "Trim": true
+        },
+        {
+            "Name": "PH1S1 IND CS Gain trimming",
+            "Register": {
+                "RegisterAddress": 632,
+                "RegisterLSB": 6,
+                "RegisterMSB": 11,
+                "RegisterValue": 43
+            },
+            "MeasureValue": 0.07531586870000001,
+            "typical": 0.07575,
+            "MinError": 0.0003158687000000132,
+            "vout_1A": 0.0753115296,
+            "vout_m1A": -0.07528582777500001,
+            "vout_0A": 2.90497362e-06,
+            "Trim": true
+        }
+    ]
+}
