@@ -1,100 +1,100 @@
-2023-12-15 17:16:37,764 - INFO - program_fpga - jtag - Setting up Vivado 'C:\Xilinx\Vivado_Lab\2019.2\bin\setupEnv.bat C:\Xilinx\Vivado_Lab\2019.2\bin XILINX_VIVADO'
-2023-12-15 17:16:37,774 - INFO - program_fpga - jtag - Loading Vivado 'C:\Xilinx\Vivado_Lab\2019.2\bin\loader.bat -exec vivado_lab -mode batch -source "C:\validation\Projects\Franco\python\franco_val\venv\lib\site-packages\program_fpga\program_fpga.tcl" -tclargs -hw_server localhost:3121 -hw_device xc7v585t_1 -bit_file C:\Validation\Projects\Franco\python\franco_val\inventm\fpga_images/e1091_00_1_franco_efuse_key.bit -hw_target 210299B721A0 -speed 15000000'
-2023-12-15 17:17:07,529 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,529 - INFO - program_fpga - jtag - ****** Vivado Lab Edition v2019.2 (64-bit)
-2023-12-15 17:17:07,529 - INFO - program_fpga - jtag - **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
-2023-12-15 17:17:07,529 - INFO - program_fpga - jtag - ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-2023-12-15 17:17:07,529 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,529 - INFO - program_fpga - jtag - source {C:\validation\Projects\Franco\python\franco_val\venv\lib\site-packages\program_fpga\program_fpga.tcl}
-2023-12-15 17:17:07,529 - INFO - program_fpga - jtag - # array set optional [list -hw_server "" -hw_device "" -bit_file "" -hw_target "" -speed "" {*}$argv]
-2023-12-15 17:17:07,529 - INFO - program_fpga - jtag - # set hw_server $optional(-hw_server)
-2023-12-15 17:17:07,529 - INFO - program_fpga - jtag - # set hw_device $optional(-hw_device)
-2023-12-15 17:17:07,539 - INFO - program_fpga - jtag - # set bit_file $optional(-bit_file)
-2023-12-15 17:17:07,539 - INFO - program_fpga - jtag - # set hw_target $optional(-hw_target)
-2023-12-15 17:17:07,539 - INFO - program_fpga - jtag - # set speed $optional(-speed)
-2023-12-15 17:17:07,539 - INFO - program_fpga - jtag - # proc programHwDevice {hw_device bit_file} {
-2023-12-15 17:17:07,539 - INFO - program_fpga - jtag - # 	current_hw_device [get_hw_devices $hw_device]
-2023-12-15 17:17:07,539 - INFO - program_fpga - jtag - # 	refresh_hw_device -update_hw_probes false [lindex [get_hw_devices $hw_device] 0]
-2023-12-15 17:17:07,541 - INFO - program_fpga - jtag - # 	set_property PROBES.FILE {} [get_hw_devices $hw_device]
-2023-12-15 17:17:07,541 - INFO - program_fpga - jtag - # 	set_property FULL_PROBES.FILE {} [get_hw_devices $hw_device]
-2023-12-15 17:17:07,541 - INFO - program_fpga - jtag - # 	set_property PROGRAM.FILE $bit_file [get_hw_devices $hw_device]
-2023-12-15 17:17:07,542 - INFO - program_fpga - jtag - # 	program_hw_devices [get_hw_devices $hw_device]
-2023-12-15 17:17:07,542 - INFO - program_fpga - jtag - # }
-2023-12-15 17:17:07,543 - INFO - program_fpga - jtag - # proc setUpHwTarget {hw_target speed} {
-2023-12-15 17:17:07,543 - INFO - program_fpga - jtag - # 	if {[string match "2*" $hw_target]} {
-2023-12-15 17:17:07,543 - INFO - program_fpga - jtag - # 		current_hw_target [get_hw_targets */xilinx_tcf/Digilent/$hw_target]
-2023-12-15 17:17:07,544 - INFO - program_fpga - jtag - # 	    set_property PARAM.FREQUENCY $speed [get_hw_targets */xilinx_tcf/Digilent/$hw_target]
-2023-12-15 17:17:07,545 - INFO - program_fpga - jtag - # 	} elseif {[string match "0*" $hw_target]} {
-2023-12-15 17:17:07,545 - INFO - program_fpga - jtag - # 		current_hw_target [get_hw_targets */xilinx_tcf/Xilinx/$hw_target]
-2023-12-15 17:17:07,546 - INFO - program_fpga - jtag - # 	    set_property PARAM.FREQUENCY $speed [get_hw_targets */xilinx_tcf/Xilinx/$hw_target]
-2023-12-15 17:17:07,546 - INFO - program_fpga - jtag - # 	} else {
-2023-12-15 17:17:07,547 - INFO - program_fpga - jtag - # 	    current_hw_target [get_hw_targets */xilinx_tcf/$hw_target]
-2023-12-15 17:17:07,547 - INFO - program_fpga - jtag - # 	    set_property PARAM.FREQUENCY $speed [get_hw_targets */xilinx_tcf/$hw_target]
-2023-12-15 17:17:07,548 - INFO - program_fpga - jtag - # 	}
-2023-12-15 17:17:07,548 - INFO - program_fpga - jtag - # }
-2023-12-15 17:17:07,548 - INFO - program_fpga - jtag - # open_hw
-2023-12-15 17:17:07,549 - INFO - program_fpga - jtag - WARNING: 'open_hw' is deprecated, please use 'open_hw_manager' instead.
-2023-12-15 17:17:07,549 - INFO - program_fpga - jtag - # connect_hw_server -url $hw_server
-2023-12-15 17:17:07,550 - INFO - program_fpga - jtag - INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
-2023-12-15 17:17:07,550 - INFO - program_fpga - jtag - INFO: [Labtools 27-2222] Launching hw_server...
-2023-12-15 17:17:07,550 - INFO - program_fpga - jtag - INFO: [Labtools 27-2221] Launch Output:
-2023-12-15 17:17:07,551 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,551 - INFO - program_fpga - jtag - ****** Xilinx hw_server v2019.2
-2023-12-15 17:17:07,552 - INFO - program_fpga - jtag - **** Build date : Nov  6 2019 at 22:12:23
-2023-12-15 17:17:07,552 - INFO - program_fpga - jtag - ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-2023-12-15 17:17:07,552 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,553 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,553 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,554 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,554 - INFO - program_fpga - jtag - INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
-2023-12-15 17:17:07,554 - INFO - program_fpga - jtag - INFO: [Labtools 27-3417] Launching cs_server...
-2023-12-15 17:17:07,555 - INFO - program_fpga - jtag - INFO: [Labtools 27-2221] Launch Output:
-2023-12-15 17:17:07,555 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,555 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,556 - INFO - program_fpga - jtag - ****** Xilinx cs_server v2019.2.0
-2023-12-15 17:17:07,556 - INFO - program_fpga - jtag - **** Build date : Nov 07 2019-06:28:22
-2023-12-15 17:17:07,556 - INFO - program_fpga - jtag - ** Copyright 2017-2019 Xilinx, Inc. All Rights Reserved.
-2023-12-15 17:17:07,557 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,557 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,557 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,558 - INFO - program_fpga - jtag - connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 178.387 ; gain = 42.789
-2023-12-15 17:17:07,558 - INFO - program_fpga - jtag - # if {$hw_target eq "auto"} {
-2023-12-15 17:17:07,559 - INFO - program_fpga - jtag - # 	set hw_targets [get_hw_targets]
-2023-12-15 17:17:07,559 - INFO - program_fpga - jtag - #     set found 0
-2023-12-15 17:17:07,559 - INFO - program_fpga - jtag - # 	for {set i 0} {$found eq 0 && $i < [llength $hw_targets]} {incr i} {
-2023-12-15 17:17:07,560 - INFO - program_fpga - jtag - # 		current_hw_target [lindex $hw_targets $i]
-2023-12-15 17:17:07,561 - INFO - program_fpga - jtag - # 		set_property PARAM.FREQUENCY $speed [lindex $hw_targets $i]
-2023-12-15 17:17:07,563 - INFO - program_fpga - jtag - # 		open_hw_target
-2023-12-15 17:17:07,564 - INFO - program_fpga - jtag - # 		set hw_devices [get_hw_devices]
-2023-12-15 17:17:07,564 - INFO - program_fpga - jtag - # 		for {set j 0} {$found eq 0 && $j < [llength $hw_devices]} {incr j} {
-2023-12-15 17:17:07,565 - INFO - program_fpga - jtag - # 			# Check if current hardware target contains the requested hardware device
-2023-12-15 17:17:07,565 - INFO - program_fpga - jtag - # 			if {[lindex $hw_devices $j] eq $hw_device} {
-2023-12-15 17:17:07,567 - INFO - program_fpga - jtag - # 				incr found
-2023-12-15 17:17:07,568 - INFO - program_fpga - jtag - # 				programHwDevice $hw_device $bit_file
-2023-12-15 17:17:07,568 - INFO - program_fpga - jtag - # 			}
-2023-12-15 17:17:07,569 - INFO - program_fpga - jtag - # 		}
-2023-12-15 17:17:07,569 - INFO - program_fpga - jtag - # 		close_hw_target
-2023-12-15 17:17:07,570 - INFO - program_fpga - jtag - # 	}
-2023-12-15 17:17:07,570 - INFO - program_fpga - jtag - # } else {
-2023-12-15 17:17:07,571 - INFO - program_fpga - jtag - # 	setUpHwTarget $hw_target $speed
-2023-12-15 17:17:07,571 - INFO - program_fpga - jtag - # 	open_hw_target
-2023-12-15 17:17:07,572 - INFO - program_fpga - jtag - # 	programHwDevice $hw_device $bit_file
-2023-12-15 17:17:07,572 - INFO - program_fpga - jtag - # 	close_hw_target
-2023-12-15 17:17:07,572 - INFO - program_fpga - jtag - # }
-2023-12-15 17:17:07,573 - INFO - program_fpga - jtag - INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210299B721A0
-2023-12-15 17:17:07,573 - INFO - program_fpga - jtag - INFO: [Labtools 27-1435] Device xc7v585t (JTAG device index = 1) is not programmed (DONE status = 0).
-2023-12-15 17:17:07,574 - INFO - program_fpga - jtag - refresh_hw_device: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1412.281 ; gain = 1233.895
-2023-12-15 17:17:07,574 - INFO - program_fpga - jtag - INFO: [Labtools 27-3164] End of startup status: HIGH
-2023-12-15 17:17:07,575 - INFO - program_fpga - jtag - program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 1412.789 ; gain = 0.508
-2023-12-15 17:17:07,575 - INFO - program_fpga - jtag - INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210299B721A0
-2023-12-15 17:17:07,576 - INFO - program_fpga - jtag - # disconnect_hw_server [current_hw_server]
-2023-12-15 17:17:07,576 - INFO - program_fpga - jtag - # close_hw
-2023-12-15 17:17:07,577 - INFO - program_fpga - jtag - WARNING: 'close_hw' is deprecated, please use 'close_hw_manager' instead.
-2023-12-15 17:17:07,577 - INFO - program_fpga - jtag - ****** Webtalk v2019.2 (64-bit)
-2023-12-15 17:17:07,578 - INFO - program_fpga - jtag - **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
-2023-12-15 17:17:07,578 - INFO - program_fpga - jtag - ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
-2023-12-15 17:17:07,579 - INFO - program_fpga - jtag - 
-2023-12-15 17:17:07,580 - INFO - program_fpga - jtag - source C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts/.Xil/vivado_lab-18012-PC_LAB_04/webtalk/labtool_webtalk.tcl -notrace
-2023-12-15 17:17:07,581 - INFO - program_fpga - jtag - INFO: [Common 17-206] Exiting Webtalk at Fri Dec 15 17:17:06 2023...
-2023-12-15 17:17:07,581 - INFO - program_fpga - jtag - INFO: [Common 17-206] Exiting vivado_lab at Fri Dec 15 17:17:06 2023...
-2023-12-15 17:17:07,584 - INFO - program_fpga - jtag - xc7v585t_1 FPGA programmed successfully
+2023-12-15 18:29:10,157 - INFO - program_fpga - jtag - Setting up Vivado 'C:\Xilinx\Vivado_Lab\2019.2\bin\setupEnv.bat C:\Xilinx\Vivado_Lab\2019.2\bin XILINX_VIVADO'
+2023-12-15 18:29:10,157 - INFO - program_fpga - jtag - Loading Vivado 'C:\Xilinx\Vivado_Lab\2019.2\bin\loader.bat -exec vivado_lab -mode batch -source "C:\validation\Projects\Franco\python\franco_val\venv\lib\site-packages\program_fpga\program_fpga.tcl" -tclargs -hw_server localhost:3121 -hw_device xc7v585t_1 -bit_file C:\Validation\Projects\Franco\python\franco_val\inventm\fpga_images/e1091_00_1_franco_efuse_key.bit -hw_target 210299B721A0 -speed 15000000'
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - ****** Vivado Lab Edition v2019.2 (64-bit)
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - source {C:\validation\Projects\Franco\python\franco_val\venv\lib\site-packages\program_fpga\program_fpga.tcl}
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - # array set optional [list -hw_server "" -hw_device "" -bit_file "" -hw_target "" -speed "" {*}$argv]
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - # set hw_server $optional(-hw_server)
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - # set hw_device $optional(-hw_device)
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - # set bit_file $optional(-bit_file)
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - # set hw_target $optional(-hw_target)
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - # set speed $optional(-speed)
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - # proc programHwDevice {hw_device bit_file} {
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - # 	current_hw_device [get_hw_devices $hw_device]
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - # 	refresh_hw_device -update_hw_probes false [lindex [get_hw_devices $hw_device] 0]
+2023-12-15 18:29:39,567 - INFO - program_fpga - jtag - # 	set_property PROBES.FILE {} [get_hw_devices $hw_device]
+2023-12-15 18:29:39,573 - INFO - program_fpga - jtag - # 	set_property FULL_PROBES.FILE {} [get_hw_devices $hw_device]
+2023-12-15 18:29:39,573 - INFO - program_fpga - jtag - # 	set_property PROGRAM.FILE $bit_file [get_hw_devices $hw_device]
+2023-12-15 18:29:39,574 - INFO - program_fpga - jtag - # 	program_hw_devices [get_hw_devices $hw_device]
+2023-12-15 18:29:39,574 - INFO - program_fpga - jtag - # }
+2023-12-15 18:29:39,574 - INFO - program_fpga - jtag - # proc setUpHwTarget {hw_target speed} {
+2023-12-15 18:29:39,575 - INFO - program_fpga - jtag - # 	if {[string match "2*" $hw_target]} {
+2023-12-15 18:29:39,575 - INFO - program_fpga - jtag - # 		current_hw_target [get_hw_targets */xilinx_tcf/Digilent/$hw_target]
+2023-12-15 18:29:39,576 - INFO - program_fpga - jtag - # 	    set_property PARAM.FREQUENCY $speed [get_hw_targets */xilinx_tcf/Digilent/$hw_target]
+2023-12-15 18:29:39,576 - INFO - program_fpga - jtag - # 	} elseif {[string match "0*" $hw_target]} {
+2023-12-15 18:29:39,577 - INFO - program_fpga - jtag - # 		current_hw_target [get_hw_targets */xilinx_tcf/Xilinx/$hw_target]
+2023-12-15 18:29:39,577 - INFO - program_fpga - jtag - # 	    set_property PARAM.FREQUENCY $speed [get_hw_targets */xilinx_tcf/Xilinx/$hw_target]
+2023-12-15 18:29:39,578 - INFO - program_fpga - jtag - # 	} else {
+2023-12-15 18:29:39,579 - INFO - program_fpga - jtag - # 	    current_hw_target [get_hw_targets */xilinx_tcf/$hw_target]
+2023-12-15 18:29:39,579 - INFO - program_fpga - jtag - # 	    set_property PARAM.FREQUENCY $speed [get_hw_targets */xilinx_tcf/$hw_target]
+2023-12-15 18:29:39,580 - INFO - program_fpga - jtag - # 	}
+2023-12-15 18:29:39,581 - INFO - program_fpga - jtag - # }
+2023-12-15 18:29:39,582 - INFO - program_fpga - jtag - # open_hw
+2023-12-15 18:29:39,582 - INFO - program_fpga - jtag - WARNING: 'open_hw' is deprecated, please use 'open_hw_manager' instead.
+2023-12-15 18:29:39,583 - INFO - program_fpga - jtag - # connect_hw_server -url $hw_server
+2023-12-15 18:29:39,584 - INFO - program_fpga - jtag - INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+2023-12-15 18:29:39,585 - INFO - program_fpga - jtag - INFO: [Labtools 27-2222] Launching hw_server...
+2023-12-15 18:29:39,586 - INFO - program_fpga - jtag - INFO: [Labtools 27-2221] Launch Output:
+2023-12-15 18:29:39,586 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,586 - INFO - program_fpga - jtag - ****** Xilinx hw_server v2019.2
+2023-12-15 18:29:39,587 - INFO - program_fpga - jtag - **** Build date : Nov  6 2019 at 22:12:23
+2023-12-15 18:29:39,587 - INFO - program_fpga - jtag - ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+2023-12-15 18:29:39,588 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,588 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,589 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,589 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,589 - INFO - program_fpga - jtag - INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
+2023-12-15 18:29:39,590 - INFO - program_fpga - jtag - INFO: [Labtools 27-3417] Launching cs_server...
+2023-12-15 18:29:39,590 - INFO - program_fpga - jtag - INFO: [Labtools 27-2221] Launch Output:
+2023-12-15 18:29:39,591 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,591 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,592 - INFO - program_fpga - jtag - ****** Xilinx cs_server v2019.2.0
+2023-12-15 18:29:39,592 - INFO - program_fpga - jtag - **** Build date : Nov 07 2019-06:28:22
+2023-12-15 18:29:39,593 - INFO - program_fpga - jtag - ** Copyright 2017-2019 Xilinx, Inc. All Rights Reserved.
+2023-12-15 18:29:39,594 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,594 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,596 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,596 - INFO - program_fpga - jtag - connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 178.609 ; gain = 41.914
+2023-12-15 18:29:39,597 - INFO - program_fpga - jtag - # if {$hw_target eq "auto"} {
+2023-12-15 18:29:39,597 - INFO - program_fpga - jtag - # 	set hw_targets [get_hw_targets]
+2023-12-15 18:29:39,598 - INFO - program_fpga - jtag - #     set found 0
+2023-12-15 18:29:39,598 - INFO - program_fpga - jtag - # 	for {set i 0} {$found eq 0 && $i < [llength $hw_targets]} {incr i} {
+2023-12-15 18:29:39,599 - INFO - program_fpga - jtag - # 		current_hw_target [lindex $hw_targets $i]
+2023-12-15 18:29:39,599 - INFO - program_fpga - jtag - # 		set_property PARAM.FREQUENCY $speed [lindex $hw_targets $i]
+2023-12-15 18:29:39,600 - INFO - program_fpga - jtag - # 		open_hw_target
+2023-12-15 18:29:39,600 - INFO - program_fpga - jtag - # 		set hw_devices [get_hw_devices]
+2023-12-15 18:29:39,601 - INFO - program_fpga - jtag - # 		for {set j 0} {$found eq 0 && $j < [llength $hw_devices]} {incr j} {
+2023-12-15 18:29:39,602 - INFO - program_fpga - jtag - # 			# Check if current hardware target contains the requested hardware device
+2023-12-15 18:29:39,602 - INFO - program_fpga - jtag - # 			if {[lindex $hw_devices $j] eq $hw_device} {
+2023-12-15 18:29:39,603 - INFO - program_fpga - jtag - # 				incr found
+2023-12-15 18:29:39,603 - INFO - program_fpga - jtag - # 				programHwDevice $hw_device $bit_file
+2023-12-15 18:29:39,604 - INFO - program_fpga - jtag - # 			}
+2023-12-15 18:29:39,604 - INFO - program_fpga - jtag - # 		}
+2023-12-15 18:29:39,605 - INFO - program_fpga - jtag - # 		close_hw_target
+2023-12-15 18:29:39,605 - INFO - program_fpga - jtag - # 	}
+2023-12-15 18:29:39,606 - INFO - program_fpga - jtag - # } else {
+2023-12-15 18:29:39,606 - INFO - program_fpga - jtag - # 	setUpHwTarget $hw_target $speed
+2023-12-15 18:29:39,606 - INFO - program_fpga - jtag - # 	open_hw_target
+2023-12-15 18:29:39,607 - INFO - program_fpga - jtag - # 	programHwDevice $hw_device $bit_file
+2023-12-15 18:29:39,607 - INFO - program_fpga - jtag - # 	close_hw_target
+2023-12-15 18:29:39,608 - INFO - program_fpga - jtag - # }
+2023-12-15 18:29:39,608 - INFO - program_fpga - jtag - INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210299B721A0
+2023-12-15 18:29:39,609 - INFO - program_fpga - jtag - INFO: [Labtools 27-1435] Device xc7v585t (JTAG device index = 1) is not programmed (DONE status = 0).
+2023-12-15 18:29:39,609 - INFO - program_fpga - jtag - refresh_hw_device: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1411.828 ; gain = 1233.219
+2023-12-15 18:29:39,610 - INFO - program_fpga - jtag - INFO: [Labtools 27-3164] End of startup status: HIGH
+2023-12-15 18:29:39,610 - INFO - program_fpga - jtag - program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 1412.332 ; gain = 0.504
+2023-12-15 18:29:39,611 - INFO - program_fpga - jtag - INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210299B721A0
+2023-12-15 18:29:39,611 - INFO - program_fpga - jtag - # disconnect_hw_server [current_hw_server]
+2023-12-15 18:29:39,611 - INFO - program_fpga - jtag - # close_hw
+2023-12-15 18:29:39,612 - INFO - program_fpga - jtag - WARNING: 'close_hw' is deprecated, please use 'close_hw_manager' instead.
+2023-12-15 18:29:39,612 - INFO - program_fpga - jtag - ****** Webtalk v2019.2 (64-bit)
+2023-12-15 18:29:39,613 - INFO - program_fpga - jtag - **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+2023-12-15 18:29:39,613 - INFO - program_fpga - jtag - ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+2023-12-15 18:29:39,614 - INFO - program_fpga - jtag - 
+2023-12-15 18:29:39,614 - INFO - program_fpga - jtag - source C:/Users/Smplab/Documents/Franco/Inventvm/SW/inventvmScripts/.Xil/vivado_lab-9648-PC_LAB_04/webtalk/labtool_webtalk.tcl -notrace
+2023-12-15 18:29:39,615 - INFO - program_fpga - jtag - INFO: [Common 17-206] Exiting Webtalk at Fri Dec 15 18:29:38 2023...
+2023-12-15 18:29:39,617 - INFO - program_fpga - jtag - INFO: [Common 17-206] Exiting vivado_lab at Fri Dec 15 18:29:38 2023...
+2023-12-15 18:29:39,618 - INFO - program_fpga - jtag - xc7v585t_1 FPGA programmed successfully

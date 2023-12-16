@@ -22,7 +22,7 @@ class CflyChar:
 
         sleep(1)
 
-        self.cfly_sweep(sheet='device2_cflysns_0C')
+        self.cfly_sweep(sheet='device3_cflysns_0C')
 
     def cfly_sweep(self,filename='cfly_sense_measure/cfly_sense_0C.xlsx',sheet='device1_cflysns_0C'):
         phases = {0:'PH1S1',1:'PH2S1',2:'PH3S1',3:'PH4S1'}
@@ -38,7 +38,9 @@ class CflyChar:
                 self.supply.setVoltage(channel=4,voltage=vbus)
                 
                 self.phase_select(phase=phase,chg=True)
-                print(f'{phase}.~>20')
+                print(f'{phase:~^40}')
+                # if phase == 'PH3S1':
+                #      input('>>>>>')
                 sleep(0.1)
                 while vbus <= 15.1:
                     self.supply.setVoltage(channel=4,voltage=vbus)
