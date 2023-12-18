@@ -10,7 +10,7 @@ class InnerLoop:
         self.dut = dut 
         self.startup = Startup(dut=dut)
         self.supply = Instruments().supply
-        # self.scope = Instruments().scope
+        self.scope = Instruments().scope
         self.multimeter = Instruments().multimeter
         self.voltmeter = Instruments().voltmeter
         self.multimeter.set_Voltage__NPLC(NPLC=1)
@@ -32,7 +32,7 @@ class InnerLoop:
         # input('Set 85C')
         # self.Inductor_OCP_static(sheet='Device1_4phases_LowSide_85C_OCP')
         # self.Inductor_OCP_static(sheet='Device2_4phases_LowSide_85C_OCP')
-        self.Indctor_OCP_Reference__Sweep(sheet='Device3_OCP_reference_0C')
+        # self.Indctor_OCP_Reference__Sweep(sheet='Device3_OCP_reference_0C')
 
         #Inductor current sense voltage sweep
         # self.Indcs_Sweep_static(sheet='Device3_indcsHigh_buck_25C')
@@ -46,9 +46,9 @@ class InnerLoop:
         '''
             Zero current sweep 
         '''
-        # self.ZC_Sweep(sheet='Device1_ZC_HighSide_25C')
-        # sleep(1)
-        # self.ZC_Sweep(sheet='Device1_ZC_LowSide_25C')
+        self.ZC_Sweep(sheet='Device3_ZC_HighSide_0C')
+        sleep(1)
+        self.ZC_Sweep(sheet='Device3_ZC_LowSide_0C')
         # input('85c')
         # self.ZC_Sweep(sheet='Device1_ZC_HighSide_85C')
         # sleep(1)
@@ -544,10 +544,11 @@ class InnerLoop:
         self.loadtrims.loadTrims()
         self.supply.setCurrent(channel=3,current=0)
         sleep(0.2)
-        self.scope.scopeTriggercquire(channel='CH1')
+        self.scope.scopeTrigger_Acquire(channel='CH1')
         phases = {0:'PH1S1',1:'PH2S1',2:'PH3S1',3:'PH4S1'}
         if re.search('Low',sheet):
             phases = {0:'PH1S4',1:'PH2S4',2:'PH3S4',3:'PH4S4'}
+        input('Check Temperature >>>>>>>>')
         # phases = {0:'PH1S1'}
         try :
             zc_th = [[],[],[],[]]
@@ -559,9 +560,14 @@ class InnerLoop:
                 print(phase,len(phases))
                 self.matrix.reset()
                 print(f'Operating Phase {phase} and the Phase Index {phaseIndex}')
+                self.supply.setVoltage(channel=3,voltage=4.5)
+                self.supply.outp_ON(channel=4)
+                sleep(0.1)
                 self.Phase_Select(phase,Test1_block=4,TestSignal=phaseIndex,current_index=0,DriverEnable=True)
                 sleep(0.1)
-                self.scope.scopeTriggercquire()
+                self.supply.outp_OFF(channel=4)
+                sleep(0.1)
+                self.scope.scopeTrigger_Acquire()
                 sleep(1)
                 if True:
                     for j in range(0,24,4):
@@ -575,7 +581,7 @@ class InnerLoop:
                         self.supply.setCurrent(channel=3,current=current)
                         self.supply.outp_ON(channel=3)
                         sleep(0.1)
-                        self.scope.scopeTriggercquire()
+                        self.scope.scopeTrigger_Acquire()
                         sleep(0.5)
                         # print('first loop')
                         while(self.scope.scopeAcquire_BUSY):
@@ -614,7 +620,7 @@ class InnerLoop:
                         self.supply.setCurrent(channel=3,current=current)
                         self.supply.outp_ON(channel=3)
                         sleep(0.1)
-                        self.scope.scopeTriggercquire()
+                        self.scope.scopeTrigger_Acquire()
                         sleep(0.5)
                         while(self.scope.scopeAcquire_BUSY):
                                 sleep(0.005)
@@ -647,7 +653,7 @@ class InnerLoop:
                     self.Phase_Select(DriverEnable=False)
                     if len(zc_stepsize[phaseIndex]) == len(zc_meas[phaseIndex]):
                         print(f'Phase {phase} Zc measurement Done ')
-            writeInExcel(sheet=sheet,filename='InnerLoop_Char\InnerLoop_ZC.xlsx',\
+            writeInExcel(sheet=sheet,filename='InnerLoop_Char\InnerLoop_ZC_0C.xlsx',\
                          ph1_zc_th=zc_th[0],ph1_zc_meas = zc_meas[0],ph1_zc_stepsize = zc_stepsize[0],ph1_error = error[0],\
                          ph2_zc_th=zc_th[1],ph2_zc_meas = zc_meas[1],ph2_zc_stepsize = zc_stepsize[1],ph2_error = error[1],\
                          ph3_zc_th=zc_th[2],ph3_zc_meas = zc_meas[2],ph3_zc_stepsize = zc_stepsize[2],ph3_error = error[2],\

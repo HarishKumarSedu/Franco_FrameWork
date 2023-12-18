@@ -28,14 +28,14 @@ class Efficiency:
         # sleep(0.1)
         # self.phase_Effieciency(phase=3,sheet='ph4_vbat_4V_vbus_5V')
         # sleep(0.1)
-        self.phase_Effieciency_1(phase=0,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='device4_ph1_vbat4V_vbus9V_25C')
+        # self.phase_Effieciency_1(phase=0,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='device2_ph1_vbat4V_vbus9V_25C')
+        # sleep(0.1)
+        # self.phase_Effieciency_1(phase=1,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='device2_ph2_vbat4V_vbus9V_25C')
+        # sleep(0.1)
+        self.phase_Effieciency_1(phase=2,phase_thld=2,No_phase=2,vbus=9.0,loop_current_limit=-6.005,sheet='device2_ph34_vbat4V_vbus9V_25C')
         sleep(0.1)
-        self.phase_Effieciency_1(phase=1,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='device4_ph2_vbat4V_vbus9V_25C')
-        sleep(0.1)
-        self.phase_Effieciency_1(phase=2,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='device4_ph3_vbat4V_vbus9V_25C')
-        sleep(0.1)
-        self.phase_Effieciency_1(phase=3,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='device4_ph4_vbat_4V_vbus_9V')
-        sleep(0.1)
+        # self.phase_Effieciency_1(phase=3,phase_thld=2,No_phase=1,vbus=9.0,loop_current_limit=-3.005,sheet='device2_ph4_vbat_4V_vbus9V_25C')
+        # sleep(0.1)
         # self.phase_Effieciency_1(phase=0,phase_thld=2,No_phase=1,vbus=15.0,loop_current_limit=-3.005,sheet='ph1_vbat_4V_vbus_15V')
         # sleep(0.1)
         # self.phase_Effieciency_1(phase=1,phase_thld=2,No_phase=1,vbus=15.0,loop_current_limit=-3.005,sheet='ph2_vbat_4V_vbus_15V')
@@ -90,7 +90,7 @@ class Efficiency:
         if vbus > 8 :
             self.dut.IVM.REG_DRV_INDCS_RW.DS_DRV_SLEW.value = 3
 
-        # self.supply.setCurrent(channel=1,current=-0.1)
+        self.supply.setCurrent(channel=1,current=-0.1)
         volt=9
         if vbus >= 9 :
             self.supply.setVoltage(channel=4,voltage=volt)
@@ -99,7 +99,7 @@ class Efficiency:
                 self.supply.setVoltage(channel=4,voltage=volt)
                 sleep(0.01)
             self.supply.setVoltage(channel=4,voltage=vbus)
-        # input('>>>>>>>>>>>>>>')
+        input('Check Temperature >>>>>>>>>>>>>>')
         sleep(1)
         ibat_set = 0
         # self.dut.SIMULINK_MODEL.TEST_INNER_LOOP_PH_MGMT.TEST_PHASE_ADD_THLD.value = phase_thld
@@ -112,6 +112,7 @@ class Efficiency:
         ibus_A = []
         ibat_A = []
         efficiency = []
+        temp=[]
         try :
             # if self.Bat.getCurrent() < -0.01:
             if self.supply.getCurrent(channel=1) < -0.01:
@@ -129,7 +130,7 @@ class Efficiency:
                     ibat_set = ibat_set + 0.1
                     # self.Bat.setCurrent(current=-ibat_set)
                     self.supply.setCurrent(channel=1,current=-ibat_set)
-                    sleep(0.1)
+                    sleep(0.02)
                 # self.Bat.setCurrent(current=loop_current_limit/2)
                 # sleep(0.5)
                 # self.Bat.setCurrent(current=loop_current_limit/4)
@@ -138,7 +139,7 @@ class Efficiency:
                 # sleep(0.5)
                 # self.Bat.setCurrent(current=0)
                 # input('>>>>>>>>>>>>>>>>>>>')
-                writeInExcel(sheet=sheet,filename='effieciency\effiecincy_4.xlsx',vbat_V=vbat_V,ibat_A=ibat_A,vbus_V=vbus_V,ibus_A=ibus_A,efficiency=efficiency)
+                writeInExcel(sheet=sheet,filename='effieciency\effiecincy_5.xlsx',vbat_V=vbat_V,ibat_A=ibat_A,vbus_V=vbus_V,ibus_A=ibus_A,efficiency=efficiency)
                 while ibat_set >= 0:
                     ibat_set = ibat_set - 0.1
                     self.supply.setCurrent(channel=1,current=-ibat_set)
@@ -160,5 +161,6 @@ class Efficiency:
                 ibat_set = ibat_set - 0.1
                 self.supply.setCurrent(channel=1,current=-ibat_set)
                 sleep(0.01)
+            self.supply.setCurrent(channel=1,current=0)
 
         

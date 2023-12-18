@@ -44,7 +44,7 @@ from LoadTrims import LoadTrims
 # from Indcs_debug import Inducs_Debug
 # from quick_Check import QuickCheck
 from efficiency import Efficiency
-# from AON_Charecterization import AONChar
+from AON_Charecterization import AONChar
 from InnerLoop_Char import InnerLoop
 from input_CurrentSense_Char import InputCurrSense
 from cfly_char import CflyChar
@@ -91,21 +91,21 @@ input_cmd = "placeholder"
 
 #Startup 
 startup = Startup(dut=dut)
-# dut.SIMULINK_MODEL.GAIN_CONFIG2.VBUS_GAIN.value = 0xC75
-# dut.SIMULINK_MODEL.GAIN_CONFIG2.VBAT_GAIN.value = 0x435
+dut.SIMULINK_MODEL.GAIN_CONFIG2.VBUS_GAIN.value = 0xC75
+dut.SIMULINK_MODEL.GAIN_CONFIG2.VBAT_GAIN.value = 0x435
 # dut.SIMULINK_MODEL.GAIN_CONFIG3.IBAT_GAIN.value = 0x825
-# dut.SIMULINK_MODEL.GAIN_CONFIG3.IBUS_GAIN.value = 0x460
+dut.SIMULINK_MODEL.GAIN_CONFIG3.IBUS_GAIN.value = 0x460
 # QuickCheck(dut=dut)
-loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_34_34.json',chipid=34)
+loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_35_35.json',chipid=35)
 loadTrim.loadTrims()
 # trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json',loadTrim=loadTrim)
 # efficiency = Efficiency(dut=dut)
-cflychar = CflyChar(dut=dut)
+# cflychar = CflyChar(dut=dut)
 # innerloop = InnerLoop(dut=dut,loadtrims=loadTrim)
 #charecterization
 # char = AONChar(dut=dut)
 
-# startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=6,No_phase=1,ibus=3.3,phase=0)
+startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=6,No_phase=1,ibus=3.3,phase=0)
 # inCS = InputCurrSense(dut=dut)
 print("-"*50)
 print("Enter Code to run... ")

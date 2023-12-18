@@ -35,7 +35,7 @@ class AONChar:
                 input('80C>>>>>>>>>>>>>')
                 break 
         # self.hvldo_por()
-        self.vdda_por()
+        # self.vdda_por()
         # self.vdd_sns_uvlo()
         # self.vbus_uvlo()
         # self.vdd_sns_ovp() 
