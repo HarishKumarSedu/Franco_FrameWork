@@ -1,0 +1,15 @@
+[
+    {},
+    {
+        "Name": "Aon BG vref 1.2V (VDDA 1.8V) trimming",
+        "Register": {
+            "RegisterAddress": 596,
+            "RegisterLSB": 13,
+            "RegisterMSB": 17,
+            "RegisterValue": 1
+        },
+        "MeasureValue": 1.80212551,
+        "typical": 1.8,
+        "MinError": 0.11808388888888564
+    }
+]

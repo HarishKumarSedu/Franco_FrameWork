@@ -34,6 +34,7 @@ class Trim(object):
         self.test_station = test_station # franco dut object 
         self.loadTrim = loadTrim
         self.dut = self.test_station.eeb.franco
+        print(10*'*')
         self.instruments = Instruments()
         self.matrix = Matrix()
         self.startup = Startup(dut=self.dut)
@@ -45,6 +46,7 @@ class Trim(object):
         self.trimming__Parse()
         
     def trimming__Parse(self):
+        
         try:
             chip_index_start=int(input('Enter Chip Index Start >'))
             # chip_index_start=1616

@@ -71,7 +71,7 @@ class PhxSy_Indcs_ZC_Trim:
 
     def PhxSy_Indcs_ZC_Values__Sweep___Current(self):
         # time.sleep(0.1)
-        current=-0.35
+        current=-0.1
         self.supply.setCurrent(channel=3,current=current)
         self.supply.outp_ON(channel=3)
         # self.scope.single_Trigger__RUN()
@@ -82,7 +82,7 @@ class PhxSy_Indcs_ZC_Trim:
                 time.sleep(0.01)
                 self.supply.setCurrent(channel=3,current=current)
                 current=current+0.001
-                if current > 0.35 :
+                if current > 0.1 :
                     break
         # self.supply.setCurrent(channel=3,current=-0.1)
         return self.supply.getCurrent(channel=3)

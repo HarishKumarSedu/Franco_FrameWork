@@ -43,11 +43,13 @@ from Trimming import Trim
 from LoadTrims import LoadTrims
 # from Indcs_debug import Inducs_Debug
 # from quick_Check import QuickCheck
-from efficiency import Efficiency
+from Instruments_API import Instruments
+from efficiency1 import Efficiency
 from AON_Charecterization import AONChar
 from InnerLoop_Char import InnerLoop
 from input_CurrentSense_Char import InputCurrSense
 from cfly_char import CflyChar
+from readCurr import Startup_read_curr
 
 load_dotenv(r'C:\validation\Projects\Franco\python\franco_val\env\franco_val_inventm.env')
 load_dotenv(
@@ -94,19 +96,51 @@ startup = Startup(dut=dut)
 dut.SIMULINK_MODEL.GAIN_CONFIG2.VBUS_GAIN.value = 0xC75
 dut.SIMULINK_MODEL.GAIN_CONFIG2.VBAT_GAIN.value = 0x435
 # dut.SIMULINK_MODEL.GAIN_CONFIG3.IBAT_GAIN.value = 0x825
-dut.SIMULINK_MODEL.GAIN_CONFIG3.IBUS_GAIN.value = 0x460
+dut.SIMULINK_MODEL.GAIN_CONFIG3.IBUS_GAIN.value = 0x470
+#supply = Instruments().supply
+#supply.outp_ON(channel=4)
+#supply.outp_ON(channel=1)
+time.sleep(1)
 # QuickCheck(dut=dut)
-loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_35_35.json',chipid=35)
+loadTrim = LoadTrims(dut=dut,path='json/TrimmingResults_2021_2021.json',chipid=2021)
 loadTrim.loadTrims()
 # trim = Trim(test_station=test_station,DFT_path='data/DFTInstructions_new.json',loadTrim=loadTrim)
 # efficiency = Efficiency(dut=dut)
-# cflychar = CflyChar(dut=dut)
+# cflychar = CflyChar(dut=dut) 
+#ReadCurr = Startup_read_curr(dut=dut)
+#ReadCurr.buck_startup_curr_meas(dut=dut)
 # innerloop = InnerLoop(dut=dut,loadtrims=loadTrim)
 #charecterization
 # char = AONChar(dut=dut)
+# time.sleep(1)
+# startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=3.0,No_phase=2,ibus=3.3,phase=0)
+# input('Phase1')
+# time.sleep(1)
+# startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=3.0,No_phase=2,ibus=3.3,phase=1)
+# input('Phase2')
+# time.sleep(1)
+# startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=3.0,No_phase=2,ibus=3.3,phase=2)
+# input('Phase3')
+# time.sleep(1)
+# startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=3.0,No_phase=2,ibus=3.3,phase=3)
+# input('Phase4')
 
-startup.buck_ClosedLoop(vbat=4,ibat=16,icmd_ph=6,No_phase=1,ibus=3.3,phase=0)
 # inCS = InputCurrSense(dut=dut)
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# boost Routine use the vbus parameter to set the boost voltage at initial stage 
+# default boost voltage is 5V
+# to change the phase use phase parmeter {0-phase1,1-phase2,2-phase3,3-phase4}
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# startup.boost_ClosedLoop(vbus=5,phase=0)
+
+# To set the boost voltage manual use the following commad 
+# example to set the 5V ======>dut.block_apis.SIMULINK_MODEL.set_vbus_boost_thld_V(5)
+
+# Buck Closed Loop
+# startup.buck_ClosedLoop(vbat=4,ibat=16.0,No_phase=3,ibus=3.3,icmd_ph=3.0,phase=0)
+
+#startup.buck_startup_setps()
 print("-"*50)
 print("Enter Code to run... ")
 while(input_cmd.lower() != quit_cmd):

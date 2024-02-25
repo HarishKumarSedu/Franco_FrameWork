@@ -33,7 +33,7 @@ class DCO_Trim:
         # self.scope.set_autoSet()
         self.scope.set_trigger__mode(mode='NORM')
         self.scope.set_HScale()
-        self.scope.set_Channel__VScale(scale=0.1)
+        self.scope.set_Channel__VScale(scale=0.5)
         # self.scope.init_scopePosEdge__Trigger(channel='CH1')
         time.sleep(1)
         if self.trim_register_data:
@@ -45,6 +45,7 @@ class DCO_Trim:
                 for i in range(0,10):
                     freq= freq + self.scope.meas_Freq()
                 self.measure_values.append(freq/10) # get the frequency values from scope
+                # print(f'Frequency ====> {freq}')
                 self.trim_code.append(value)
         
         self.dco_Limit__Check()

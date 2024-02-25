@@ -2,12 +2,15 @@
 import pandas as pd 
 import re 
 from time import sleep
+from Instruments.KeySight_N670x import N670x
+from writeExcel import writeInExcel
 # from Instruments_API import Instruments
 class Startup:
 
     def __init__(self,dut):
         self.dut = dut
         self.regmap = pd.read_csv('chip_validation_regs.csv')
+        self.supply = N670x(port='USB0::0x0957::0x0F07::MY50002157::INSTR')
     #     self.scope = Instruments().scope
 
     # def SlewRate(self):
@@ -83,11 +86,8 @@ class Startup:
         self.dut.block_apis.SIMULINK_MODEL.set_alpha_override_value(0)
         self.dut.block_apis.SIMULINK_MODEL.set_d_override_value(duty_cycle)
         self.dut.block_apis.SIMULINK_MODEL.set_d_override_en(True)
-        # self.dut.SIMULINK_MODEL.GAIN_CONFIG1.VCFLY_GAIN.value = 0x7100
         self.dut.SIMULINK_MODEL.TEST_INNER_LOOP_PH_MGMT.PHASE_INDUCTOR_MAP.value = phase
-        # self.dut.SIMULINK_MODEL.POWERSTATE_CFG.STANDBY_EN.value=1
         sleep(1)
-        # self.dut.SIMULINK_MODEL.POWERSTATE_CFG.STANDBY_EN.value=0
         self.dut.block_apis.SIMULINK_MODEL.set_standby_en(0)
         self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_EN_OCP.value = 0
         self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_EN_OCP.value = 0
@@ -241,7 +241,7 @@ class Startup:
         #         if fieldName in i":
         #             print('self.dut.',i.lstrip(),'.value =',value)
 
-        self.dut.IVM.REG_PWRUP0_RW.DS_HVLDO_EN.value = 1   
+        self.dut.IVM.REG_PWRUP0_RW.DS_HVLDO_EN.value = 1  
         self.dut.IVM.REG_PWRUP0_RW.DS_LDO1P8_PDNB.value = 1
         self.dut.IVM.REG_PWRUP0_RW.DS_REF_PDNB.value = 1   
         self.dut.IVM.REG_PWRUP0_RW.DS_AON_EN_DETACH.value = 1
@@ -330,7 +330,349 @@ class Startup:
         self.dut.IVM.REG_PWRUP2_RW.DS_PH4_DRV_BOOST_PRCHG_LSH_EN.value = 1
         self.dut.IVM.REG_PWRUP1_RW.DS_PH4_DRV_EN.value = 1
         self.dut.IVM.REG_PWRUP1_RW.DS_PH4_DRV_EN_D.value = 1
+    
+    def buck_startup_setps(self):
+        self.dut.IVM.REG_PWRUP0_RW.DS_HVLDO_EN.value = 1  
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_HVLDO_EN.value = 1   ->')       
+        self.dut.IVM.REG_PWRUP0_RW.DS_LDO1P8_PDNB.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_LDO1P8_PDNB.value = 1 ->')      
+        self.dut.IVM.REG_PWRUP0_RW.DS_REF_PDNB.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_REF_PDNB.value = 1    ->')      
+        self.dut.IVM.REG_PWRUP0_RW.DS_AON_EN_DETACH.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_AON_EN_DETACH.value = 1 ->')    
+        self.dut.IVM.REG_PWRUP0_RW.DS_AON_EN_VDDSNS_OVP.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_AON_EN_VDDSNS_OVP.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_AON_EN_VBUS_OVP.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_AON_EN_VBUS_OVP.value = 1 ->')  
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_CP_SS_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_IFET_CP_SS_EN.value = 1 ->')    
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_CP_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_IFET_CP_EN.value = 1 ->')       
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_CP_SS_EN.value = 0
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_IFET_CP_SS_EN.value = 0 ->')    
+        self.dut.IVM.REG_PWRUP0_RW.DS_NEGCP_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_NEGCP_EN.value = 1 ->')
+        self.dut.IVM.REG_IFET_RW.DS_NEGCP_EN_SOFTSTART.value = 0
+        input('self.dut.IVM.REG_IFET_RW.DS_NEGCP_EN_SOFTSTART.value = 0 ->') 
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_IFET_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_EN_DEL_DN.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_IFET_EN_DEL_DN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_IBUS_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_IFET_IBUS_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_IBUS_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_IFET_IBUS_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH13_INDCS_EN_BUF.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH13_INDCS_EN_BUF.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH24_INDCS_EN_BUF.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH24_INDCS_EN_BUF.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_DRV_BST_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH1_DRV_BST_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH1_DRV_BST12_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP2_RW.DS_PH1_DRV_BST12_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP2_RW.TEMP_ENABLE.value = 1
+        input('self.dut.IVM.REG_PWRUP2_RW.TEMP_ENABLE.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_SENSE_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_SENSE_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_SENSE_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_SENSE_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_EN_CHG.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_EN_CHG.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_EN_CHG_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_EN_CHG_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_DRV_BST_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH2_DRV_BST_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH2_DRV_BST12_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP2_RW.DS_PH2_DRV_BST12_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_SENSE_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_SENSE_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_SENSE_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_SENSE_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_EN_CHG.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_EN_CHG.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_EN_CHG_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_EN_CHG_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_DRV_BST_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH3_DRV_BST_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH3_DRV_BST12_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP2_RW.DS_PH3_DRV_BST12_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_SENSE_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_SENSE_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_SENSE_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_SENSE_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_EN_CHG.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_EN_CHG.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_EN_CHG_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_EN_CHG_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_DRV_BST_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH4_DRV_BST_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH4_DRV_BST12_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP2_RW.DS_PH4_DRV_BST12_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_SENSE_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_SENSE_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_SENSE_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_SENSE_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_EN_CHG.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_EN_CHG.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_EN_CHG_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_EN_CHG_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP2_RW.DS_INDCS_BUCK_MODE.value = 1
+        input('self.dut.IVM.REG_PWRUP2_RW.DS_INDCS_BUCK_MODE.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_SENSE_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_SENSE_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_EN_CHG_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_EN_CHG_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_SENSE_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_SENSE_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_EN_CHG_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_EN_CHG_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_SENSE_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_SENSE_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_EN_CHG_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_EN_CHG_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_SENSE_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_SENSE_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_EN_CHG_D.value = 1
+        input('self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_EN_CHG_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP2_RW.DS_INDCS_CLR_OCP.value = 0
+        input('self.dut.IVM.REG_PWRUP2_RW.DS_INDCS_CLR_OCP.value = 0 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_FORCE_AZ.value = 0
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_FORCE_AZ.value = 0 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_FORCE_AZ.value = 0
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_FORCE_AZ.value = 0 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_FORCE_AZ.value = 0
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_FORCE_AZ.value = 0 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_FORCE_AZ.value = 0
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_FORCE_AZ.value = 0 ->')
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH1_INDCS_REPLICA_AON.value = 1
+        input('self.dut.IVM.REG_PWRUP2_RW.DS_PH1_INDCS_REPLICA_AON.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_EN_OCP.value = 0
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_EN_OCP.value = 0 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_EN_ZC.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_EN_ZC.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_EN_OCP.value = 0
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_EN_OCP.value = 0 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_EN_ZC.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_EN_ZC.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_EN_OCP.value = 0
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_EN_OCP.value = 0 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_EN_ZC.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_EN_ZC.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_EN_OCP.value = 0
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_EN_OCP.value = 0 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_EN_ZC.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_EN_ZC.value = 1 ->')
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH1_DRV_BOOST_PRCHG_LSH_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP2_RW.DS_PH1_DRV_BOOST_PRCHG_LSH_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_DRV_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH1_DRV_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_DRV_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH1_DRV_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH2_DRV_BOOST_PRCHG_LSH_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP2_RW.DS_PH2_DRV_BOOST_PRCHG_LSH_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_DRV_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH2_DRV_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_DRV_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH2_DRV_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH3_DRV_BOOST_PRCHG_LSH_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP2_RW.DS_PH3_DRV_BOOST_PRCHG_LSH_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_DRV_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH3_DRV_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_DRV_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH3_DRV_EN_D.value = 1 ->')
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH4_DRV_BOOST_PRCHG_LSH_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP2_RW.DS_PH4_DRV_BOOST_PRCHG_LSH_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_DRV_EN.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH4_DRV_EN.value = 1 ->')
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_DRV_EN_D.value = 1
+        input('self.dut.IVM.REG_PWRUP1_RW.DS_PH4_DRV_EN_D.value = 1 ->')
+    
+    def readCurr(self,filename='curr_meas/ibat_ibus.xlsx',sheet='device1'):
+        sleep(1)
+        ibat = []
+        ibus = []
+        ibat.append(self.supply.getCurrent(self,channel = 1))
+        ibus.append(self.supply.getCurrent(self,channel = 3))
+        print('ibat: ', ibat)
+        print('ibus: ', ibus)
+        sleep(1)
+        writeInExcel(ibat=ibat,ibus=ibus,sheet=sheet,filename=filename)
+        return ibat,ibus
 
+
+    def buck_startup_curr_meas(self):
+        self.supply.setCurrRange(self,channel=1)
+        self.supply.setCurrRange(self,channel=3)
+        self.dut.IVM.REG_PWRUP0_RW.DS_HVLDO_EN.value = 1 
+        self.readCurr() 
+        self.dut.IVM.REG_PWRUP0_RW.DS_LDO1P8_PDNB.value = 1 
+        self.readCurr()     
+        self.dut.IVM.REG_PWRUP0_RW.DS_REF_PDNB.value = 1 
+        self.readCurr()    
+        self.dut.IVM.REG_PWRUP0_RW.DS_AON_EN_DETACH.value = 1    
+        self.dut.IVM.REG_PWRUP0_RW.DS_AON_EN_VDDSNS_OVP.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_AON_EN_VBUS_OVP.value = 1 
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_CP_SS_EN.value = 1    
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_CP_EN.value = 1      
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_CP_SS_EN.value = 0    
+        self.dut.IVM.REG_PWRUP0_RW.DS_NEGCP_EN.value = 1
+        self.dut.IVM.REG_IFET_RW.DS_NEGCP_EN_SOFTSTART.value = 0
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_EN.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_EN_DEL_DN.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_IBUS_EN.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_IFET_IBUS_EN_D.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH13_INDCS_EN_BUF.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH24_INDCS_EN_BUF.value = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_DRV_BST_EN.value = 1
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH1_DRV_BST12_EN.value = 1
+        self.dut.IVM.REG_PWRUP2_RW.TEMP_ENABLE.value = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN.value = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN_D.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_SENSE_EN.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_SENSE_EN_D.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_EN_CHG.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_EN_CHG_D.value = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_DRV_BST_EN.value = 1
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH2_DRV_BST12_EN.value = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN.value = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN_D.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_SENSE_EN.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_SENSE_EN_D.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_EN_CHG.value = 1
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_EN_CHG_D.value = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_DRV_BST_EN.value = 1
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH3_DRV_BST12_EN.value = 1
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN.value = 1
+       
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN_D.value = 1
+       
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_SENSE_EN.value = 1
+        
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_SENSE_EN_D.value = 1
+        
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_EN_CHG.value = 1
+       
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_EN_CHG_D.value = 1
+       
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_DRV_BST_EN.value = 1
+      
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH4_DRV_BST12_EN.value = 1
+        
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN.value = 1
+       
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN_D.value = 1
+       
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_SENSE_EN.value = 1
+        
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_SENSE_EN_D.value = 1
+      
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_EN_CHG.value = 1
+       
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_EN_CHG_D.value = 1
+      
+        self.dut.IVM.REG_PWRUP2_RW.DS_INDCS_BUCK_MODE.value = 1
+      
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_PP_EN_D.value = 1
+        
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_SENSE_EN_D.value = 1
+       
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH1_CFLY_EN_CHG_D.value = 1
+      
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_PP_EN_D.value = 1
+        
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_SENSE_EN_D.value = 1
+  
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH2_CFLY_EN_CHG_D.value = 1
+    
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_PP_EN_D.value = 1
+        
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_SENSE_EN_D.value = 1
+      
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH3_CFLY_EN_CHG_D.value = 1
+      
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_PP_EN_D.value = 1
+        
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_SENSE_EN_D.value = 1
+        
+        self.dut.IVM.REG_PWRUP0_RW.DS_PH4_CFLY_EN_CHG_D.value = 1
+       
+        self.dut.IVM.REG_PWRUP2_RW.DS_INDCS_CLR_OCP.value = 0
+     
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_FORCE_AZ.value = 0
+        
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_FORCE_AZ.value = 0
+       
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_FORCE_AZ.value = 0
+       
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_FORCE_AZ.value = 0
+   
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH1_INDCS_REPLICA_AON.value = 1
+  
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_EN_OCP.value = 0
+      
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_INDCS_EN_ZC.value = 1
+      
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_EN_OCP.value = 0
+       
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_INDCS_EN_ZC.value = 1
+       
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_EN_OCP.value = 0
+     
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_INDCS_EN_ZC.value = 1
+    
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_EN_OCP.value = 0
+        
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_INDCS_EN_ZC.value = 1
+    
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH1_DRV_BOOST_PRCHG_LSH_EN.value = 1
+    
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_DRV_EN.value = 1
+   
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH1_DRV_EN_D.value = 1
+        
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH2_DRV_BOOST_PRCHG_LSH_EN.value = 1
+   
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_DRV_EN.value = 1
+     
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH2_DRV_EN_D.value = 1
+       
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH3_DRV_BOOST_PRCHG_LSH_EN.value = 1
+        
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_DRV_EN.value = 1
+    
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH3_DRV_EN_D.value = 1
+      
+        self.dut.IVM.REG_PWRUP2_RW.DS_PH4_DRV_BOOST_PRCHG_LSH_EN.value = 1
+      
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_DRV_EN.value = 1
+      
+        self.dut.IVM.REG_PWRUP1_RW.DS_PH4_DRV_EN_D.value = 1
+
+     
     def boost_PowerUp(self):
         # boost_startup__fields = {
         # "DS_HVLDO_EN":1,
@@ -1015,6 +1357,12 @@ class Startup:
     #     self.dut.IVM.REG_PWRUP2_RW.DS_PH3_DRV_BST2_WPU.value  = 0
     #     self.dut.IVM.REG_PWRUP2_RW.DS_PH4_DRV_BST2_WPU.value  = 0
     #     self.dut.IVM.REG_PWRUP2_RW.DS_INDCS_CLR_OCP.value  = 0
+        
+    def indcs_Read(self):
+        print('PH1 = ',self.dut.SIMULINK_MODEL.PH1_IL_ADC_RESULT.PH1_IL_ADC_RESULT.value)
+        print('PH2 = ',self.dut.SIMULINK_MODEL.PH2_IL_ADC_RESULT.PH2_IL_ADC_RESULT.value)
+        print('PH3 = ',self.dut.SIMULINK_MODEL.PH3_IL_ADC_RESULT.PH3_IL_ADC_RESULT.value)
+        print('PH4 = ',self.dut.SIMULINK_MODEL.PH4_IL_ADC_RESULT.PH4_IL_ADC_RESULT.value)
 
 if __name__ == '__main__':
     Startup(None)

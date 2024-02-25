@@ -380,6 +380,21 @@ class N670x:
         # ! sleep time to measure the voltage is optional but minimum sleep time needs to provided even atleast in the main program    
         # time.sleep(0.2)
         return float(self.my_instr.query(f'MEAS:CURR? (@{str(channel)})'))
+    
+    def setCurrRange(self, channel:int):
+        if channel in self.channel.keys() :
+            ch = self.channel.get(channel)
+        else:
+            ch = self.channel.get(1)
+        command = 'INST:SEL ' +  ch
+        self.my_instr.write(command)
+        # ! sleep time to measure the voltage is optional but minimum sleep time needs to provided even atleast in the main program    
+        # time.sleep(0.2)
+        string = (f'SENS:CURR:RANG 10e-3,(@{str(channel)})')
+        self.my_instr.write(string)
+        print (string)
+        print(ch)
+        return
         
     def get_PeviousTriggered_Voltage(self, channel:int):
         if channel in self.channel.keys() :

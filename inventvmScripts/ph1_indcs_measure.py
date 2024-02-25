@@ -26,7 +26,7 @@ class ph1_indcs_measure:
                 sleep(0.05)
             writeInExcel(set_current_A=set_current_A,ph1Il_out_V=ph1Il_out_V,sheet=sheet,filename=filename)
         except KeyboardInterrupt:
-            self.supply.setNegCurrent(channel=3,current=0)
+            self.supply.setNegCurrent(channel=1,current=0)
             writeInExcel(set_current_A=set_current_A,ph1Il_out_V=ph1Il_out_V,sheet=sheet,filename=filename)
 
 if __name__ == '__main__':
